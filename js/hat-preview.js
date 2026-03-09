@@ -200,25 +200,61 @@ function buildHat(profile) {
 
   hatGroup.position.y = -0.3;
 
-  if (decalTexture) applyDecal();
+  // Decoration first, then decal on top of it
   if (currentDecorationType) applyDecoration();
+  applyDecal();
 }
 
 function applyDecal() {
+  // Remove any existing decal wherever it lives
   const existing = hatGroup.getObjectByName('hatDecal');
-  if (existing) hatGroup.remove(existing);
+  if (existing) existing.parent.remove(existing);
   if (!decalTexture) return;
 
-  const decal = new THREE.Mesh(
-    new THREE.PlaneGeometry(0.6, 0.4),
-    new THREE.MeshStandardMaterial({
-      map: decalTexture, transparent: true,
-      roughness: 0.5, metalness: 0, depthWrite: false,
-    })
-  );
-  decal.name = 'hatDecal';
-  decal.position.set(0, 0.65, 0.91);
-  hatGroup.add(decal);
+  const decoGroup = hatGroup.getObjectByName('decorationGroup');
+
+  if (decoGroup) {
+    // Place logo on the decoration's front face — sized to fit
+    let depth, w, h;
+    if (currentDecorationType === 'embroidery') {
+      depth = (currentDecorationDetails.puff3d ? 0.04 : 0.015) + 0.006;
+      w = 0.4; h = 0.2;
+    } else if (currentDecorationType === 'patch_leather') {
+      depth = 0.03 + 0.009;
+      w = 0.3; h = 0.2;
+    } else if (currentDecorationType === 'patch_pvc') {
+      depth = 0.045 + 0.012;
+      w = 0.28; h = 0.18;
+    } else if (currentDecorationType === 'patch_woven') {
+      depth = 0.012 + 0.004;
+      w = 0.32; h = 0.2;
+    } else {
+      depth = 0.02; w = 0.35; h = 0.22;
+    }
+
+    const decal = new THREE.Mesh(
+      new THREE.PlaneGeometry(w, h),
+      new THREE.MeshStandardMaterial({
+        map: decalTexture, transparent: true,
+        roughness: 0.4, metalness: 0, depthWrite: false,
+      })
+    );
+    decal.name = 'hatDecal';
+    decal.position.set(0, 0, depth); // just in front of the decoration
+    decoGroup.add(decal); // inherits decoration's position & rotation
+  } else {
+    // No decoration — standalone plane on hat front
+    const decal = new THREE.Mesh(
+      new THREE.PlaneGeometry(0.6, 0.4),
+      new THREE.MeshStandardMaterial({
+        map: decalTexture, transparent: true,
+        roughness: 0.5, metalness: 0, depthWrite: false,
+      })
+    );
+    decal.name = 'hatDecal';
+    decal.position.set(0, 0.65, 0.92);
+    hatGroup.add(decal);
+  }
 }
 
 function getDecorationPosition(location) {
@@ -488,7 +524,7 @@ function updateDecal(imageDataUrl) {
   if (!imageDataUrl) {
     decalTexture = null;
     const existing = hatGroup?.getObjectByName('hatDecal');
-    if (existing) hatGroup.remove(existing);
+    if (existing) existing.parent.remove(existing);
     return;
   }
   new THREE.TextureLoader().load(imageDataUrl, texture => {
@@ -507,6 +543,8 @@ function updateDecoration(type, details) {
     const sideEmb = hatGroup.getObjectByName('sideEmbroidery');
     if (sideEmb) hatGroup.remove(sideEmb);
     applyDecoration();
+    // Re-apply decal so it sits on the new decoration
+    applyDecal();
   }
 }
 
