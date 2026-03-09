@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — CustomHat Co.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <style>
+    .blog-hero {
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+      color: var(--color-white); padding: var(--space-4xl) 0; text-align: center;
+    }
+    .blog-hero__title { font-size: 2.5rem; font-weight: var(--font-weight-extrabold); text-transform: uppercase; margin-bottom: var(--space-md); }
+    .blog-hero__subtitle { color: rgba(255,255,255,0.7); font-size: 1.1rem; }
+    .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-xl); }
+    .blog-card {
+      background: var(--color-white); border-radius: var(--border-radius-lg);
+      overflow: hidden; box-shadow: var(--shadow-sm);
+      transition: transform var(--transition-base), box-shadow var(--transition-base);
+    }
+    .blog-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .blog-card__image {
+      aspect-ratio: 16/9; background: var(--color-off-white);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.5rem; color: var(--color-mid-grey);
+    }
+    .blog-card__body { padding: var(--space-lg); }
+    .blog-card__category {
+      font-size: 0.75rem; font-weight: var(--font-weight-bold); color: var(--color-accent);
+      text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: var(--space-sm);
+    }
+    .blog-card__title {
+      font-size: 1.1rem; font-weight: var(--font-weight-bold); color: var(--color-primary);
+      margin-bottom: var(--space-sm); line-height: 1.4;
+    }
+    .blog-card__excerpt { font-size: 0.9rem; color: var(--color-text-light); line-height: 1.6; margin-bottom: var(--space-md); }
+    .blog-card__meta { font-size: 0.8rem; color: var(--color-mid-grey); }
+    @media (max-width: 768px) { .blog-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="../index.html" class="site-logo"><span class="site-logo__icon">&#9670;</span> CustomHat Co.</a>
+      <nav class="main-nav">
+        <ul class="main-nav__list">
+          <li class="main-nav__item"><a href="collection.html" class="main-nav__link">Shop Hats</a></li>
+          <li class="main-nav__item"><a href="product.html" class="main-nav__link">Customize</a></li>
+          <li class="main-nav__item"><a href="about.html" class="main-nav__link">About</a></li>
+          <li class="main-nav__item"><a href="faq.html" class="main-nav__link">FAQ</a></li>
+          <li class="main-nav__item"><a href="contact.html" class="main-nav__link">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <a href="cart.html" class="cart-btn"><span class="cart-btn__icon">&#128722;</span><span class="cart-btn__count" data-count="0">0</span></a>
+        <button class="mobile-menu-btn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-body">
+    <section class="blog-hero">
+      <div class="container">
+        <h1 class="blog-hero__title">Blog</h1>
+        <p class="blog-hero__subtitle">Tips, guides, and inspiration for custom headwear.</p>
+      </div>
+    </section>
+
+    <!-- Liquid: {% for article in blog.articles %} -->
+    <section class="section">
+      <div class="container">
+        <div class="blog-grid">
+          <a href="#" class="blog-card">
+            <div class="blog-card__image">&#128221;</div>
+            <div class="blog-card__body">
+              <div class="blog-card__category">Guide</div>
+              <h2 class="blog-card__title">Embroidery vs. Patches: Which Decoration Method Is Right for You?</h2>
+              <p class="blog-card__excerpt">A comprehensive comparison of embroidery, leather patches, PVC patches, and woven patches to help you choose the best option for your custom hats.</p>
+              <div class="blog-card__meta">March 5, 2026 &middot; 8 min read</div>
+            </div>
+          </a>
+          <a href="#" class="blog-card">
+            <div class="blog-card__image">&#127913;</div>
+            <div class="blog-card__body">
+              <div class="blog-card__category">Trends</div>
+              <h2 class="blog-card__title">Top 5 Custom Hat Trends for 2026</h2>
+              <p class="blog-card__excerpt">From vintage washed caps to tone-on-tone embroidery, here are the custom hat trends dominating this year.</p>
+              <div class="blog-card__meta">February 20, 2026 &middot; 5 min read</div>
+            </div>
+          </a>
+          <a href="#" class="blog-card">
+            <div class="blog-card__image">&#128736;</div>
+            <div class="blog-card__body">
+              <div class="blog-card__category">Tips</div>
+              <h2 class="blog-card__title">How to Prepare Your Logo for Hat Embroidery</h2>
+              <p class="blog-card__excerpt">File formats, sizing, thread counts, and design tips to ensure your logo looks crisp and professional on any hat.</p>
+              <div class="blog-card__meta">February 12, 2026 &middot; 6 min read</div>
+            </div>
+          </a>
+          <a href="#" class="blog-card">
+            <div class="blog-card__image">&#128188;</div>
+            <div class="blog-card__body">
+              <div class="blog-card__category">Business</div>
+              <h2 class="blog-card__title">Why Custom Hats Are the Best Merch for Your Brand</h2>
+              <p class="blog-card__excerpt">Custom hats beat t-shirts for brand visibility, wearability, and perceived value. Here's the data behind the trend.</p>
+              <div class="blog-card__meta">January 30, 2026 &middot; 4 min read</div>
+            </div>
+          </a>
+          <a href="#" class="blog-card">
+            <div class="blog-card__image">&#127919;</div>
+            <div class="blog-card__body">
+              <div class="blog-card__category">Guide</div>
+              <h2 class="blog-card__title">Richardson 112 vs. Yupoong 6606: The Trucker Cap Showdown</h2>
+              <p class="blog-card__excerpt">A detailed comparison of the two most popular blank trucker caps on the market. Fit, feel, pricing, and more.</p>
+              <div class="blog-card__meta">January 18, 2026 &middot; 7 min read</div>
+            </div>
+          </a>
+          <a href="#" class="blog-card">
+            <div class="blog-card__image">&#128247;</div>
+            <div class="blog-card__body">
+              <div class="blog-card__category">Inspiration</div>
+              <h2 class="blog-card__title">Customer Spotlight: How Riverside Brewing Uses Custom Hats</h2>
+              <p class="blog-card__excerpt">See how this craft brewery turned custom leather-patch hats into their best-selling merch item.</p>
+              <div class="blog-card__meta">January 5, 2026 &middot; 5 min read</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__bottom">
+        <p>&copy; 2026 CustomHat Co. All rights reserved.</p>
+        <div class="footer__bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+      </div>
+    </div>
+  </footer>
+  <script src="../js/main.js"></script>
+</body>
+</html>

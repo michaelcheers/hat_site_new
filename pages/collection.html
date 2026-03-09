@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop Custom Hats — CustomHat Co.</title>
+  <meta name="description" content="Browse our full collection of customizable hats. Richardson, Yupoong, Flexfit, and more. Filter by brand, style, and color.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <style>
+    .collection-hero {
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+      color: var(--color-white);
+      padding: var(--space-3xl) 0;
+      text-align: center;
+    }
+    .collection-hero__title {
+      font-size: 2.5rem;
+      font-weight: var(--font-weight-extrabold);
+      text-transform: uppercase;
+      margin-bottom: var(--space-sm);
+    }
+    .collection-hero__subtitle {
+      color: rgba(255,255,255,0.7);
+      font-size: 1.1rem;
+    }
+    .collection-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: var(--space-xl);
+      padding: var(--space-2xl) 0;
+    }
+    .filters-sidebar {
+      position: sticky;
+      top: calc(var(--header-height) + var(--space-lg));
+      align-self: start;
+    }
+    .filter-group {
+      margin-bottom: var(--space-xl);
+    }
+    .filter-group__title {
+      font-size: 0.85rem;
+      font-weight: var(--font-weight-bold);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--color-text);
+      margin-bottom: var(--space-md);
+      padding-bottom: var(--space-sm);
+      border-bottom: 2px solid var(--color-light-grey);
+    }
+    .filter-option {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: var(--space-xs) 0;
+      font-size: 0.9rem;
+      color: var(--color-text);
+      cursor: pointer;
+      transition: color var(--transition-fast);
+    }
+    .filter-option:hover { color: var(--color-accent); }
+    .filter-option input { accent-color: var(--color-accent); width: 16px; height: 16px; }
+    .filter-option__count {
+      margin-left: auto;
+      font-size: 0.8rem;
+      color: var(--color-text-light);
+    }
+    .collection-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: var(--space-lg);
+      flex-wrap: wrap;
+      gap: var(--space-md);
+    }
+    .collection-count {
+      font-size: 0.9rem;
+      color: var(--color-text-light);
+    }
+    .sort-select {
+      padding: var(--space-sm) var(--space-md);
+      border: 2px solid var(--color-light-grey);
+      border-radius: var(--border-radius-sm);
+      font-size: 0.85rem;
+      font-weight: var(--font-weight-medium);
+      appearance: auto;
+      cursor: pointer;
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-lg);
+    }
+    .mobile-filter-toggle {
+      display: none;
+      margin-bottom: var(--space-lg);
+    }
+    @media (max-width: 1024px) {
+      .products-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .collection-layout { grid-template-columns: 1fr; }
+      .filters-sidebar {
+        position: static;
+        display: none;
+      }
+      .filters-sidebar.show { display: block; }
+      .mobile-filter-toggle { display: block; }
+      .products-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .products-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Liquid: {% section 'header' %} -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="../index.html" class="site-logo">
+        <span class="site-logo__icon">&#9670;</span>
+        CustomHat Co.
+      </a>
+      <nav class="main-nav">
+        <ul class="main-nav__list">
+          <li class="main-nav__item"><a href="collection.html" class="main-nav__link">Shop Hats</a></li>
+          <li class="main-nav__item"><a href="product.html" class="main-nav__link">Customize</a></li>
+          <li class="main-nav__item"><a href="about.html" class="main-nav__link">About</a></li>
+          <li class="main-nav__item"><a href="faq.html" class="main-nav__link">FAQ</a></li>
+          <li class="main-nav__item"><a href="contact.html" class="main-nav__link">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <a href="cart.html" class="cart-btn">
+          <span class="cart-btn__icon">&#128722;</span>
+          <span class="cart-btn__count" data-count="0">0</span>
+        </a>
+        <button class="mobile-menu-btn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-body">
+    <section class="collection-hero">
+      <div class="container">
+        <h1 class="collection-hero__title" id="collection-title">All Custom Hats</h1>
+        <p class="collection-hero__subtitle" id="collection-subtitle">Browse our full selection of premium blank hats ready for customization.</p>
+      </div>
+    </section>
+
+    <!-- Liquid: {% section 'collection-template' %} -->
+    <div class="container">
+      <nav class="breadcrumbs">
+        <a href="../index.html">Home</a>
+        <span class="breadcrumbs__separator">/</span>
+        <span id="breadcrumb-current">All Hats</span>
+      </nav>
+
+      <button class="btn btn--outline btn--full mobile-filter-toggle" onclick="document.querySelector('.filters-sidebar').classList.toggle('show')">
+        Filter &amp; Sort
+      </button>
+
+      <div class="collection-layout">
+        <!-- Filters Sidebar -->
+        <aside class="filters-sidebar">
+          <div class="filter-group">
+            <h3 class="filter-group__title">Brand</h3>
+            <div id="filter-brands"></div>
+          </div>
+          <div class="filter-group">
+            <h3 class="filter-group__title">Style</h3>
+            <div id="filter-categories"></div>
+          </div>
+          <div class="filter-group">
+            <h3 class="filter-group__title">Profile</h3>
+            <div id="filter-profiles"></div>
+          </div>
+          <div class="filter-group">
+            <h3 class="filter-group__title">Closure</h3>
+            <div id="filter-closures"></div>
+          </div>
+          <button class="btn btn--ghost btn--sm" onclick="clearFilters()">Clear All Filters</button>
+        </aside>
+
+        <!-- Products -->
+        <div>
+          <div class="collection-toolbar">
+            <span class="collection-count" id="product-count">12 products</span>
+            <select class="sort-select" id="sort-select">
+              <option value="featured">Sort: Featured</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="name-az">Name: A-Z</option>
+              <option value="brand">Brand</option>
+            </select>
+          </div>
+          <div class="products-grid" id="products-grid"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__bottom">
+        <p>&copy; 2026 CustomHat Co. All rights reserved.</p>
+        <div class="footer__bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    let allProducts = [];
+    let activeFilters = { brand: [], category: [], profile: [], closure: [] };
+
+    // Load products
+    fetch('../data/products.json')
+      .then(r => r.json())
+      .then(products => {
+        allProducts = products;
+        buildFilters(products);
+        applyURLFilters();
+        renderProducts();
+      });
+
+    function applyURLFilters() {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('brand')) {
+        activeFilters.brand = [params.get('brand').toLowerCase()];
+        document.querySelectorAll('#filter-brands input').forEach(cb => {
+          cb.checked = activeFilters.brand.includes(cb.value);
+        });
+      }
+      if (params.get('category')) {
+        activeFilters.category = [params.get('category')];
+        document.querySelectorAll('#filter-categories input').forEach(cb => {
+          cb.checked = activeFilters.category.includes(cb.value);
+        });
+      }
+    }
+
+    function buildFilters(products) {
+      const configs = [
+        { key: 'brand', container: 'filter-brands', getter: p => p.brand },
+        { key: 'category', container: 'filter-categories', getter: p => p.category },
+        { key: 'profile', container: 'filter-profiles', getter: p => p.profile },
+        { key: 'closure', container: 'filter-closures', getter: p => p.closure },
+      ];
+
+      configs.forEach(({ key, container, getter }) => {
+        const counts = {};
+        products.forEach(p => {
+          const val = getter(p);
+          counts[val] = (counts[val] || 0) + 1;
+        });
+
+        const el = document.getElementById(container);
+        el.innerHTML = Object.entries(counts).map(([val, count]) => `
+          <label class="filter-option">
+            <input type="checkbox" value="${val.toLowerCase()}" data-filter="${key}">
+            ${formatLabel(val)}
+            <span class="filter-option__count">(${count})</span>
+          </label>
+        `).join('');
+
+        el.querySelectorAll('input').forEach(cb => {
+          cb.addEventListener('change', () => {
+            if (cb.checked) {
+              activeFilters[key].push(cb.value);
+            } else {
+              activeFilters[key] = activeFilters[key].filter(v => v !== cb.value);
+            }
+            renderProducts();
+          });
+        });
+      });
+    }
+
+    function formatLabel(str) {
+      return str.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+    }
+
+    function clearFilters() {
+      activeFilters = { brand: [], category: [], profile: [], closure: [] };
+      document.querySelectorAll('.filters-sidebar input[type="checkbox"]').forEach(cb => cb.checked = false);
+      renderProducts();
+    }
+
+    function renderProducts() {
+      let filtered = allProducts.filter(p => {
+        if (activeFilters.brand.length && !activeFilters.brand.includes(p.brand.toLowerCase())) return false;
+        if (activeFilters.category.length && !activeFilters.category.includes(p.category)) return false;
+        if (activeFilters.profile.length && !activeFilters.profile.includes(p.profile)) return false;
+        if (activeFilters.closure.length && !activeFilters.closure.includes(p.closure)) return false;
+        return true;
+      });
+
+      // Sort
+      const sort = document.getElementById('sort-select').value;
+      if (sort === 'price-low') filtered.sort((a, b) => a.basePrice - b.basePrice);
+      else if (sort === 'price-high') filtered.sort((a, b) => b.basePrice - a.basePrice);
+      else if (sort === 'name-az') filtered.sort((a, b) => a.model.localeCompare(b.model));
+      else if (sort === 'brand') filtered.sort((a, b) => a.brand.localeCompare(b.brand));
+      else filtered.sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
+
+      document.getElementById('product-count').textContent = `${filtered.length} product${filtered.length !== 1 ? 's' : ''}`;
+
+      const grid = document.getElementById('products-grid');
+      if (filtered.length === 0) {
+        grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1;">
+          <div class="empty-state__icon">&#128683;</div>
+          <h3 class="empty-state__title">No hats match your filters</h3>
+          <p class="empty-state__desc">Try adjusting your filter selections.</p>
+          <button class="btn btn--outline btn--sm" onclick="clearFilters()">Clear Filters</button>
+        </div>`;
+        return;
+      }
+
+      grid.innerHTML = filtered.map(p => `
+        <a href="product.html?id=${p.id}" class="product-card">
+          ${p.bestSeller ? '<span class="product-card__badge"><span class="badge badge--accent">Best Seller</span></span>' : ''}
+          <div class="product-card__image">${hatPlaceholderSVG()}</div>
+          <div class="product-card__body">
+            <div class="product-card__brand">${p.brand}</div>
+            <h3 class="product-card__title">${p.model}</h3>
+            <div class="product-card__price">From ${formatPrice(p.basePrice)} <span>per hat</span></div>
+            <div class="product-card__colors">
+              ${p.colors.slice(0, 5).map(c => `<span class="product-card__color-dot" title="${c}" style="background:${getColorHex(c)}"></span>`).join('')}
+              ${p.colors.length > 5 ? `<span class="text-xs" style="color:var(--color-text-light);align-self:center;">+${p.colors.length - 5}</span>` : ''}
+            </div>
+            <div class="product-card__actions">
+              <span class="btn btn--primary btn--sm">Customize</span>
+            </div>
+          </div>
+        </a>
+      `).join('');
+    }
+
+    document.getElementById('sort-select').addEventListener('change', renderProducts);
+
+    function getColorHex(colorName) {
+      const map = {
+        'black': '#222', 'white': '#fff', 'navy': '#1b3a5c', 'red': '#cc2936',
+        'royal': '#2659a8', 'charcoal': '#555', 'stone': '#b5a997', 'khaki': '#c3b091',
+        'natural': '#f5e6c8', 'dark green': '#1a5c2e', 'brown': '#6b3e26',
+        'heather grey': '#b0b0b0', 'maroon': '#6b1c2a', 'light pink': '#f4c2c2',
+        'smoke blue': '#6d8fa7', 'dark grey': '#444', 'graphite': '#666'
+      };
+      const name = colorName.toLowerCase().split('/')[0].trim();
+      return map[name] || '#999';
+    }
+  </script>
+
+</body>
+</html>

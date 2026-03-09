@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How It Works — CustomHat Co.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <style>
+    .hiw-hero {
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+      color: var(--color-white); padding: var(--space-4xl) 0; text-align: center;
+    }
+    .hiw-hero__title { font-size: 2.5rem; font-weight: var(--font-weight-extrabold); text-transform: uppercase; margin-bottom: var(--space-md); }
+    .hiw-hero__subtitle { color: rgba(255,255,255,0.7); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+    .hiw-step {
+      display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3xl); align-items: center;
+      padding: var(--space-3xl) 0; border-bottom: 1px solid var(--color-light-grey);
+    }
+    .hiw-step:last-child { border-bottom: none; }
+    .hiw-step:nth-child(even) .hiw-step__visual { order: -1; }
+    .hiw-step__number {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 48px; height: 48px; border-radius: 50%; background: var(--color-accent);
+      color: var(--color-white); font-size: 1.3rem; font-weight: var(--font-weight-extrabold);
+      margin-bottom: var(--space-md);
+    }
+    .hiw-step__title { font-size: 1.5rem; font-weight: var(--font-weight-extrabold); color: var(--color-primary); margin-bottom: var(--space-md); }
+    .hiw-step__desc { font-size: 1rem; color: var(--color-text-light); line-height: 1.8; margin-bottom: var(--space-lg); }
+    .hiw-step__visual {
+      background: var(--color-off-white); border-radius: var(--border-radius-lg);
+      aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center;
+      font-size: 4rem; color: var(--color-mid-grey);
+    }
+    .hiw-step__features { display: flex; flex-direction: column; gap: var(--space-sm); }
+    .hiw-step__feature {
+      display: flex; align-items: center; gap: var(--space-sm);
+      font-size: 0.9rem; color: var(--color-text);
+    }
+    .hiw-step__feature-check { color: var(--color-accent); font-weight: bold; }
+    .hiw-cta {
+      text-align: center; padding: var(--space-4xl) 0;
+      background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+      color: var(--color-white);
+    }
+    .hiw-cta__title { font-size: 2rem; font-weight: var(--font-weight-extrabold); text-transform: uppercase; margin-bottom: var(--space-md); }
+    .hiw-cta__desc { color: rgba(255,255,255,0.7); margin-bottom: var(--space-xl); }
+    @media (max-width: 768px) {
+      .hiw-step { grid-template-columns: 1fr; }
+      .hiw-step:nth-child(even) .hiw-step__visual { order: 0; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="../index.html" class="site-logo"><span class="site-logo__icon">&#9670;</span> CustomHat Co.</a>
+      <nav class="main-nav">
+        <ul class="main-nav__list">
+          <li class="main-nav__item"><a href="collection.html" class="main-nav__link">Shop Hats</a></li>
+          <li class="main-nav__item"><a href="product.html" class="main-nav__link">Customize</a></li>
+          <li class="main-nav__item"><a href="about.html" class="main-nav__link">About</a></li>
+          <li class="main-nav__item"><a href="faq.html" class="main-nav__link">FAQ</a></li>
+          <li class="main-nav__item"><a href="contact.html" class="main-nav__link">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <a href="cart.html" class="cart-btn"><span class="cart-btn__icon">&#128722;</span><span class="cart-btn__count" data-count="0">0</span></a>
+        <button class="mobile-menu-btn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-body">
+    <section class="hiw-hero">
+      <div class="container">
+        <h1 class="hiw-hero__title">How It Works</h1>
+        <p class="hiw-hero__subtitle">From design to delivery in four simple steps. No minimums, no hassle.</p>
+      </div>
+    </section>
+
+    <div class="container">
+      <!-- Liquid: {% section 'how-it-works-steps' %} -->
+      <div class="hiw-step">
+        <div>
+          <div class="hiw-step__number">1</div>
+          <h2 class="hiw-step__title">Choose Your Hat</h2>
+          <p class="hiw-step__desc">Browse our collection of premium hat styles from top brands like Richardson, Yupoong, Flexfit, and Pacific Headwear. Select your style, color, and profile.</p>
+          <div class="hiw-step__features">
+            <div class="hiw-step__feature"><span class="hiw-step__feature-check">&#10003;</span> Trucker, snapback, dad hat, fitted styles</div>
+            <div class="hiw-step__feature"><span class="hiw-step__feature-check">&#10003;</span> Dozens of colors available</div>
+            <div class="hiw-step__feature"><span class="hiw-step__feature-check">&#10003;</span> Premium brands only</div>
+          </div>
+        </div>
+        <div class="hiw-step__visual">&#127913;</div>
+      </div>
+
+      <div class="hiw-step">
+        <div>
+          <div class="hiw-step__number">2</div>
+          <h2 class="hiw-step__title">Upload Your Design</h2>
+          <p class="hiw-step__desc">Upload your logo, artwork, or text design. Choose between embroidery, leather patches, PVC patches, or woven patches. Configure placement, size, and add-ons.</p>
+          <div class="hiw-step__features">
+            <div class="hiw-step__feature"><span class="hiw-step__feature-check">&#10003;</span> Accepts AI, EPS, SVG, PNG, JPG, PDF</div>
+            <div class="hiw-step__feature"><span class="hiw-step__feature-check">&#10003;</span> Multiple decoration methods</div>
+            <div class="hiw-step__feature"><span class="hiw-step__feature-check">&#10003;</span> Free design assistance available</div>
+          </div>
+        </div>
+        <div class="hiw-step__visual">&#127912;</div>
+      </div>
+
+      <div class="hiw-step">
+        <div>
+          <div class="hiw-step__number">3</div>
+          <h2 class="hiw-step__title">Approve Your Proof</h2>
+          <p class="hiw-step__desc">We create a digital mockup showing exactly how your hat will look. Review it, request changes, or approve to start production. No charge until you approve.</p>
+          <div class="hiw-step__features">
+            <div class="hiw-step__feature"><span class="hiw-step__feature-check">&#10003;</span> Free digital proof with every order</div>
+            <div class="hiw-step__feature"><span class="hiw-step__feature-check">&#10003;</span> Unlimited revisions</div>
+            <div class="hiw-step__feature"><span class="hiw-step__feature-check">&#10003;</span> Cancel anytime before approval</div>
+          </div>
+        </div>
+        <div class="hiw-step__visual">&#9989;</div>
+      </div>
+
+      <div class="hiw-step">
+        <div>
+          <div class="hiw-step__number">4</div>
+          <h2 class="hiw-step__title">Receive Your Hats</h2>
+          <p class="hiw-step__desc">Once approved, your hats go into production. Standard turnaround is 7-10 business days. Track your order online and receive shipping notifications.</p>
+          <div class="hiw-step__features">
+            <div class="hiw-step__feature"><span class="hiw-step__feature-check">&#10003;</span> 7-10 day standard production</div>
+            <div class="hiw-step__feature"><span class="hiw-step__feature-check">&#10003;</span> Rush options available</div>
+            <div class="hiw-step__feature"><span class="hiw-step__feature-check">&#10003;</span> Full tracking and notifications</div>
+          </div>
+        </div>
+        <div class="hiw-step__visual">&#128230;</div>
+      </div>
+    </div>
+
+    <section class="hiw-cta">
+      <div class="container">
+        <h2 class="hiw-cta__title">Ready to Get Started?</h2>
+        <p class="hiw-cta__desc">Design your custom hat in minutes with our easy configurator.</p>
+        <div style="display:flex; gap:var(--space-md); justify-content:center; flex-wrap:wrap;">
+          <a href="product.html?configure=1" class="btn btn--primary btn--lg">Start Designing</a>
+          <a href="collection.html" class="btn btn--outline-white btn--lg">Browse Hats</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__bottom">
+        <p>&copy; 2026 CustomHat Co. All rights reserved.</p>
+        <div class="footer__bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+      </div>
+    </div>
+  </footer>
+  <script src="../js/main.js"></script>
+</body>
+</html>

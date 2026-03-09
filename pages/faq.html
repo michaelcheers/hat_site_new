@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ — CustomHat Co.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <style>
+    .faq-hero {
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+      color: var(--color-white); padding: var(--space-4xl) 0; text-align: center;
+    }
+    .faq-hero__title { font-size: 2.5rem; font-weight: var(--font-weight-extrabold); text-transform: uppercase; margin-bottom: var(--space-md); }
+    .faq-hero__subtitle { color: rgba(255,255,255,0.7); font-size: 1.1rem; }
+    .faq-categories {
+      display: flex; gap: var(--space-sm); justify-content: center; flex-wrap: wrap;
+      margin-bottom: var(--space-2xl);
+    }
+    .faq-cat-btn {
+      padding: var(--space-sm) var(--space-lg);
+      border: 2px solid var(--color-light-grey); border-radius: var(--border-radius-full);
+      font-size: 0.85rem; font-weight: var(--font-weight-semibold); cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+    .faq-cat-btn:hover, .faq-cat-btn.active {
+      border-color: var(--color-accent); background: var(--color-accent-light); color: var(--color-accent);
+    }
+    .faq-section__title {
+      font-size: 1.2rem; font-weight: var(--font-weight-bold); color: var(--color-accent);
+      text-transform: uppercase; letter-spacing: 0.04em;
+      margin-bottom: var(--space-md); margin-top: var(--space-2xl);
+    }
+    .faq-section__title:first-of-type { margin-top: 0; }
+    .faq-contact {
+      text-align: center; padding: var(--space-3xl); background: var(--color-off-white);
+      border-radius: var(--border-radius-lg); margin-top: var(--space-3xl);
+    }
+    .faq-contact__title { font-size: 1.3rem; font-weight: var(--font-weight-bold); margin-bottom: var(--space-sm); }
+    .faq-contact__desc { color: var(--color-text-light); margin-bottom: var(--space-lg); }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="../index.html" class="site-logo"><span class="site-logo__icon">&#9670;</span> CustomHat Co.</a>
+      <nav class="main-nav">
+        <ul class="main-nav__list">
+          <li class="main-nav__item"><a href="collection.html" class="main-nav__link">Shop Hats</a></li>
+          <li class="main-nav__item"><a href="product.html" class="main-nav__link">Customize</a></li>
+          <li class="main-nav__item"><a href="about.html" class="main-nav__link">About</a></li>
+          <li class="main-nav__item"><a href="faq.html" class="main-nav__link">FAQ</a></li>
+          <li class="main-nav__item"><a href="contact.html" class="main-nav__link">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <a href="cart.html" class="cart-btn"><span class="cart-btn__icon">&#128722;</span><span class="cart-btn__count" data-count="0">0</span></a>
+        <button class="mobile-menu-btn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-body">
+    <section class="faq-hero">
+      <div class="container">
+        <h1 class="faq-hero__title">Frequently Asked Questions</h1>
+        <p class="faq-hero__subtitle">Find answers to common questions about ordering, customization, and shipping.</p>
+      </div>
+    </section>
+
+    <!-- Liquid: {% section 'faq' %} — data from metaobjects -->
+    <section class="section">
+      <div class="container container--narrow">
+        <div class="faq-categories" id="faq-categories"></div>
+        <div id="faq-content" class="accordion"></div>
+        <div class="faq-contact">
+          <h3 class="faq-contact__title">Still have questions?</h3>
+          <p class="faq-contact__desc">Our team is here to help. Reach out and we'll get back to you within 24 hours.</p>
+          <a href="contact.html" class="btn btn--primary">Contact Us</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__bottom">
+        <p>&copy; 2026 CustomHat Co. All rights reserved.</p>
+        <div class="footer__bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+      </div>
+    </div>
+  </footer>
+  <script src="../js/main.js"></script>
+  <script>
+    let faqData = [];
+    let activeCategory = 'all';
+
+    fetch('../data/faq.json')
+      .then(r => r.json())
+      .then(data => {
+        faqData = data;
+        renderCategories();
+        renderFAQ();
+        initAccordions();
+      });
+
+    function renderCategories() {
+      const cats = document.getElementById('faq-categories');
+      const categories = ['All', ...faqData.map(c => c.category)];
+      cats.innerHTML = categories.map(c => `
+        <button class="faq-cat-btn ${c === 'All' ? 'active' : ''}" data-cat="${c.toLowerCase()}">${c}</button>
+      `).join('');
+      cats.querySelectorAll('.faq-cat-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          activeCategory = btn.dataset.cat;
+          cats.querySelectorAll('.faq-cat-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          renderFAQ();
+          initAccordions();
+        });
+      });
+    }
+
+    function renderFAQ() {
+      const content = document.getElementById('faq-content');
+      const filtered = activeCategory === 'all' ? faqData : faqData.filter(c => c.category.toLowerCase() === activeCategory);
+      content.innerHTML = filtered.map(cat => `
+        <h3 class="faq-section__title">${cat.category}</h3>
+        ${cat.questions.map(q => `
+          <div class="accordion-item">
+            <button class="accordion-header">
+              <span>${q.q}</span>
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-body">
+              <div class="accordion-body__inner">${q.a}</div>
+            </div>
+          </div>
+        `).join('')}
+      `).join('');
+    }
+  </script>
+</body>
+</html>

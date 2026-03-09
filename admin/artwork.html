@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artwork Files — Admin — CustomHat Co.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="../index.html" class="site-logo"><span class="site-logo__icon">&#9670;</span> CustomHat Co.</a>
+      <div class="nav-actions">
+        <button class="mobile-menu-btn" aria-label="Toggle sidebar" onclick="document.querySelector('.admin-sidebar').classList.toggle('show')">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-body">
+    <div class="admin-layout">
+      <aside class="admin-sidebar">
+        <div class="admin-sidebar__brand">
+          <div class="admin-sidebar__brand-name">Admin Panel</div>
+          <div class="admin-sidebar__brand-role">Store Manager</div>
+        </div>
+        <nav>
+          <a href="index.html" class="admin-nav__link"><span class="admin-nav__icon">&#128202;</span> Dashboard</a>
+          <a href="orders.html" class="admin-nav__link"><span class="admin-nav__icon">&#128230;</span> Orders</a>
+          <a href="proof-upload.html" class="admin-nav__link"><span class="admin-nav__icon">&#128228;</span> Upload Proof</a>
+          <a href="artwork.html" class="admin-nav__link active"><span class="admin-nav__icon">&#127912;</span> Artwork Files</a>
+          <a href="../index.html" class="admin-nav__link"><span class="admin-nav__icon">&#8592;</span> Back to Store</a>
+        </nav>
+      </aside>
+
+      <main class="admin-main">
+        <div class="admin-header">
+          <h1 class="admin-header__title">Artwork Files</h1>
+        </div>
+
+        <div class="admin-filter-bar">
+          <input type="text" class="form-input" id="artwork-search" placeholder="Search by order or filename..." style="max-width:300px;">
+          <select class="form-select" id="artwork-type-filter" style="max-width:180px;">
+            <option value="all">All Types</option>
+            <option value="ai">AI Files</option>
+            <option value="svg">SVG Files</option>
+            <option value="eps">EPS Files</option>
+            <option value="png">PNG Files</option>
+          </select>
+        </div>
+
+        <div class="artwork-grid" id="artwork-grid"></div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/admin.js"></script>
+  <script>
+    // Mock artwork data from orders
+    const artworkFiles = AdminData.getOrders().map(o => ({
+      orderId: o.id,
+      customer: o.customer,
+      filename: o.artwork,
+      type: o.artwork ? o.artwork.split('.').pop().toUpperCase() : 'N/A',
+      uploadDate: o.date,
+      items: o.items.map(i => `${i.brand} ${i.model}`).join(', '),
+    })).filter(a => a.filename);
+
+    function renderArtwork() {
+      const search = document.getElementById('artwork-search').value.toLowerCase();
+      const typeFilter = document.getElementById('artwork-type-filter').value;
+
+      let filtered = artworkFiles;
+      if (search) {
+        filtered = filtered.filter(a =>
+          a.orderId.toLowerCase().includes(search) ||
+          a.filename.toLowerCase().includes(search) ||
+          a.customer.toLowerCase().includes(search)
+        );
+      }
+      if (typeFilter !== 'all') {
+        filtered = filtered.filter(a => a.type.toLowerCase() === typeFilter);
+      }
+
+      const grid = document.getElementById('artwork-grid');
+      if (filtered.length === 0) {
+        grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1;">
+          <div class="empty-state__icon">&#127912;</div>
+          <h3 class="empty-state__title">No artwork files found</h3>
+          <p class="empty-state__desc">Try adjusting your search or filter.</p>
+        </div>`;
+        return;
+      }
+
+      grid.innerHTML = filtered.map(a => {
+        const icons = { AI: '&#9998;', SVG: '&#9998;', EPS: '&#9998;', PNG: '&#128248;', JPG: '&#128248;', PDF: '&#128196;' };
+        return `
+          <div class="artwork-card">
+            <div class="artwork-card__preview">${icons[a.type] || '&#128196;'}</div>
+            <div class="artwork-card__info">
+              <div class="artwork-card__name">${a.filename}</div>
+              <div class="artwork-card__meta">
+                ${a.orderId} &middot; ${a.customer}<br>
+                ${a.items}<br>
+                <span class="badge badge--outline" style="margin-top:4px;">${a.type}</span>
+              </div>
+              <div style="margin-top:var(--space-sm); display:flex; gap:var(--space-sm);">
+                <button class="btn btn--ghost btn--sm" onclick="showToast('Download would start in production')">Download</button>
+                <a href="orders.html?order=${a.orderId}" class="btn btn--ghost btn--sm">View Order</a>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    document.getElementById('artwork-search').addEventListener('input', renderArtwork);
+    document.getElementById('artwork-type-filter').addEventListener('change', renderArtwork);
+    renderArtwork();
+  </script>
+</body>
+</html>

@@ -1,0 +1,449 @@
+/* ==============================================
+   CONFIGURATOR.CSS — 10-Step Configurator Styles
+   ============================================== */
+
+/* --- Progress Bar --- */
+.configurator {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.configurator__progress {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--space-2xl);
+  overflow-x: auto;
+  padding-bottom: var(--space-sm);
+}
+
+.progress-step {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.progress-step__circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid var(--color-light-grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-light);
+  background: var(--color-white);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.progress-step.active .progress-step__circle {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-white);
+}
+
+.progress-step.completed .progress-step__circle {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-white);
+}
+
+.progress-step__line {
+  width: 24px;
+  height: 2px;
+  background: var(--color-light-grey);
+  flex-shrink: 0;
+}
+
+.progress-step.completed + .progress-step .progress-step__line,
+.progress-step.completed .progress-step__line {
+  background: var(--color-accent);
+}
+
+.progress-step__label {
+  display: none;
+}
+
+/* --- Step Panels --- */
+.config-step {
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+.config-step.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.config-step__title {
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-extrabold);
+  color: var(--color-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.config-step__subtitle {
+  font-size: 0.95rem;
+  color: var(--color-text-light);
+  margin-bottom: var(--space-xl);
+}
+
+/* --- Option Grid (brands, models, decoration types) --- */
+.option-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.option-card {
+  padding: var(--space-lg);
+  border: 2px solid var(--color-light-grey);
+  border-radius: var(--border-radius-lg);
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  background: var(--color-white);
+}
+
+.option-card:hover {
+  border-color: var(--color-accent);
+  background: var(--color-accent-light);
+}
+
+.option-card.selected {
+  border-color: var(--color-accent);
+  background: var(--color-accent-light);
+  box-shadow: 0 0 0 1px var(--color-accent);
+}
+
+.option-card__icon {
+  font-size: 2rem;
+  margin-bottom: var(--space-sm);
+}
+
+.option-card__title {
+  font-size: 0.95rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.option-card__desc {
+  font-size: 0.8rem;
+  color: var(--color-text-light);
+}
+
+/* --- Color Selector (step 3) --- */
+.config-colors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.config-color-chip {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  border: 2px solid var(--color-light-grey);
+  border-radius: var(--border-radius-full);
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: var(--font-weight-medium);
+  transition: all var(--transition-fast);
+}
+
+.config-color-chip:hover {
+  border-color: var(--color-accent);
+}
+
+.config-color-chip.selected {
+  border-color: var(--color-accent);
+  background: var(--color-accent-light);
+}
+
+.config-color-chip__swatch {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+/* --- Decoration Details --- */
+.decoration-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+@media (max-width: 600px) {
+  .decoration-options {
+    grid-template-columns: 1fr;
+  }
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  border: 2px solid var(--color-light-grey);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.radio-option:hover {
+  border-color: var(--color-accent);
+}
+
+.radio-option.selected {
+  border-color: var(--color-accent);
+  background: var(--color-accent-light);
+}
+
+.radio-option input[type="radio"] {
+  accent-color: var(--color-accent);
+  width: 18px;
+  height: 18px;
+}
+
+.radio-option__label {
+  font-weight: var(--font-weight-medium);
+}
+
+.radio-option__price {
+  margin-left: auto;
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+}
+
+/* --- File Upload (step 6) --- */
+.file-upload-zone {
+  border: 2px dashed var(--color-light-grey);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-3xl) var(--space-xl);
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  background: var(--color-off-white);
+}
+
+.file-upload-zone:hover,
+.file-upload-zone.dragover {
+  border-color: var(--color-accent);
+  background: var(--color-accent-light);
+}
+
+.file-upload-zone__icon {
+  font-size: 3rem;
+  margin-bottom: var(--space-md);
+  opacity: 0.4;
+}
+
+.file-upload-zone__text {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  margin-bottom: var(--space-xs);
+}
+
+.file-upload-zone__hint {
+  font-size: 0.8rem;
+  color: var(--color-text-light);
+}
+
+.uploaded-file {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  background: var(--color-off-white);
+  border-radius: var(--border-radius);
+  margin-top: var(--space-md);
+}
+
+.uploaded-file__name {
+  flex: 1;
+  font-weight: var(--font-weight-medium);
+  font-size: 0.9rem;
+}
+
+.uploaded-file__remove {
+  color: var(--color-danger);
+  cursor: pointer;
+  font-weight: var(--font-weight-bold);
+}
+
+/* --- Quantity + Pricing (step 8) --- */
+.quantity-pricing {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2xl);
+  align-items: start;
+}
+
+.quantity-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.qty-btn {
+  width: 44px;
+  height: 44px;
+  border: 2px solid var(--color-light-grey);
+  border-radius: var(--border-radius);
+  font-size: 1.3rem;
+  font-weight: var(--font-weight-bold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.qty-btn:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.qty-input {
+  width: 80px;
+  height: 44px;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: var(--font-weight-bold);
+  border: 2px solid var(--color-light-grey);
+  border-radius: var(--border-radius);
+}
+
+.pricing-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.pricing-table th {
+  text-align: left;
+  padding: var(--space-sm) var(--space-md);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-light);
+  border-bottom: 2px solid var(--color-light-grey);
+}
+
+.pricing-table td {
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: 1px solid var(--color-off-white);
+}
+
+.pricing-table tr.active-tier {
+  background: var(--color-accent-light);
+  font-weight: var(--font-weight-bold);
+}
+
+.pricing-table tr.active-tier td {
+  color: var(--color-accent);
+}
+
+.live-price-summary {
+  background: var(--color-off-white);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-xl);
+  margin-top: var(--space-xl);
+}
+
+.live-price-summary__row {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-xs) 0;
+  font-size: 0.9rem;
+}
+
+.live-price-summary__total {
+  display: flex;
+  justify-content: space-between;
+  padding-top: var(--space-md);
+  margin-top: var(--space-md);
+  border-top: 2px solid var(--color-light-grey);
+  font-size: 1.2rem;
+  font-weight: var(--font-weight-extrabold);
+  color: var(--color-primary);
+}
+
+/* --- Review Step (step 9) --- */
+.review-card {
+  background: var(--color-off-white);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-xl);
+  margin-bottom: var(--space-lg);
+}
+
+.review-card__title {
+  font-size: 0.85rem;
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-light);
+  margin-bottom: var(--space-md);
+}
+
+.review-row {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-sm) 0;
+  font-size: 0.95rem;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.review-row:last-child {
+  border-bottom: none;
+}
+
+.review-row__label {
+  color: var(--color-text-light);
+}
+
+.review-row__value {
+  font-weight: var(--font-weight-semibold);
+  text-align: right;
+}
+
+/* --- Navigation Buttons --- */
+.config-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--space-2xl);
+  padding-top: var(--space-xl);
+  border-top: 1px solid var(--color-light-grey);
+}
+
+.config-nav .btn {
+  min-width: 140px;
+}
+
+@media (max-width: 600px) {
+  .quantity-pricing {
+    grid-template-columns: 1fr;
+  }
+  .option-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

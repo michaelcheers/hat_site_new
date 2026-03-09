@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Proof — Admin — CustomHat Co.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/admin.css">
+  <link rel="stylesheet" href="../css/configurator.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="../index.html" class="site-logo"><span class="site-logo__icon">&#9670;</span> CustomHat Co.</a>
+      <div class="nav-actions">
+        <button class="mobile-menu-btn" aria-label="Toggle sidebar" onclick="document.querySelector('.admin-sidebar').classList.toggle('show')">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-body">
+    <div class="admin-layout">
+      <aside class="admin-sidebar">
+        <div class="admin-sidebar__brand">
+          <div class="admin-sidebar__brand-name">Admin Panel</div>
+          <div class="admin-sidebar__brand-role">Store Manager</div>
+        </div>
+        <nav>
+          <a href="index.html" class="admin-nav__link"><span class="admin-nav__icon">&#128202;</span> Dashboard</a>
+          <a href="orders.html" class="admin-nav__link"><span class="admin-nav__icon">&#128230;</span> Orders</a>
+          <a href="proof-upload.html" class="admin-nav__link active"><span class="admin-nav__icon">&#128228;</span> Upload Proof</a>
+          <a href="artwork.html" class="admin-nav__link"><span class="admin-nav__icon">&#127912;</span> Artwork Files</a>
+          <a href="../index.html" class="admin-nav__link"><span class="admin-nav__icon">&#8592;</span> Back to Store</a>
+        </nav>
+      </aside>
+
+      <main class="admin-main">
+        <div class="admin-header">
+          <h1 class="admin-header__title">Upload Proof</h1>
+        </div>
+
+        <!-- Step 1: Select Order -->
+        <div class="admin-card">
+          <div class="admin-card__header">
+            <h2 class="admin-card__title">1. Select Order</h2>
+          </div>
+          <div class="admin-card__body">
+            <div class="form-group">
+              <label class="form-label">Order</label>
+              <select class="form-select" id="order-select" style="max-width:400px;">
+                <option value="">Select an order...</option>
+              </select>
+            </div>
+            <div id="order-summary" style="display:none;"></div>
+          </div>
+        </div>
+
+        <!-- Step 2: Upload Proof Image -->
+        <div class="admin-card" id="upload-section" style="display:none;">
+          <div class="admin-card__header">
+            <h2 class="admin-card__title">2. Upload Proof Image</h2>
+          </div>
+          <div class="admin-card__body">
+            <div class="proof-upload-area">
+              <div>
+                <div class="file-upload-zone" id="proof-upload-zone">
+                  <div class="file-upload-zone__icon">&#128228;</div>
+                  <p class="file-upload-zone__text">Drop proof image here, or click to browse</p>
+                  <p class="file-upload-zone__hint">PNG, JPG, or PDF &middot; Max 25MB</p>
+                  <input type="file" id="proof-file-input" accept="image/*,.pdf" style="display:none">
+                </div>
+                <div class="form-group" style="margin-top:var(--space-lg);">
+                  <label class="form-label">Internal Notes (not sent to customer)</label>
+                  <textarea class="form-textarea" id="proof-notes" placeholder="Notes about this proof..." rows="3"></textarea>
+                </div>
+              </div>
+              <div>
+                <p class="form-label">Preview</p>
+                <div class="proof-preview" id="proof-preview">
+                  No image uploaded
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3: Send -->
+        <div class="admin-card" id="send-section" style="display:none;">
+          <div class="admin-card__header">
+            <h2 class="admin-card__title">3. Send to Customer</h2>
+          </div>
+          <div class="admin-card__body">
+            <p style="margin-bottom:var(--space-lg); color:var(--color-text-light);">
+              This will update the order status to "Proof Sent" and notify the customer via email with a link to approve or request revisions.
+            </p>
+            <!-- Liquid: Shopify Flow or custom app handles actual email sending -->
+            <div style="display:flex; gap:var(--space-md);">
+              <button class="btn btn--primary btn--lg" id="send-proof-btn" disabled>Send Proof to Customer</button>
+              <button class="btn btn--outline" onclick="window.location='orders.html'">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/admin.js"></script>
+  <script src="../js/proof-system.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const preselectedOrder = params.get('order');
+    let selectedOrderId = null;
+    let proofDataUrl = null;
+
+    // Populate order dropdown
+    const orders = AdminData.getOrders();
+    const select = document.getElementById('order-select');
+    orders.forEach(o => {
+      const opt = document.createElement('option');
+      opt.value = o.id;
+      opt.textContent = `${o.id} — ${o.customer} (${o.status})`;
+      select.appendChild(opt);
+    });
+
+    if (preselectedOrder) {
+      select.value = preselectedOrder;
+      selectOrder(preselectedOrder);
+    }
+
+    select.addEventListener('change', () => selectOrder(select.value));
+
+    function selectOrder(orderId) {
+      if (!orderId) return;
+      selectedOrderId = orderId;
+      const order = AdminData.getOrder(orderId);
+      if (!order) return;
+
+      document.getElementById('order-summary').style.display = 'block';
+      document.getElementById('order-summary').innerHTML = `
+        <div style="background:var(--color-off-white); padding:var(--space-lg); border-radius:var(--border-radius-lg); margin-top:var(--space-md);">
+          <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:var(--space-md);">
+            <div><strong>Customer:</strong> ${order.customer}</div>
+            <div><strong>Email:</strong> ${order.email}</div>
+            <div><strong>Status:</strong> ${statusTag(order.status)}</div>
+          </div>
+          <div style="margin-top:var(--space-md);">
+            <strong>Items:</strong> ${order.items.map(i => `${i.qty}x ${i.brand} ${i.model} (${i.color}, ${i.decoration})`).join(', ')}
+          </div>
+          ${order.instructions ? `<div style="margin-top:var(--space-sm);"><strong>Instructions:</strong> ${order.instructions}</div>` : ''}
+        </div>
+      `;
+      document.getElementById('upload-section').style.display = 'block';
+      document.getElementById('send-section').style.display = 'block';
+    }
+
+    // File upload
+    const uploadZone = document.getElementById('proof-upload-zone');
+    const fileInput = document.getElementById('proof-file-input');
+    const preview = document.getElementById('proof-preview');
+    const sendBtn = document.getElementById('send-proof-btn');
+
+    uploadZone.addEventListener('click', () => fileInput.click());
+    uploadZone.addEventListener('dragover', (e) => { e.preventDefault(); uploadZone.classList.add('dragover'); });
+    uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('dragover'));
+    uploadZone.addEventListener('drop', (e) => {
+      e.preventDefault(); uploadZone.classList.remove('dragover');
+      if (e.dataTransfer.files.length) handleProofFile(e.dataTransfer.files[0]);
+    });
+    fileInput.addEventListener('change', () => { if (fileInput.files.length) handleProofFile(fileInput.files[0]); });
+
+    function handleProofFile(file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        proofDataUrl = e.target.result;
+        if (file.type.startsWith('image/')) {
+          preview.innerHTML = `<img src="${proofDataUrl}" alt="Proof preview">`;
+        } else {
+          preview.innerHTML = `<div style="text-align:center;"><div style="font-size:2rem;">&#128196;</div>${file.name}</div>`;
+        }
+        sendBtn.disabled = false;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    // Send proof
+    sendBtn.addEventListener('click', () => {
+      if (!selectedOrderId || !proofDataUrl) return;
+      ProofSystem.createProof(selectedOrderId, proofDataUrl);
+      AdminData.updateOrderStatus(selectedOrderId, 'proof-sent');
+
+      if (typeof showToast === 'function') {
+        showToast(`Proof sent to customer for order ${selectedOrderId}!`, 'success');
+      }
+
+      // Reset UI
+      sendBtn.disabled = true;
+      sendBtn.textContent = 'Proof Sent!';
+      setTimeout(() => { window.location = `orders.html?order=${selectedOrderId}`; }, 1500);
+    });
+
+    function statusTag(status) {
+      const labels = { 'new':'New','proof-sent':'Proof Sent','approved':'Approved','production':'In Production','shipped':'Shipped' };
+      return `<span class="status-tag status-tag--${status}">${labels[status]||status}</span>`;
+    }
+  </script>
+</body>
+</html>

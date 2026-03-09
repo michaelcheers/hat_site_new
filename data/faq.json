@@ -1,0 +1,82 @@
+[
+  {
+    "category": "Ordering",
+    "questions": [
+      {
+        "q": "What is the minimum order quantity?",
+        "a": "There is no minimum order quantity! You can order as few as 1 hat. However, our best pricing starts at 12+ units, and the more you order, the lower the per-hat price."
+      },
+      {
+        "q": "How long does production take?",
+        "a": "Standard production time is 7-10 business days after proof approval. Rush orders (3-5 business days) are available for an additional fee. Please contact us for rush order availability."
+      },
+      {
+        "q": "Can I mix hat colors in a single order?",
+        "a": "Yes! You can mix and match colors within the same hat model. Each color variation will be listed as a separate line item, but they all count toward your volume discount."
+      },
+      {
+        "q": "What payment methods do you accept?",
+        "a": "We accept all major credit cards (Visa, Mastercard, Amex, Discover), PayPal, Apple Pay, Google Pay, and Shop Pay through our secure Shopify checkout."
+      }
+    ]
+  },
+  {
+    "category": "Customization",
+    "questions": [
+      {
+        "q": "What decoration methods do you offer?",
+        "a": "We offer flat embroidery, 3D puff embroidery, leather patches (debossed or engraved), PVC rubber patches, and woven patches. Each method has unique benefits depending on your design and intended use."
+      },
+      {
+        "q": "What file formats do you accept for artwork?",
+        "a": "We accept AI, EPS, SVG, PDF, PNG, and JPG files. Vector formats (AI, EPS, SVG) produce the best results. If you only have a raster image, our design team can help convert it — a digitizing fee may apply for complex designs."
+      },
+      {
+        "q": "What is 3D puff embroidery?",
+        "a": "3D puff embroidery uses a foam backing under the stitches to create a raised, three-dimensional effect. It works best with bold, block-style lettering and simple logos. Fine details are better suited for flat embroidery."
+      },
+      {
+        "q": "Can I see a proof before production?",
+        "a": "Absolutely! Every order receives a free digital proof (mockup) before we begin production. You can approve, request changes, or cancel at the proof stage at no charge."
+      }
+    ]
+  },
+  {
+    "category": "Shipping & Returns",
+    "questions": [
+      {
+        "q": "How much does shipping cost?",
+        "a": "Shipping is calculated at checkout based on order size and destination. Standard ground shipping in the US typically runs $5.99-$12.99. Free shipping is available on orders over $250."
+      },
+      {
+        "q": "Do you ship internationally?",
+        "a": "Yes, we ship to Canada, UK, Australia, and most international destinations. International shipping rates and delivery times vary by destination. Contact us for a shipping quote."
+      },
+      {
+        "q": "What is your return policy?",
+        "a": "Because all hats are custom-made, we cannot accept returns for buyer's remorse. However, if there is a defect in materials or workmanship, or if the product doesn't match your approved proof, we'll make it right with a reprint or refund."
+      },
+      {
+        "q": "Can I track my order?",
+        "a": "Yes! Once your order ships, you'll receive a tracking number via email. You can also check your order status anytime on our Order Status page using your order number and email."
+      }
+    ]
+  },
+  {
+    "category": "Products",
+    "questions": [
+      {
+        "q": "What hat brands do you carry?",
+        "a": "We stock premium brands including Richardson, Yupoong, Flexfit, Pacific Headwear, Otto Cap, and Outdoor Cap. Each brand offers unique styles, fits, and features. Browse our collection to find your perfect hat."
+      },
+      {
+        "q": "What's the difference between trucker, snapback, and dad hats?",
+        "a": "Trucker caps have mesh back panels for breathability and a structured front. Snapbacks have solid panels all around with a flat or curved brim. Dad hats are unstructured, low-profile with a pre-curved brim and adjustable strap — the most relaxed fit."
+      },
+      {
+        "q": "Do you offer fitted (non-adjustable) caps?",
+        "a": "Yes! We carry Flexfit stretch-fit caps in multiple sizes (S/M, L/XL, and more). These provide a clean, no-closure look with a comfortable elastic fit."
+      }
+    ]
+  }
+]

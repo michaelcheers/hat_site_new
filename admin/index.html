@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard — CustomHat Co.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="../index.html" class="site-logo"><span class="site-logo__icon">&#9670;</span> CustomHat Co.</a>
+      <div class="nav-actions">
+        <button class="mobile-menu-btn" aria-label="Toggle sidebar" onclick="document.querySelector('.admin-sidebar').classList.toggle('show')">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-body">
+    <div class="admin-layout">
+      <aside class="admin-sidebar">
+        <div class="admin-sidebar__brand">
+          <div class="admin-sidebar__brand-name">Admin Panel</div>
+          <div class="admin-sidebar__brand-role">Store Manager</div>
+        </div>
+        <nav>
+          <a href="index.html" class="admin-nav__link active"><span class="admin-nav__icon">&#128202;</span> Dashboard</a>
+          <a href="orders.html" class="admin-nav__link"><span class="admin-nav__icon">&#128230;</span> Orders</a>
+          <a href="proof-upload.html" class="admin-nav__link"><span class="admin-nav__icon">&#128228;</span> Upload Proof</a>
+          <a href="artwork.html" class="admin-nav__link"><span class="admin-nav__icon">&#127912;</span> Artwork Files</a>
+          <a href="../index.html" class="admin-nav__link" style="margin-top:auto;"><span class="admin-nav__icon">&#8592;</span> Back to Store</a>
+        </nav>
+      </aside>
+
+      <main class="admin-main">
+        <div class="admin-header">
+          <h1 class="admin-header__title">Dashboard</h1>
+          <div class="admin-header__actions">
+            <span class="text-sm" style="color:var(--color-text-light);">Last updated: just now</span>
+          </div>
+        </div>
+
+        <div class="stat-cards" id="stat-cards"></div>
+
+        <div class="admin-card">
+          <div class="admin-card__header">
+            <h2 class="admin-card__title">Recent Orders</h2>
+            <a href="orders.html" class="btn btn--ghost btn--sm">View All</a>
+          </div>
+          <div class="admin-card__body" style="padding:0;">
+            <div class="table-wrapper">
+              <table class="data-table" id="recent-orders-table">
+                <thead>
+                  <tr>
+                    <th>Order</th>
+                    <th>Customer</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Total</th>
+                  </tr>
+                </thead>
+                <tbody id="recent-orders-body"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:var(--space-xl);">
+          <div class="admin-card">
+            <div class="admin-card__header">
+              <h2 class="admin-card__title">Orders by Status</h2>
+            </div>
+            <div class="admin-card__body" id="status-breakdown"></div>
+          </div>
+          <div class="admin-card">
+            <div class="admin-card__header">
+              <h2 class="admin-card__title">Quick Actions</h2>
+            </div>
+            <div class="admin-card__body">
+              <div style="display:flex; flex-direction:column; gap:var(--space-md);">
+                <a href="orders.html?status=new" class="btn btn--outline btn--full" style="justify-content:flex-start;">&#128230; Process New Orders</a>
+                <a href="proof-upload.html" class="btn btn--outline btn--full" style="justify-content:flex-start;">&#128228; Upload Proofs</a>
+                <a href="artwork.html" class="btn btn--outline btn--full" style="justify-content:flex-start;">&#127912; Browse Artwork</a>
+                <a href="../pages/order-status.html" class="btn btn--outline btn--full" style="justify-content:flex-start;">&#128270; Customer Order Lookup</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/admin.js"></script>
+  <script src="../js/proof-system.js"></script>
+  <script>
+    // Render stats
+    const stats = AdminData.getStats();
+    document.getElementById('stat-cards').innerHTML = `
+      <div class="stat-card">
+        <div class="stat-card__label">Total Orders</div>
+        <div class="stat-card__value">${stats.totalOrders}</div>
+        <div class="stat-card__change stat-card__change--up">+12% this month</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card__label">New Orders</div>
+        <div class="stat-card__value">${stats.newOrders}</div>
+        <div class="stat-card__change">Needs attention</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card__label">In Production</div>
+        <div class="stat-card__value">${stats.inProduction}</div>
+        <div class="stat-card__change stat-card__change--up">On schedule</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card__label">Revenue (Month)</div>
+        <div class="stat-card__value">$${stats.revenue.toFixed(0)}</div>
+        <div class="stat-card__change stat-card__change--up">+8% vs last month</div>
+      </div>
+    `;
+
+    // Render recent orders
+    const orders = AdminData.getOrders().slice(0, 5);
+    document.getElementById('recent-orders-body').innerHTML = orders.map(o => `
+      <tr class="order-row" onclick="window.location='orders.html?order=${o.id}'">
+        <td><strong>${o.id}</strong></td>
+        <td>${o.customer}</td>
+        <td>${o.date}</td>
+        <td>${statusTag(o.status)}</td>
+        <td><strong>$${o.total.toFixed(2)}</strong></td>
+      </tr>
+    `).join('');
+
+    // Status breakdown
+    const statuses = ['new', 'proof-sent', 'approved', 'production', 'shipped'];
+    document.getElementById('status-breakdown').innerHTML = statuses.map(s => {
+      const count = AdminData.getOrders(s).length;
+      return `
+        <div style="display:flex; justify-content:space-between; align-items:center; padding:var(--space-sm) 0; border-bottom:1px solid var(--color-off-white);">
+          <span>${statusTag(s)}</span>
+          <strong>${count} order${count !== 1 ? 's' : ''}</strong>
+        </div>
+      `;
+    }).join('');
+
+    function statusTag(status) {
+      const labels = {
+        'new': 'New', 'proof-sent': 'Proof Sent', 'approved': 'Approved',
+        'production': 'In Production', 'shipped': 'Shipped', 'cancelled': 'Cancelled'
+      };
+      return `<span class="status-tag status-tag--${status}">${labels[status] || status}</span>`;
+    }
+  </script>
+</body>
+</html>

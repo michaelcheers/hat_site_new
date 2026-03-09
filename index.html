@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CustomHat Co. — Premium Custom Embroidered Hats</title>
+  <meta name="description" content="Design your own custom embroidered hats. Premium brands like Richardson, Yupoong, Flexfit. Bulk pricing, fast turnaround, no minimums.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+  <!-- ================================
+       HEADER / NAVIGATION
+       Liquid: {% section 'header' %}
+       ================================ -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="index.html" class="site-logo">
+        <span class="site-logo__icon">&#9670;</span>
+        CustomHat Co.
+      </a>
+
+      <nav class="main-nav">
+        <ul class="main-nav__list">
+          <li class="main-nav__item">
+            <a href="pages/collection.html" class="main-nav__link">
+              Shop Hats <span class="chevron">&#9660;</span>
+            </a>
+            <!-- Liquid: {% for collection in collections %} -->
+            <div class="dropdown-menu">
+              <a href="pages/collection.html?brand=richardson" class="dropdown-menu__link">Richardson</a>
+              <a href="pages/collection.html?brand=yupoong" class="dropdown-menu__link">Yupoong</a>
+              <a href="pages/collection.html?brand=flexfit" class="dropdown-menu__link">Flexfit</a>
+              <a href="pages/collection.html?brand=pacific" class="dropdown-menu__link">Pacific Headwear</a>
+              <a href="pages/collection.html" class="dropdown-menu__link" style="color: var(--color-accent); font-weight: 600;">View All Hats</a>
+            </div>
+          </li>
+          <li class="main-nav__item">
+            <a href="pages/product.html" class="main-nav__link">Customize</a>
+          </li>
+          <li class="main-nav__item">
+            <a href="#" class="main-nav__link">
+              About <span class="chevron">&#9660;</span>
+            </a>
+            <div class="dropdown-menu">
+              <a href="pages/about.html" class="dropdown-menu__link">About Us</a>
+              <a href="pages/how-it-works.html" class="dropdown-menu__link">How It Works</a>
+              <a href="pages/reviews.html" class="dropdown-menu__link">Reviews</a>
+            </div>
+          </li>
+          <li class="main-nav__item">
+            <a href="pages/faq.html" class="main-nav__link">FAQ</a>
+          </li>
+          <li class="main-nav__item">
+            <a href="pages/contact.html" class="main-nav__link">Contact</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="pages/cart.html" class="cart-btn">
+          <span class="cart-btn__icon">&#128722;</span>
+          <!-- Liquid: {{ cart.item_count }} -->
+          <span class="cart-btn__count" data-count="0">0</span>
+        </a>
+        <button class="mobile-menu-btn" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-body">
+
+    <!-- ================================
+         HERO SECTION
+         Liquid: {% section 'hero' %}
+         ================================ -->
+    <section class="hero">
+      <div class="hero__bg-pattern"></div>
+      <div class="container">
+        <div class="hero__content">
+          <span class="hero__label">Premium Custom Headwear</span>
+          <h1 class="hero__title">Design Your <span>Custom Hat</span> Today</h1>
+          <p class="hero__desc">
+            Choose from top brands like Richardson, Yupoong, and Flexfit. Add your logo with premium embroidery or custom patches. No minimums, bulk discounts available.
+          </p>
+          <div class="hero__actions">
+            <a href="pages/product.html" class="btn btn--primary btn--lg">Start Designing</a>
+            <a href="pages/collection.html" class="btn btn--outline-white btn--lg">Browse Hats</a>
+          </div>
+        </div>
+      </div>
+      <!-- Decorative hat SVG -->
+      <div class="hero__image" aria-hidden="true">
+        <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="200" cy="280" rx="160" ry="32" fill="white" opacity="0.15"/>
+          <path d="M60 280 C60 280 70 140 200 120 C330 140 340 280 340 280" fill="white" opacity="0.12"/>
+          <ellipse cx="200" cy="130" rx="100" ry="30" fill="white" opacity="0.1"/>
+          <path d="M40 280 L0 300 Q200 340 400 300 L360 280" fill="white" opacity="0.1"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ================================
+         BRANDS BAR
+         Liquid: {% section 'brands-bar' %}
+         ================================ -->
+    <section class="section section--grey">
+      <div class="container">
+        <p class="text-center text-sm font-semibold uppercase tracking-wide" style="color: var(--color-text-light); margin-bottom: var(--space-lg);">Trusted Brands We Carry</p>
+        <div class="brands-bar">
+          <span class="brands-bar__item">Richardson</span>
+          <span class="brands-bar__item">Yupoong</span>
+          <span class="brands-bar__item">Flexfit</span>
+          <span class="brands-bar__item">Pacific Headwear</span>
+          <span class="brands-bar__item">Otto Cap</span>
+          <span class="brands-bar__item">Outdoor Cap</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================
+         FEATURED PRODUCTS
+         Liquid: {% section 'featured-products' %}
+         Liquid: {% for product in collections['featured'].products limit:4 %}
+         ================================ -->
+    <section class="section" id="featured">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title">Featured Hats</h2>
+          <p class="section__subtitle">Our most popular styles, ready to be customized with your logo or design.</p>
+        </div>
+        <div class="grid grid--4" id="featured-products-grid">
+          <!-- Populated by JS from products.json -->
+        </div>
+        <div class="text-center" style="margin-top: var(--space-2xl);">
+          <a href="pages/collection.html" class="btn btn--outline">View All Hats</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================
+         WHY CHOOSE US
+         Liquid: {% section 'features' %}
+         ================================ -->
+    <section class="section section--grey">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title">Why Choose Us</h2>
+          <p class="section__subtitle">We make custom hat ordering simple, affordable, and stress-free.</p>
+        </div>
+        <div class="grid grid--3">
+          <div class="feature-card">
+            <div class="feature-card__icon">&#127913;</div>
+            <h3 class="feature-card__title">Premium Quality</h3>
+            <p class="feature-card__desc">We use only top-tier brands and commercial embroidery machines for crisp, durable results that last.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card__icon">&#128176;</div>
+            <h3 class="feature-card__title">Bulk Discounts</h3>
+            <p class="feature-card__desc">The more you order, the more you save. Volume pricing starts at just 12 units with no maximum.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card__icon">&#9889;</div>
+            <h3 class="feature-card__title">Fast Turnaround</h3>
+            <p class="feature-card__desc">Most orders ship within 7-10 business days. Rush options available for time-sensitive projects.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================
+         HOW IT WORKS
+         Liquid: {% section 'how-it-works' %}
+         ================================ -->
+    <section class="section">
+      <div class="container">
+        <div class="section__header">
+          <h2 class="section__title">How It Works</h2>
+          <p class="section__subtitle">From design to delivery in four simple steps.</p>
+        </div>
+        <div class="steps-row">
+          <div class="step-card">
+            <div class="step-card__number">1</div>
+            <h3 class="step-card__title">Choose Your Hat</h3>
+            <p class="step-card__desc">Browse our collection of premium hat styles from top brands.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-card__number">2</div>
+            <h3 class="step-card__title">Upload Your Design</h3>
+            <p class="step-card__desc">Upload your logo or artwork, or work with our design team.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-card__number">3</div>
+            <h3 class="step-card__title">Approve Your Proof</h3>
+            <p class="step-card__desc">We send a digital mockup for your approval before production.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-card__number">4</div>
+            <h3 class="step-card__title">Receive Your Hats</h3>
+            <p class="step-card__desc">Your custom hats are produced and shipped directly to you.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================
+         TESTIMONIALS
+         Liquid: {% section 'testimonials' %}
+         ================================ -->
+    <section class="section section--grey">
+      <div class="container container--narrow">
+        <div class="section__header">
+          <h2 class="section__title">What Our Customers Say</h2>
+        </div>
+        <div class="testimonials-slider">
+          <div class="testimonials-track">
+            <div class="testimonial-card">
+              <div class="testimonial-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <p class="testimonial-card__quote">"The quality of the embroidery blew us away. We ordered 200 hats for our company event and every single one was perfect. Will definitely order again!"</p>
+              <p class="testimonial-card__author">Mike Reynolds</p>
+              <p class="testimonial-card__role">Marketing Director, TechStart Inc.</p>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <p class="testimonial-card__quote">"Best custom hat company I've worked with. The proof process was seamless and the turnaround time was faster than promised. Our team loves the hats!"</p>
+              <p class="testimonial-card__author">Sarah Chen</p>
+              <p class="testimonial-card__role">Owner, Riverside Brewing Co.</p>
+            </div>
+            <div class="testimonial-card">
+              <div class="testimonial-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <p class="testimonial-card__quote">"We've been ordering custom hats for our ranch for years. The leather patch option is incredible — looks premium and holds up to daily wear."</p>
+              <p class="testimonial-card__author">Jake Morrison</p>
+              <p class="testimonial-card__role">Owner, Morrison Ranch Supply</p>
+            </div>
+          </div>
+          <div class="testimonials-nav">
+            <button class="testimonials-nav__dot active" aria-label="Slide 1"></button>
+            <button class="testimonials-nav__dot" aria-label="Slide 2"></button>
+            <button class="testimonials-nav__dot" aria-label="Slide 3"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================
+         EMAIL CAPTURE BANNER
+         Liquid: {% section 'newsletter' %}
+         ================================ -->
+    <section class="email-banner">
+      <div class="container">
+        <h2 class="email-banner__title">Get 10% Off Your First Order</h2>
+        <p class="email-banner__desc">Sign up for our newsletter and receive exclusive deals, new product alerts, and a discount code.</p>
+        <!-- Liquid: Klaviyo or Shopify email form -->
+        <form class="email-banner__form" onsubmit="event.preventDefault(); showToast('Thanks! Check your email for your discount code.'); this.reset();">
+          <input type="email" class="email-banner__input" placeholder="Enter your email address" required>
+          <button type="submit" class="btn btn--primary">Subscribe</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================================
+       FOOTER
+       Liquid: {% section 'footer' %}
+       ================================ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer__brand">
+          <div class="footer__brand-name">CustomHat Co.</div>
+          <p class="footer__brand-desc">Premium custom embroidered hats for businesses, teams, events, and individuals. Quality headwear, made to order.</p>
+          <div class="footer__social">
+            <a href="#" class="footer__social-link" aria-label="Facebook">f</a>
+            <a href="#" class="footer__social-link" aria-label="Instagram">in</a>
+            <a href="#" class="footer__social-link" aria-label="Twitter">X</a>
+            <a href="#" class="footer__social-link" aria-label="TikTok">tk</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer__heading">Shop</h4>
+          <div class="footer__links">
+            <!-- Liquid: {% for link in linklists['shop'].links %} -->
+            <a href="pages/collection.html" class="footer__link">All Hats</a>
+            <a href="pages/collection.html?category=trucker" class="footer__link">Trucker Caps</a>
+            <a href="pages/collection.html?category=snapback" class="footer__link">Snapbacks</a>
+            <a href="pages/collection.html?category=dad-hat" class="footer__link">Dad Hats</a>
+            <a href="pages/collection.html?category=fitted" class="footer__link">Fitted Caps</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer__heading">Company</h4>
+          <div class="footer__links">
+            <a href="pages/about.html" class="footer__link">About Us</a>
+            <a href="pages/how-it-works.html" class="footer__link">How It Works</a>
+            <a href="pages/reviews.html" class="footer__link">Reviews</a>
+            <a href="pages/blog.html" class="footer__link">Blog</a>
+            <a href="pages/contact.html" class="footer__link">Contact</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer__heading">Support</h4>
+          <div class="footer__links">
+            <a href="pages/faq.html" class="footer__link">FAQ</a>
+            <a href="pages/order-status.html" class="footer__link">Order Status</a>
+            <a href="pages/contact.html" class="footer__link">Get Help</a>
+            <a href="#" class="footer__link">Shipping Info</a>
+            <a href="#" class="footer__link">Returns</a>
+          </div>
+          <h4 class="footer__heading" style="margin-top: var(--space-lg);">Newsletter</h4>
+          <form class="footer__newsletter-form" onsubmit="event.preventDefault(); showToast('Subscribed!'); this.reset();">
+            <input type="email" class="footer__newsletter-input" placeholder="Your email" required>
+            <button type="submit" class="footer__newsletter-btn">Go</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>&copy; 2026 CustomHat Co. All rights reserved.</p>
+        <div class="footer__bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Shipping Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Load featured products from JSON
+    fetch('data/products.json')
+      .then(r => r.json())
+      .then(products => {
+        const grid = document.getElementById('featured-products-grid');
+        const featured = products.filter(p => p.featured).slice(0, 4);
+        grid.innerHTML = featured.map(p => `
+          <!-- Liquid: {% for product in collections['featured'].products %} -->
+          <a href="pages/product.html?id=${p.id}" class="product-card">
+            ${p.bestSeller ? '<span class="product-card__badge"><span class="badge badge--accent">Best Seller</span></span>' : ''}
+            <div class="product-card__image">
+              ${hatPlaceholderSVG()}
+            </div>
+            <div class="product-card__body">
+              <div class="product-card__brand">${p.brand}</div>
+              <h3 class="product-card__title">${p.model}</h3>
+              <div class="product-card__price">From ${formatPrice(p.basePrice)} <span>per hat</span></div>
+              <div class="product-card__colors">
+                ${p.colors.slice(0, 5).map(c => `<span class="product-card__color-dot" title="${c}" style="background:${getColorHex(c)}"></span>`).join('')}
+                ${p.colors.length > 5 ? `<span class="text-xs" style="color:var(--color-text-light); align-self:center;">+${p.colors.length - 5}</span>` : ''}
+              </div>
+              <div class="product-card__actions">
+                <span class="btn btn--primary btn--sm">Customize</span>
+              </div>
+            </div>
+          </a>
+        `).join('');
+      });
+
+    // Simple color name → hex mapper for swatches
+    function getColorHex(colorName) {
+      const map = {
+        'black': '#222', 'white': '#fff', 'navy': '#1b3a5c', 'red': '#cc2936',
+        'royal': '#2659a8', 'charcoal': '#555', 'stone': '#b5a997', 'khaki': '#c3b091',
+        'natural': '#f5e6c8', 'dark green': '#1a5c2e', 'brown': '#6b3e26',
+        'heather grey': '#b0b0b0', 'maroon': '#6b1c2a', 'light pink': '#f4c2c2',
+        'smoke blue': '#6d8fa7', 'dark grey': '#444', 'graphite': '#666'
+      };
+      const name = colorName.toLowerCase().split('/')[0].trim();
+      return map[name] || '#999';
+    }
+  </script>
+
+</body>
+</html>

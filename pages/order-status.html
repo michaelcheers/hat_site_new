@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Status — CustomHat Co.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/admin.css">
+  <style>
+    .order-status-hero {
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+      color: var(--color-white); padding: var(--space-4xl) 0; text-align: center;
+    }
+    .order-status-hero__title { font-size: 2.5rem; font-weight: var(--font-weight-extrabold); text-transform: uppercase; margin-bottom: var(--space-md); }
+    .order-status-hero__subtitle { color: rgba(255,255,255,0.7); }
+    .lookup-form {
+      max-width: 500px; margin: 0 auto; background: var(--color-white);
+      border-radius: var(--border-radius-lg); padding: var(--space-2xl);
+      box-shadow: var(--shadow-lg); margin-top: calc(-1 * var(--space-2xl)); position: relative; z-index: 1;
+    }
+    .order-result {
+      max-width: 700px; margin: var(--space-2xl) auto 0;
+    }
+    .status-timeline {
+      display: flex; align-items: center; justify-content: space-between;
+      margin: var(--space-2xl) 0; position: relative;
+    }
+    .status-timeline::before {
+      content: ''; position: absolute; top: 20px; left: 10%; right: 10%;
+      height: 3px; background: var(--color-light-grey);
+    }
+    .timeline-step {
+      text-align: center; position: relative; z-index: 1; flex: 1;
+    }
+    .timeline-step__dot {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--color-light-grey); margin: 0 auto var(--space-sm);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem; color: var(--color-white); font-weight: var(--font-weight-bold);
+    }
+    .timeline-step.completed .timeline-step__dot { background: var(--color-accent); }
+    .timeline-step.active .timeline-step__dot {
+      background: var(--color-accent); box-shadow: 0 0 0 4px rgba(57,185,28,0.2);
+    }
+    .timeline-step__label { font-size: 0.75rem; font-weight: var(--font-weight-semibold); color: var(--color-text-light); }
+    .timeline-step.completed .timeline-step__label,
+    .timeline-step.active .timeline-step__label { color: var(--color-accent); }
+    .proof-section {
+      background: var(--color-off-white); border-radius: var(--border-radius-lg);
+      padding: var(--space-xl); margin-top: var(--space-xl);
+    }
+    .proof-section__image {
+      width: 100%; max-width: 400px; aspect-ratio: 4/3; background: var(--color-white);
+      border-radius: var(--border-radius); display: flex; align-items: center;
+      justify-content: center; margin: var(--space-lg) auto;
+      font-size: 1.5rem; color: var(--color-mid-grey);
+      overflow: hidden;
+    }
+    .proof-section__image img { max-width: 100%; max-height: 100%; object-fit: contain; }
+    .proof-actions { display: flex; gap: var(--space-md); justify-content: center; margin-top: var(--space-lg); flex-wrap: wrap; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="../index.html" class="site-logo"><span class="site-logo__icon">&#9670;</span> CustomHat Co.</a>
+      <nav class="main-nav">
+        <ul class="main-nav__list">
+          <li class="main-nav__item"><a href="collection.html" class="main-nav__link">Shop Hats</a></li>
+          <li class="main-nav__item"><a href="product.html" class="main-nav__link">Customize</a></li>
+          <li class="main-nav__item"><a href="about.html" class="main-nav__link">About</a></li>
+          <li class="main-nav__item"><a href="faq.html" class="main-nav__link">FAQ</a></li>
+          <li class="main-nav__item"><a href="contact.html" class="main-nav__link">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <a href="cart.html" class="cart-btn"><span class="cart-btn__icon">&#128722;</span><span class="cart-btn__count" data-count="0">0</span></a>
+        <button class="mobile-menu-btn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-body">
+    <section class="order-status-hero">
+      <div class="container">
+        <h1 class="order-status-hero__title">Order Status</h1>
+        <p class="order-status-hero__subtitle">Track your custom hat order and approve proofs.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="lookup-form">
+          <h2 style="font-size:1.2rem; font-weight:700; margin-bottom:var(--space-lg); text-align:center;">Look Up Your Order</h2>
+          <form id="lookup-form" onsubmit="event.preventDefault(); lookupOrder();">
+            <div class="form-group">
+              <label class="form-label">Order Number</label>
+              <input type="text" class="form-input" id="order-number-input" placeholder="e.g. ORD-1046" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email Address</label>
+              <input type="email" class="form-input" id="order-email-input" placeholder="Your email" required>
+            </div>
+            <button type="submit" class="btn btn--primary btn--full">Check Status</button>
+          </form>
+        </div>
+
+        <div id="order-result" class="order-result" style="display:none;"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__bottom">
+        <p>&copy; 2026 CustomHat Co. All rights reserved.</p>
+        <div class="footer__bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/admin.js"></script>
+  <script src="../js/proof-system.js"></script>
+  <script>
+    function lookupOrder() {
+      const orderNum = document.getElementById('order-number-input').value.trim().toUpperCase();
+      const email = document.getElementById('order-email-input').value.trim().toLowerCase();
+      const order = AdminData.getOrder(orderNum);
+      const result = document.getElementById('order-result');
+
+      if (!order || order.email.toLowerCase() !== email) {
+        result.style.display = 'block';
+        result.innerHTML = `
+          <div class="empty-state">
+            <div class="empty-state__icon">&#128270;</div>
+            <h3 class="empty-state__title">Order not found</h3>
+            <p class="empty-state__desc">Please check your order number and email address and try again.</p>
+          </div>
+        `;
+        return;
+      }
+
+      const proof = ProofSystem.getProof(orderNum);
+      const statusSteps = ['new', 'proof-sent', 'approved', 'production', 'shipped'];
+      const currentIdx = statusSteps.indexOf(order.status);
+      const statusLabels = ['Order Placed', 'Proof Sent', 'Approved', 'In Production', 'Shipped'];
+
+      result.style.display = 'block';
+      result.innerHTML = `
+        <div class="admin-card">
+          <div class="admin-card__header">
+            <h2 class="admin-card__title">Order ${order.id}</h2>
+            <span class="status-tag status-tag--${order.status}">${statusLabels[currentIdx] || order.status}</span>
+          </div>
+          <div class="admin-card__body">
+            <div class="status-timeline">
+              ${statusSteps.map((s, i) => `
+                <div class="timeline-step ${i < currentIdx ? 'completed' : ''} ${i === currentIdx ? 'active' : ''}">
+                  <div class="timeline-step__dot">${i <= currentIdx ? '&#10003;' : i + 1}</div>
+                  <div class="timeline-step__label">${statusLabels[i]}</div>
+                </div>
+              `).join('')}
+            </div>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:var(--space-xl); margin-top:var(--space-xl);">
+              <div>
+                <p style="font-size:0.8rem; font-weight:700; text-transform:uppercase; color:var(--color-text-light); margin-bottom:var(--space-sm);">Items</p>
+                ${order.items.map(i => `
+                  <p>${i.qty}x ${i.brand} ${i.model}<br>
+                  <span style="color:var(--color-text-light); font-size:0.9rem;">${i.color} &middot; ${i.decoration}</span></p>
+                `).join('')}
+              </div>
+              <div>
+                <p style="font-size:0.8rem; font-weight:700; text-transform:uppercase; color:var(--color-text-light); margin-bottom:var(--space-sm);">Order Details</p>
+                <p>Date: ${order.date}</p>
+                <p>Total: <strong>$${order.total.toFixed(2)}</strong></p>
+                ${order.trackingNumber ? `<p>Tracking: <strong>${order.trackingNumber}</strong></p>` : ''}
+              </div>
+            </div>
+
+            ${order.status === 'proof-sent' && proof ? `
+            <div class="proof-section">
+              <h3 style="font-size:1.1rem; font-weight:700; text-align:center; margin-bottom:var(--space-sm);">Your Proof is Ready!</h3>
+              <p style="text-align:center; color:var(--color-text-light); margin-bottom:var(--space-md);">Review the mockup below and approve or request changes.</p>
+              <div class="proof-section__image">
+                ${proof.proofImage ? `<img src="${proof.proofImage}" alt="Hat proof mockup">` : '&#127913; Proof image placeholder'}
+              </div>
+              <div class="proof-actions">
+                <button class="btn btn--primary btn--lg" onclick="approveProof('${order.id}')">Approve Proof</button>
+                <button class="btn btn--outline" onclick="requestRevision('${order.id}')">Request Changes</button>
+              </div>
+            </div>
+            ` : ''}
+
+            ${order.status === 'approved' ? `
+            <div style="text-align:center; padding:var(--space-xl); background:var(--color-accent-light); border-radius:var(--border-radius-lg); margin-top:var(--space-xl);">
+              <p style="font-size:1.1rem; font-weight:700; color:var(--color-accent);">&#9989; Proof Approved — In Production Queue</p>
+              <p style="color:var(--color-text-light); margin-top:var(--space-sm);">Your hats are being produced! You'll receive a shipping notification once they're on their way.</p>
+            </div>
+            ` : ''}
+
+            ${order.status === 'shipped' && order.trackingNumber ? `
+            <div style="text-align:center; padding:var(--space-xl); background:#e0f2f1; border-radius:var(--border-radius-lg); margin-top:var(--space-xl);">
+              <p style="font-size:1.1rem; font-weight:700; color:#00695c;">&#128230; Your order has shipped!</p>
+              <p style="margin-top:var(--space-sm);">Tracking: <strong>${order.trackingNumber}</strong></p>
+            </div>
+            ` : ''}
+          </div>
+        </div>
+      `;
+
+      result.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function approveProof(orderId) {
+      ProofSystem.approveProof(orderId);
+      showToast('Proof approved! Your hats will go into production.', 'success');
+      setTimeout(() => lookupOrder(), 500);
+    }
+
+    function requestRevision(orderId) {
+      const notes = prompt('What changes would you like? Please describe:');
+      if (notes === null) return;
+      ProofSystem.requestRevision(orderId, notes);
+      showToast('Revision requested. We\'ll send an updated proof soon.', 'info');
+      setTimeout(() => lookupOrder(), 500);
+    }
+  </script>
+</body>
+</html>

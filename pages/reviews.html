@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Reviews — CustomHat Co.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <style>
+    .reviews-hero {
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+      color: var(--color-white); padding: var(--space-4xl) 0; text-align: center;
+    }
+    .reviews-hero__title { font-size: 2.5rem; font-weight: var(--font-weight-extrabold); text-transform: uppercase; margin-bottom: var(--space-md); }
+    .reviews-hero__rating { font-size: 1.5rem; color: var(--color-warning); margin-bottom: var(--space-sm); }
+    .reviews-hero__summary { color: rgba(255,255,255,0.7); font-size: 1rem; }
+    .reviews-stats {
+      display: flex; justify-content: center; gap: var(--space-3xl); flex-wrap: wrap;
+      padding: var(--space-2xl) 0; border-bottom: 1px solid var(--color-light-grey);
+      margin-bottom: var(--space-2xl);
+    }
+    .reviews-stat { text-align: center; }
+    .reviews-stat__value { font-size: 2rem; font-weight: var(--font-weight-extrabold); color: var(--color-primary); }
+    .reviews-stat__label { font-size: 0.85rem; color: var(--color-text-light); }
+    .review-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); }
+    .review-card {
+      background: var(--color-white); border: 1px solid var(--color-light-grey);
+      border-radius: var(--border-radius-lg); padding: var(--space-xl);
+      transition: box-shadow var(--transition-base);
+    }
+    .review-card:hover { box-shadow: var(--shadow-md); }
+    .review-card__stars { color: var(--color-warning); font-size: 1rem; margin-bottom: var(--space-md); }
+    .review-card__quote { font-size: 0.95rem; color: var(--color-text); line-height: 1.7; margin-bottom: var(--space-lg); }
+    .review-card__author { display: flex; align-items: center; gap: var(--space-md); }
+    .review-card__avatar {
+      width: 40px; height: 40px; border-radius: 50%; background: var(--color-off-white);
+      display: flex; align-items: center; justify-content: center; font-size: 1rem; color: var(--color-mid-grey);
+    }
+    .review-card__name { font-weight: var(--font-weight-semibold); font-size: 0.9rem; }
+    .review-card__role { font-size: 0.8rem; color: var(--color-text-light); }
+    .review-card__photo {
+      width: 100%; aspect-ratio: 16/9; background: var(--color-off-white);
+      border-radius: var(--border-radius); margin-bottom: var(--space-md);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; color: var(--color-mid-grey);
+    }
+    @media (max-width: 768px) { .review-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="../index.html" class="site-logo"><span class="site-logo__icon">&#9670;</span> CustomHat Co.</a>
+      <nav class="main-nav">
+        <ul class="main-nav__list">
+          <li class="main-nav__item"><a href="collection.html" class="main-nav__link">Shop Hats</a></li>
+          <li class="main-nav__item"><a href="product.html" class="main-nav__link">Customize</a></li>
+          <li class="main-nav__item"><a href="about.html" class="main-nav__link">About</a></li>
+          <li class="main-nav__item"><a href="faq.html" class="main-nav__link">FAQ</a></li>
+          <li class="main-nav__item"><a href="contact.html" class="main-nav__link">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <a href="cart.html" class="cart-btn"><span class="cart-btn__icon">&#128722;</span><span class="cart-btn__count" data-count="0">0</span></a>
+        <button class="mobile-menu-btn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-body">
+    <section class="reviews-hero">
+      <div class="container">
+        <h1 class="reviews-hero__title">Customer Reviews</h1>
+        <div class="reviews-hero__rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="reviews-hero__summary">4.9 out of 5 based on 847 reviews</p>
+      </div>
+    </section>
+
+    <!-- Liquid: {% section 'reviews' %} — Shopify product reviews or Judge.me/Loox -->
+    <section class="section">
+      <div class="container">
+        <div class="reviews-stats">
+          <div class="reviews-stat">
+            <div class="reviews-stat__value">847</div>
+            <div class="reviews-stat__label">Total Reviews</div>
+          </div>
+          <div class="reviews-stat">
+            <div class="reviews-stat__value">4.9</div>
+            <div class="reviews-stat__label">Average Rating</div>
+          </div>
+          <div class="reviews-stat">
+            <div class="reviews-stat__value">98%</div>
+            <div class="reviews-stat__label">Recommend</div>
+          </div>
+          <div class="reviews-stat">
+            <div class="reviews-stat__value">12K+</div>
+            <div class="reviews-stat__label">Hats Delivered</div>
+          </div>
+        </div>
+
+        <div class="review-grid">
+          <div class="review-card">
+            <div class="review-card__photo">&#127913;</div>
+            <div class="review-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="review-card__quote">"Ordered 50 Richardson 112s with our company logo. The embroidery quality is top-notch and the turnaround was incredibly fast. Already planning our next order!"</p>
+            <div class="review-card__author">
+              <div class="review-card__avatar">&#128100;</div>
+              <div><div class="review-card__name">Mike Reynolds</div><div class="review-card__role">TechStart Inc.</div></div>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="review-card__photo">&#127913;</div>
+            <div class="review-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="review-card__quote">"The leather patches on our Yupoong snapbacks are gorgeous. They look way more premium than what we expected. Our brewery customers love them."</p>
+            <div class="review-card__author">
+              <div class="review-card__avatar">&#128100;</div>
+              <div><div class="review-card__name">Sarah Chen</div><div class="review-card__role">Riverside Brewing Co.</div></div>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="review-card__photo">&#127913;</div>
+            <div class="review-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="review-card__quote">"Third time ordering from CustomHat Co. The 3D puff embroidery on our team hats is amazing. Consistent quality every time."</p>
+            <div class="review-card__author">
+              <div class="review-card__avatar">&#128100;</div>
+              <div><div class="review-card__name">Jake Morrison</div><div class="review-card__role">Morrison Ranch Supply</div></div>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="review-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="review-card__quote">"We needed 500 hats for a charity event on a tight deadline. CustomHat Co. came through with rush delivery and they all looked perfect. Couldn't ask for more."</p>
+            <div class="review-card__author">
+              <div class="review-card__avatar">&#128100;</div>
+              <div><div class="review-card__name">Amanda Torres</div><div class="review-card__role">Hope Foundation</div></div>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="review-card__stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+            <p class="review-card__quote">"Great hats at a fair price. The online configurator made it super easy to see pricing upfront. Only wish the proof came a day faster, but the final product was perfect."</p>
+            <div class="review-card__author">
+              <div class="review-card__avatar">&#128100;</div>
+              <div><div class="review-card__name">Kevin Park</div><div class="review-card__role">Park Landscaping</div></div>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="review-card__photo">&#127913;</div>
+            <div class="review-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="review-card__quote">"I just ordered 12 dad hats for my wedding party. They turned out incredible and all my groomsmen loved them. The PVC patch was the perfect touch."</p>
+            <div class="review-card__author">
+              <div class="review-card__avatar">&#128100;</div>
+              <div><div class="review-card__name">David & Lisa</div><div class="review-card__role">Wedding Party</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__bottom">
+        <p>&copy; 2026 CustomHat Co. All rights reserved.</p>
+        <div class="footer__bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+      </div>
+    </div>
+  </footer>
+  <script src="../js/main.js"></script>
+</body>
+</html>

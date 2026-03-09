@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Cart — CustomHat Co.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <style>
+    .cart-page { padding: var(--space-2xl) 0 var(--space-4xl); }
+    .cart-page__title {
+      font-size: 2rem;
+      font-weight: var(--font-weight-extrabold);
+      text-transform: uppercase;
+      margin-bottom: var(--space-2xl);
+    }
+    .cart-layout {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: var(--space-2xl);
+      align-items: start;
+    }
+    .cart-item {
+      display: grid;
+      grid-template-columns: 80px 1fr auto;
+      gap: var(--space-lg);
+      padding: var(--space-lg);
+      background: var(--color-white);
+      border: 1px solid var(--color-light-grey);
+      border-radius: var(--border-radius-lg);
+      margin-bottom: var(--space-md);
+      align-items: start;
+    }
+    .cart-item__image {
+      width: 80px;
+      height: 80px;
+      background: var(--color-off-white);
+      border-radius: var(--border-radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cart-item__image svg { width: 60%; height: 60%; opacity: 0.3; }
+    .cart-item__brand {
+      font-size: 0.75rem;
+      font-weight: var(--font-weight-bold);
+      color: var(--color-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .cart-item__title {
+      font-size: 1rem;
+      font-weight: var(--font-weight-bold);
+      color: var(--color-primary);
+      margin-bottom: var(--space-xs);
+    }
+    .cart-item__meta {
+      font-size: 0.8rem;
+      color: var(--color-text-light);
+      line-height: 1.6;
+    }
+    .cart-item__qty-row {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      margin-top: var(--space-sm);
+    }
+    .cart-item__qty-btn {
+      width: 28px;
+      height: 28px;
+      border: 1px solid var(--color-light-grey);
+      border-radius: var(--border-radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+    .cart-item__qty-btn:hover { border-color: var(--color-accent); color: var(--color-accent); }
+    .cart-item__qty-val {
+      font-weight: var(--font-weight-bold);
+      min-width: 30px;
+      text-align: center;
+    }
+    .cart-item__actions {
+      text-align: right;
+    }
+    .cart-item__price {
+      font-size: 1.1rem;
+      font-weight: var(--font-weight-bold);
+      color: var(--color-primary);
+      margin-bottom: var(--space-sm);
+    }
+    .cart-item__unit-price {
+      font-size: 0.8rem;
+      color: var(--color-text-light);
+      margin-bottom: var(--space-sm);
+    }
+    .cart-item__remove {
+      font-size: 0.8rem;
+      color: var(--color-danger);
+      cursor: pointer;
+      font-weight: var(--font-weight-medium);
+    }
+    .cart-item__remove:hover { text-decoration: underline; }
+    .cart-summary {
+      background: var(--color-off-white);
+      border-radius: var(--border-radius-lg);
+      padding: var(--space-xl);
+      position: sticky;
+      top: calc(var(--header-height) + var(--space-lg));
+    }
+    .cart-summary__title {
+      font-size: 1.1rem;
+      font-weight: var(--font-weight-bold);
+      margin-bottom: var(--space-lg);
+      padding-bottom: var(--space-md);
+      border-bottom: 1px solid var(--color-light-grey);
+    }
+    .cart-summary__row {
+      display: flex;
+      justify-content: space-between;
+      padding: var(--space-sm) 0;
+      font-size: 0.9rem;
+    }
+    .cart-summary__total {
+      display: flex;
+      justify-content: space-between;
+      padding-top: var(--space-md);
+      margin-top: var(--space-md);
+      border-top: 2px solid var(--color-light-grey);
+      font-size: 1.2rem;
+      font-weight: var(--font-weight-extrabold);
+    }
+    .cart-summary__note {
+      font-size: 0.8rem;
+      color: var(--color-text-light);
+      margin-top: var(--space-lg);
+      line-height: 1.5;
+    }
+    @media (max-width: 768px) {
+      .cart-layout { grid-template-columns: 1fr; }
+      .cart-item { grid-template-columns: 60px 1fr; }
+      .cart-item__actions { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="../index.html" class="site-logo">
+        <span class="site-logo__icon">&#9670;</span>
+        CustomHat Co.
+      </a>
+      <nav class="main-nav">
+        <ul class="main-nav__list">
+          <li class="main-nav__item"><a href="collection.html" class="main-nav__link">Shop Hats</a></li>
+          <li class="main-nav__item"><a href="product.html" class="main-nav__link">Customize</a></li>
+          <li class="main-nav__item"><a href="about.html" class="main-nav__link">About</a></li>
+          <li class="main-nav__item"><a href="faq.html" class="main-nav__link">FAQ</a></li>
+          <li class="main-nav__item"><a href="contact.html" class="main-nav__link">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <a href="cart.html" class="cart-btn">
+          <span class="cart-btn__icon">&#128722;</span>
+          <span class="cart-btn__count" data-count="0">0</span>
+        </a>
+        <button class="mobile-menu-btn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-body">
+    <div class="container cart-page">
+      <nav class="breadcrumbs">
+        <a href="../index.html">Home</a>
+        <span class="breadcrumbs__separator">/</span>
+        <span>Cart</span>
+      </nav>
+
+      <h1 class="cart-page__title">Your Cart</h1>
+
+      <div id="cart-content"></div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__bottom">
+        <p>&copy; 2026 CustomHat Co. All rights reserved.</p>
+        <div class="footer__bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/cart.js"></script>
+  <script>
+    function renderCartPage() {
+      const cart = Cart.getCart();
+      const container = document.getElementById('cart-content');
+
+      if (cart.length === 0) {
+        container.innerHTML = `
+          <div class="empty-state">
+            <div class="empty-state__icon">&#128722;</div>
+            <h3 class="empty-state__title">Your cart is empty</h3>
+            <p class="empty-state__desc">Start by browsing our hat collection and customizing your perfect hat.</p>
+            <a href="collection.html" class="btn btn--primary">Browse Hats</a>
+          </div>
+        `;
+        return;
+      }
+
+      const totalItems = Cart.getItemCount();
+      const totalPrice = Cart.getTotal();
+
+      container.innerHTML = `
+        <div class="cart-layout">
+          <div class="cart-items">
+            ${cart.map(item => `
+              <div class="cart-item" data-id="${item.id}">
+                <div class="cart-item__image">${hatSVG()}</div>
+                <div>
+                  <div class="cart-item__brand">${item.brand}</div>
+                  <div class="cart-item__title">${item.model}</div>
+                  <div class="cart-item__meta">
+                    Color: ${item.color}<br>
+                    Decoration: ${(item.decorationType || '').replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase())}<br>
+                    ${item.artworkFile ? `Artwork: ${item.artworkFile}<br>` : ''}
+                    ${item.instructions ? `Notes: ${item.instructions.substring(0, 60)}${item.instructions.length > 60 ? '...' : ''}<br>` : ''}
+                  </div>
+                  <div class="cart-item__qty-row">
+                    <button class="cart-item__qty-btn" onclick="changeQty('${item.id}', -1)">-</button>
+                    <span class="cart-item__qty-val">${item.quantity}</span>
+                    <button class="cart-item__qty-btn" onclick="changeQty('${item.id}', 1)">+</button>
+                  </div>
+                </div>
+                <div class="cart-item__actions">
+                  <div class="cart-item__price">$${item.lineTotal.toFixed(2)}</div>
+                  <div class="cart-item__unit-price">$${item.unitPrice.toFixed(2)}/hat</div>
+                  <span class="cart-item__remove" onclick="removeItem('${item.id}')">Remove</span>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+
+          <div class="cart-summary">
+            <div class="cart-summary__title">Order Summary</div>
+            <div class="cart-summary__row">
+              <span>Items</span>
+              <span>${totalItems} hats</span>
+            </div>
+            <div class="cart-summary__row">
+              <span>Subtotal</span>
+              <span>$${totalPrice.toFixed(2)}</span>
+            </div>
+            <div class="cart-summary__row">
+              <span>Shipping</span>
+              <span style="color:var(--color-text-light);">Calculated at checkout</span>
+            </div>
+            <div class="cart-summary__total">
+              <span>Total</span>
+              <span>$${totalPrice.toFixed(2)}</span>
+            </div>
+            <!-- Liquid: Shopify checkout handles this natively -->
+            <button class="btn btn--primary btn--full btn--lg" style="margin-top:var(--space-lg);" onclick="checkout()">
+              Proceed to Checkout
+            </button>
+            <a href="collection.html" class="btn btn--ghost btn--full" style="margin-top:var(--space-sm);">Continue Shopping</a>
+            <p class="cart-summary__note">
+              Shipping and taxes calculated at checkout. Custom orders typically ship within 7-10 business days.
+            </p>
+          </div>
+        </div>
+      `;
+    }
+
+    window.renderCartPage = renderCartPage;
+
+    function changeQty(id, delta) {
+      const cart = Cart.getCart();
+      const item = cart.find(i => i.id === id);
+      if (!item) return;
+      Cart.updateQuantity(id, item.quantity + delta);
+    }
+
+    function removeItem(id) {
+      Cart.removeItem(id);
+    }
+
+    function checkout() {
+      /* Liquid: Redirect to Shopify checkout — window.location = '/checkout' */
+      showToast('Checkout is handled by Shopify in production. This is a placeholder.', 'info', 4000);
+    }
+
+    function hatSVG() {
+      return `<svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="100" cy="140" rx="80" ry="16" fill="#ddd"/>
+        <path d="M30 140 C30 140 35 70 100 60 C165 70 170 140 170 140" fill="#ccc"/>
+        <ellipse cx="100" cy="65" rx="50" ry="15" fill="#bbb"/>
+        <path d="M20 140 L0 150 Q100 170 200 150 L180 140" fill="#bbb"/>
+      </svg>`;
+    }
+
+    renderCartPage();
+  </script>
+
+</body>
+</html>

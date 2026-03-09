@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us — CustomHat Co.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <style>
+    .contact-hero {
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+      color: var(--color-white); padding: var(--space-4xl) 0; text-align: center;
+    }
+    .contact-hero__title { font-size: 2.5rem; font-weight: var(--font-weight-extrabold); text-transform: uppercase; margin-bottom: var(--space-md); }
+    .contact-hero__subtitle { color: rgba(255,255,255,0.7); font-size: 1.1rem; }
+    .contact-layout {
+      display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3xl);
+      padding: var(--space-3xl) 0;
+    }
+    .contact-info__item {
+      display: flex; gap: var(--space-md); margin-bottom: var(--space-xl);
+    }
+    .contact-info__icon {
+      width: 48px; height: 48px; background: var(--color-accent-light); border-radius: var(--border-radius-lg);
+      display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0;
+    }
+    .contact-info__label { font-weight: var(--font-weight-bold); color: var(--color-primary); margin-bottom: var(--space-xs); }
+    .contact-info__value { font-size: 0.9rem; color: var(--color-text-light); line-height: 1.6; }
+    .contact-map {
+      width: 100%; height: 250px; background: var(--color-off-white);
+      border-radius: var(--border-radius-lg); display: flex; align-items: center;
+      justify-content: center; color: var(--color-mid-grey); margin-top: var(--space-xl);
+    }
+    .contact-form { background: var(--color-off-white); border-radius: var(--border-radius-lg); padding: var(--space-2xl); }
+    .contact-form__title { font-size: 1.3rem; font-weight: var(--font-weight-bold); margin-bottom: var(--space-xl); }
+    @media (max-width: 768px) { .contact-layout { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="../index.html" class="site-logo"><span class="site-logo__icon">&#9670;</span> CustomHat Co.</a>
+      <nav class="main-nav">
+        <ul class="main-nav__list">
+          <li class="main-nav__item"><a href="collection.html" class="main-nav__link">Shop Hats</a></li>
+          <li class="main-nav__item"><a href="product.html" class="main-nav__link">Customize</a></li>
+          <li class="main-nav__item"><a href="about.html" class="main-nav__link">About</a></li>
+          <li class="main-nav__item"><a href="faq.html" class="main-nav__link">FAQ</a></li>
+          <li class="main-nav__item"><a href="contact.html" class="main-nav__link">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <a href="cart.html" class="cart-btn"><span class="cart-btn__icon">&#128722;</span><span class="cart-btn__count" data-count="0">0</span></a>
+        <button class="mobile-menu-btn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-body">
+    <section class="contact-hero">
+      <div class="container">
+        <h1 class="contact-hero__title">Contact Us</h1>
+        <p class="contact-hero__subtitle">Have a question or need a custom quote? We'd love to hear from you.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="contact-layout">
+          <div>
+            <div class="contact-info__item">
+              <div class="contact-info__icon">&#128231;</div>
+              <div>
+                <div class="contact-info__label">Email</div>
+                <div class="contact-info__value">hello@customhatco.com<br>Orders: orders@customhatco.com</div>
+              </div>
+            </div>
+            <div class="contact-info__item">
+              <div class="contact-info__icon">&#128222;</div>
+              <div>
+                <div class="contact-info__label">Phone</div>
+                <div class="contact-info__value">(512) 555-0147<br>Mon-Fri 9am-5pm CT</div>
+              </div>
+            </div>
+            <div class="contact-info__item">
+              <div class="contact-info__icon">&#128205;</div>
+              <div>
+                <div class="contact-info__label">Address</div>
+                <div class="contact-info__value">CustomHat Co.<br>123 Headwear Lane, Suite 200<br>Austin, TX 78701</div>
+              </div>
+            </div>
+            <div class="contact-info__item">
+              <div class="contact-info__icon">&#9201;</div>
+              <div>
+                <div class="contact-info__label">Response Time</div>
+                <div class="contact-info__value">We typically respond within 2-4 business hours during office hours.</div>
+              </div>
+            </div>
+            <div class="contact-map">&#128506; Map Placeholder</div>
+          </div>
+
+          <!-- Liquid: Shopify contact form or Klaviyo -->
+          <div class="contact-form">
+            <h2 class="contact-form__title">Send Us a Message</h2>
+            <form onsubmit="event.preventDefault(); showToast('Message sent! We\'ll get back to you within 24 hours.'); this.reset();">
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:var(--space-md);">
+                <div class="form-group">
+                  <label class="form-label">First Name *</label>
+                  <input class="form-input" type="text" required placeholder="John">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Last Name *</label>
+                  <input class="form-input" type="text" required placeholder="Doe">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Email *</label>
+                <input class="form-input" type="email" required placeholder="john@company.com">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Phone (Optional)</label>
+                <input class="form-input" type="tel" placeholder="(555) 123-4567">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Subject</label>
+                <select class="form-select">
+                  <option>General Inquiry</option>
+                  <option>Custom Quote Request</option>
+                  <option>Order Status</option>
+                  <option>Design Help</option>
+                  <option>Wholesale / Large Order</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Message *</label>
+                <textarea class="form-textarea" required placeholder="Tell us about your project or question..."></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary btn--full">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__bottom">
+        <p>&copy; 2026 CustomHat Co. All rights reserved.</p>
+        <div class="footer__bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+      </div>
+    </div>
+  </footer>
+  <script src="../js/main.js"></script>
+</body>
+</html>

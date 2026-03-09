@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orders — Admin — CustomHat Co.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/admin.css">
+  <style>
+    .order-detail { background: var(--color-white); border-radius: var(--border-radius-lg); padding: var(--space-xl); margin-top: var(--space-xl); box-shadow: var(--shadow-sm); }
+    .order-detail__header { display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--space-xl); flex-wrap: wrap; gap: var(--space-md); }
+    .order-detail__grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xl); }
+    .order-detail__section { margin-bottom: var(--space-xl); }
+    .order-detail__label { font-size: 0.8rem; font-weight: var(--font-weight-bold); text-transform: uppercase; color: var(--color-text-light); margin-bottom: var(--space-sm); }
+    .order-detail__value { font-size: 0.95rem; line-height: 1.6; }
+    @media (max-width: 768px) { .order-detail__grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="../index.html" class="site-logo"><span class="site-logo__icon">&#9670;</span> CustomHat Co.</a>
+      <div class="nav-actions">
+        <button class="mobile-menu-btn" aria-label="Toggle sidebar" onclick="document.querySelector('.admin-sidebar').classList.toggle('show')">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-body">
+    <div class="admin-layout">
+      <aside class="admin-sidebar">
+        <div class="admin-sidebar__brand">
+          <div class="admin-sidebar__brand-name">Admin Panel</div>
+          <div class="admin-sidebar__brand-role">Store Manager</div>
+        </div>
+        <nav>
+          <a href="index.html" class="admin-nav__link"><span class="admin-nav__icon">&#128202;</span> Dashboard</a>
+          <a href="orders.html" class="admin-nav__link active"><span class="admin-nav__icon">&#128230;</span> Orders</a>
+          <a href="proof-upload.html" class="admin-nav__link"><span class="admin-nav__icon">&#128228;</span> Upload Proof</a>
+          <a href="artwork.html" class="admin-nav__link"><span class="admin-nav__icon">&#127912;</span> Artwork Files</a>
+          <a href="../index.html" class="admin-nav__link"><span class="admin-nav__icon">&#8592;</span> Back to Store</a>
+        </nav>
+      </aside>
+
+      <main class="admin-main">
+        <div class="admin-header">
+          <h1 class="admin-header__title">Order Management</h1>
+        </div>
+
+        <div class="admin-filter-bar">
+          <select class="form-select" id="status-filter" style="max-width:200px;">
+            <option value="all">All Statuses</option>
+            <option value="new">New</option>
+            <option value="proof-sent">Proof Sent</option>
+            <option value="approved">Approved</option>
+            <option value="production">In Production</option>
+            <option value="shipped">Shipped</option>
+          </select>
+          <input type="text" class="form-input" id="search-input" placeholder="Search orders..." style="max-width:250px;">
+        </div>
+
+        <div class="admin-card">
+          <div class="admin-card__body" style="padding:0;">
+            <div class="table-wrapper">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Order #</th>
+                    <th>Customer</th>
+                    <th>Date</th>
+                    <th>Items</th>
+                    <th>Status</th>
+                    <th>Total</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="orders-tbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div id="order-detail-panel" style="display:none;"></div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/admin.js"></script>
+  <script src="../js/proof-system.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const filterStatus = params.get('status');
+    const selectedOrder = params.get('order');
+
+    if (filterStatus) document.getElementById('status-filter').value = filterStatus;
+
+    function renderOrders() {
+      const status = document.getElementById('status-filter').value;
+      const search = document.getElementById('search-input').value.toLowerCase();
+      let orders = AdminData.getOrders(status);
+      if (search) {
+        orders = orders.filter(o =>
+          o.id.toLowerCase().includes(search) ||
+          o.customer.toLowerCase().includes(search) ||
+          o.email.toLowerCase().includes(search)
+        );
+      }
+
+      document.getElementById('orders-tbody').innerHTML = orders.map(o => `
+        <tr class="order-row" onclick="showOrderDetail('${o.id}')">
+          <td><strong>${o.id}</strong></td>
+          <td>${o.customer}<br><span class="text-xs" style="color:var(--color-text-light)">${o.email}</span></td>
+          <td>${o.date}</td>
+          <td>${o.items.map(i => `${i.qty}x ${i.brand} ${i.model}`).join(', ')}</td>
+          <td>${statusTag(o.status)}</td>
+          <td><strong>$${o.total.toFixed(2)}</strong></td>
+          <td>
+            <button class="btn btn--ghost btn--sm" onclick="event.stopPropagation(); showOrderDetail('${o.id}');">View</button>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    function showOrderDetail(orderId) {
+      const o = AdminData.getOrder(orderId);
+      if (!o) return;
+      const panel = document.getElementById('order-detail-panel');
+      panel.style.display = 'block';
+      panel.innerHTML = `
+        <div class="order-detail">
+          <div class="order-detail__header">
+            <div>
+              <h2 style="font-size:1.3rem; margin-bottom:var(--space-xs);">${o.id}</h2>
+              <p style="color:var(--color-text-light);">${o.customer} &middot; ${o.date}</p>
+            </div>
+            <div style="display:flex; gap:var(--space-sm); align-items:center;">
+              ${statusTag(o.status)}
+              <select class="form-select" style="max-width:180px;" onchange="updateStatus('${o.id}', this.value)">
+                <option value="new" ${o.status==='new'?'selected':''}>New</option>
+                <option value="proof-sent" ${o.status==='proof-sent'?'selected':''}>Proof Sent</option>
+                <option value="approved" ${o.status==='approved'?'selected':''}>Approved</option>
+                <option value="production" ${o.status==='production'?'selected':''}>In Production</option>
+                <option value="shipped" ${o.status==='shipped'?'selected':''}>Shipped</option>
+              </select>
+            </div>
+          </div>
+          <div class="order-detail__grid">
+            <div>
+              <div class="order-detail__section">
+                <div class="order-detail__label">Items</div>
+                ${o.items.map(i => `
+                  <div class="order-detail__value">
+                    <strong>${i.qty}x ${i.brand} ${i.model}</strong><br>
+                    Color: ${i.color} &middot; ${i.decoration}<br>
+                    Unit: $${i.unitPrice.toFixed(2)}
+                  </div>
+                `).join('<hr style="margin:var(--space-sm) 0; border:none; border-top:1px solid var(--color-light-grey);">')}
+              </div>
+              <div class="order-detail__section">
+                <div class="order-detail__label">Instructions</div>
+                <div class="order-detail__value">${o.instructions || 'None'}</div>
+              </div>
+            </div>
+            <div>
+              <div class="order-detail__section">
+                <div class="order-detail__label">Customer</div>
+                <div class="order-detail__value">${o.customer}<br>${o.email}</div>
+              </div>
+              <div class="order-detail__section">
+                <div class="order-detail__label">Artwork File</div>
+                <div class="order-detail__value">${o.artwork || 'None uploaded'}</div>
+              </div>
+              <div class="order-detail__section">
+                <div class="order-detail__label">Total</div>
+                <div class="order-detail__value" style="font-size:1.3rem; font-weight:700;">$${o.total.toFixed(2)}</div>
+              </div>
+              ${o.trackingNumber ? `
+              <div class="order-detail__section">
+                <div class="order-detail__label">Tracking</div>
+                <div class="order-detail__value">${o.trackingNumber}</div>
+              </div>` : ''}
+              <div style="display:flex; gap:var(--space-sm); flex-wrap:wrap;">
+                <a href="proof-upload.html?order=${o.id}" class="btn btn--primary btn--sm">Upload Proof</a>
+                <button class="btn btn--outline btn--sm" onclick="document.getElementById('order-detail-panel').style.display='none';">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+      panel.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function updateStatus(orderId, newStatus) {
+      AdminData.updateOrderStatus(orderId, newStatus);
+      renderOrders();
+      showOrderDetail(orderId);
+      if (typeof showToast === 'function') showToast(`Order ${orderId} updated to ${newStatus}`);
+    }
+
+    function statusTag(status) {
+      const labels = { 'new':'New','proof-sent':'Proof Sent','approved':'Approved','production':'In Production','shipped':'Shipped','cancelled':'Cancelled' };
+      return `<span class="status-tag status-tag--${status}">${labels[status]||status}</span>`;
+    }
+
+    document.getElementById('status-filter').addEventListener('change', renderOrders);
+    document.getElementById('search-input').addEventListener('input', renderOrders);
+
+    renderOrders();
+    if (selectedOrder) setTimeout(() => showOrderDetail(selectedOrder), 100);
+  </script>
+</body>
+</html>
