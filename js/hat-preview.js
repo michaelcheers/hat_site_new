@@ -307,6 +307,5 @@ function destroy() {
 // Expose on window so non-module scripts (configurator.js) can call it
 window.HatPreview = { init, updateColor, updateModel, updateDecal, destroy };
 
-// Auto-init
-const target = document.getElementById('hat-3d-container');
-if (target) init('hat-3d-container');
+// Signal that the module is ready (page scripts call init explicitly)
+window.dispatchEvent(new Event('hat-preview-ready'));

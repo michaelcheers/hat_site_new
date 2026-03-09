@@ -31,125 +31,73 @@
       margin-bottom: var(--space-md);
       overflow: hidden;
     }
-    .product-gallery__main svg {
-      width: 70%;
-      height: 70%;
-      opacity: 0.3;
-    }
-    .product-gallery__thumbs {
-      display: flex;
-      gap: var(--space-sm);
-    }
+    .product-gallery__main svg { width: 70%; height: 70%; opacity: 0.3; }
+    .product-gallery__thumbs { display: flex; gap: var(--space-sm); }
     .product-gallery__thumb {
-      width: 72px;
-      height: 72px;
-      background: var(--color-off-white);
-      border-radius: var(--border-radius);
-      border: 2px solid transparent;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width: 72px; height: 72px; background: var(--color-off-white);
+      border-radius: var(--border-radius); border: 2px solid transparent;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
       transition: border-color var(--transition-fast);
     }
-    .product-gallery__thumb.active,
-    .product-gallery__thumb:hover {
-      border-color: var(--color-accent);
-    }
-    .product-gallery__thumb svg { width: 60%; height: 60%; opacity: 0.3; }
-    .product-info__brand {
-      font-size: 0.85rem;
-      font-weight: var(--font-weight-bold);
-      color: var(--color-accent);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      margin-bottom: var(--space-xs);
-    }
-    .product-info__title {
-      font-size: 2rem;
-      font-weight: var(--font-weight-extrabold);
-      color: var(--color-primary);
-      margin-bottom: var(--space-md);
-    }
-    .product-info__price {
-      font-size: 1.5rem;
-      font-weight: var(--font-weight-bold);
-      margin-bottom: var(--space-sm);
-    }
-    .product-info__price-note {
-      font-size: 0.85rem;
-      color: var(--color-text-light);
-      margin-bottom: var(--space-xl);
-    }
-    .product-info__desc {
-      font-size: 1rem;
-      line-height: 1.7;
-      color: var(--color-text-light);
-      margin-bottom: var(--space-xl);
-    }
-    .product-info__colors-title {
-      font-size: 0.85rem;
-      font-weight: var(--font-weight-semibold);
-      margin-bottom: var(--space-sm);
-    }
-    .product-info__selected-color {
-      font-weight: var(--font-weight-normal);
-      color: var(--color-text-light);
-    }
-    .product-color-swatches {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-sm);
-      margin-bottom: var(--space-xl);
-    }
-    .product-specs {
-      border-top: 1px solid var(--color-light-grey);
-      padding-top: var(--space-xl);
-      margin-top: var(--space-xl);
-    }
-    .product-specs__row {
-      display: flex;
-      justify-content: space-between;
-      padding: var(--space-sm) 0;
-      font-size: 0.9rem;
-      border-bottom: 1px solid var(--color-off-white);
-    }
-    .product-specs__label {
-      font-weight: var(--font-weight-semibold);
-      color: var(--color-text);
-    }
-    .product-specs__value {
-      color: var(--color-text-light);
-    }
+    .product-gallery__thumb.active, .product-gallery__thumb:hover { border-color: var(--color-accent); }
+    .product-info__brand { font-size: 0.85rem; font-weight: var(--font-weight-bold); color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: var(--space-xs); }
+    .product-info__title { font-size: 2rem; font-weight: var(--font-weight-extrabold); color: var(--color-primary); margin-bottom: var(--space-md); }
+    .product-info__price { font-size: 1.5rem; font-weight: var(--font-weight-bold); margin-bottom: var(--space-sm); }
+    .product-info__price-note { font-size: 0.85rem; color: var(--color-text-light); margin-bottom: var(--space-xl); }
+    .product-info__desc { font-size: 1rem; line-height: 1.7; color: var(--color-text-light); margin-bottom: var(--space-xl); }
+    .product-info__colors-title { font-size: 0.85rem; font-weight: var(--font-weight-semibold); margin-bottom: var(--space-sm); }
+    .product-info__selected-color { font-weight: var(--font-weight-normal); color: var(--color-text-light); }
+    .product-color-swatches { display: flex; flex-wrap: wrap; gap: var(--space-sm); margin-bottom: var(--space-xl); }
+    .product-specs { border-top: 1px solid var(--color-light-grey); padding-top: var(--space-xl); margin-top: var(--space-xl); }
+    .product-specs__row { display: flex; justify-content: space-between; padding: var(--space-sm) 0; font-size: 0.9rem; border-bottom: 1px solid var(--color-off-white); }
+    .product-specs__label { font-weight: var(--font-weight-semibold); color: var(--color-text); }
+    .product-specs__value { color: var(--color-text-light); }
     .product-3d-preview {
-      width: 100%;
-      aspect-ratio: 1;
+      width: 100%; aspect-ratio: 1; background: var(--color-off-white);
+      border-radius: var(--border-radius-lg); display: flex; align-items: center;
+      justify-content: center; margin-bottom: var(--space-md); position: relative;
+    }
+    .product-3d-preview canvas { border-radius: var(--border-radius-lg); }
+    .preview-3d-label {
+      position: absolute; bottom: var(--space-md); left: 50%; transform: translateX(-50%);
+      background: rgba(0,0,0,0.6); color: white; padding: 4px 12px;
+      border-radius: var(--border-radius-full); font-size: 0.75rem; pointer-events: none;
+    }
+
+    /* --- Configure mode: 2-col with sticky preview --- */
+    .configure-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-2xl);
+      padding: var(--space-2xl) 0;
+    }
+    .configure-preview {
+      position: sticky;
+      top: calc(var(--header-height) + var(--space-lg));
+      align-self: start;
+    }
+    .configure-preview__hat-info {
       background: var(--color-off-white);
       border-radius: var(--border-radius-lg);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      padding: var(--space-lg);
       margin-bottom: var(--space-md);
-      position: relative;
     }
-    .product-3d-preview canvas {
-      border-radius: var(--border-radius-lg);
+    .configure-preview__hat-name {
+      font-size: 1.1rem;
+      font-weight: var(--font-weight-bold);
+      color: var(--color-primary);
     }
-    .preview-3d-label {
-      position: absolute;
-      bottom: var(--space-md);
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(0,0,0,0.6);
-      color: white;
-      padding: 4px 12px;
-      border-radius: var(--border-radius-full);
-      font-size: 0.75rem;
-      pointer-events: none;
+    .configure-preview__hat-meta {
+      font-size: 0.85rem;
+      color: var(--color-text-light);
+      margin-top: var(--space-xs);
     }
+
     @media (max-width: 768px) {
       .product-layout { grid-template-columns: 1fr; }
       .product-gallery { position: static; }
+      .configure-layout { grid-template-columns: 1fr; }
+      .configure-preview { position: static; }
     }
   </style>
 </head>
@@ -157,10 +105,7 @@
 
   <header class="site-header">
     <div class="site-header__inner">
-      <a href="../index.html" class="site-logo">
-        <span class="site-logo__icon">&#9670;</span>
-        CustomHat Co.
-      </a>
+      <a href="../index.html" class="site-logo"><span class="site-logo__icon">&#9670;</span> CustomHat Co.</a>
       <nav class="main-nav">
         <ul class="main-nav__list">
           <li class="main-nav__item"><a href="collection.html" class="main-nav__link">Shop Hats</a></li>
@@ -171,10 +116,7 @@
         </ul>
       </nav>
       <div class="nav-actions">
-        <a href="cart.html" class="cart-btn">
-          <span class="cart-btn__icon">&#128722;</span>
-          <span class="cart-btn__count" data-count="0">0</span>
-        </a>
+        <a href="cart.html" class="cart-btn"><span class="cart-btn__icon">&#128722;</span><span class="cart-btn__count" data-count="0">0</span></a>
         <button class="mobile-menu-btn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -191,75 +133,57 @@
         <span id="breadcrumb-product">Product</span>
       </nav>
 
-      <!-- Liquid: {% section 'product-template' %} -->
-      <div class="product-layout">
-        <!-- Gallery / 3D Preview -->
-        <div class="product-gallery">
-          <div class="product-3d-preview" id="hat-3d-container">
-            <div class="product-gallery__main" id="product-image-fallback">
-              <!-- Will be replaced by Three.js if available -->
+      <!-- ========== NORMAL PRODUCT VIEW (no configure) ========== -->
+      <div id="product-detail-section">
+        <div class="product-layout">
+          <div class="product-gallery">
+            <div class="product-3d-preview" id="hat-3d-container">
+              <div class="product-gallery__main" id="product-image-fallback"></div>
+            </div>
+            <div class="product-gallery__thumbs">
+              <div class="product-gallery__thumb active"><span style="font-size:0.7rem;color:var(--color-text-light)">Front</span></div>
+              <div class="product-gallery__thumb"><span style="font-size:0.7rem;color:var(--color-text-light)">Side</span></div>
+              <div class="product-gallery__thumb"><span style="font-size:0.7rem;color:var(--color-text-light)">Back</span></div>
+              <div class="product-gallery__thumb"><span style="font-size:0.7rem;color:var(--color-text-light)">Detail</span></div>
             </div>
           </div>
-          <div class="product-gallery__thumbs">
-            <div class="product-gallery__thumb active"><span style="font-size:0.7rem;color:var(--color-text-light)">Front</span></div>
-            <div class="product-gallery__thumb"><span style="font-size:0.7rem;color:var(--color-text-light)">Side</span></div>
-            <div class="product-gallery__thumb"><span style="font-size:0.7rem;color:var(--color-text-light)">Back</span></div>
-            <div class="product-gallery__thumb"><span style="font-size:0.7rem;color:var(--color-text-light)">Detail</span></div>
-          </div>
-        </div>
-
-        <!-- Product Info -->
-        <div class="product-info">
-          <div class="product-info__brand" id="product-brand">Richardson</div>
-          <h1 class="product-info__title" id="product-title">112 Trucker</h1>
-          <div class="product-info__price" id="product-price">From $12.99</div>
-          <p class="product-info__price-note">Per hat with custom decoration. Volume discounts available.</p>
-          <p class="product-info__desc" id="product-desc">The industry standard trucker cap. Pre-curved visor with adjustable snapback closure. Structured mid-profile fit.</p>
-
-          <div>
-            <p class="product-info__colors-title">
-              Color: <span class="product-info__selected-color" id="selected-color-label">Black/White</span>
-            </p>
-            <div class="product-color-swatches" id="product-colors"></div>
-          </div>
-
-          <div style="display:flex; gap:var(--space-md); margin-bottom:var(--space-xl);">
-            <a href="product.html?id=__ID__&configure=1" class="btn btn--primary btn--lg btn--full" id="customize-btn">Customize This Hat</a>
-          </div>
-
-          <div class="product-specs">
-            <h3 style="font-size:1rem; margin-bottom:var(--space-md);">Specifications</h3>
-            <div class="product-specs__row">
-              <span class="product-specs__label">Brand</span>
-              <span class="product-specs__value" id="spec-brand">Richardson</span>
+          <div class="product-info">
+            <div class="product-info__brand" id="product-brand">Richardson</div>
+            <h1 class="product-info__title" id="product-title">112 Trucker</h1>
+            <div class="product-info__price" id="product-price">From $12.99</div>
+            <p class="product-info__price-note">Per hat with custom decoration. Volume discounts available.</p>
+            <p class="product-info__desc" id="product-desc"></p>
+            <div>
+              <p class="product-info__colors-title">Color: <span class="product-info__selected-color" id="selected-color-label">Black/White</span></p>
+              <div class="product-color-swatches" id="product-colors"></div>
             </div>
-            <div class="product-specs__row">
-              <span class="product-specs__label">Model</span>
-              <span class="product-specs__value" id="spec-model">112</span>
+            <div style="display:flex; gap:var(--space-md); margin-bottom:var(--space-xl);">
+              <a href="#" class="btn btn--primary btn--lg btn--full" id="customize-btn">Customize This Hat</a>
             </div>
-            <div class="product-specs__row">
-              <span class="product-specs__label">Profile</span>
-              <span class="product-specs__value" id="spec-profile">Mid</span>
-            </div>
-            <div class="product-specs__row">
-              <span class="product-specs__label">Closure</span>
-              <span class="product-specs__value" id="spec-closure">Snapback</span>
-            </div>
-            <div class="product-specs__row">
-              <span class="product-specs__label">Category</span>
-              <span class="product-specs__value" id="spec-category">Trucker</span>
-            </div>
-            <div class="product-specs__row">
-              <span class="product-specs__label">Colors Available</span>
-              <span class="product-specs__value" id="spec-colors">8</span>
+            <div class="product-specs">
+              <h3 style="font-size:1rem; margin-bottom:var(--space-md);">Specifications</h3>
+              <div class="product-specs__row"><span class="product-specs__label">Brand</span><span class="product-specs__value" id="spec-brand">Richardson</span></div>
+              <div class="product-specs__row"><span class="product-specs__label">Model</span><span class="product-specs__value" id="spec-model">112</span></div>
+              <div class="product-specs__row"><span class="product-specs__label">Profile</span><span class="product-specs__value" id="spec-profile">Mid</span></div>
+              <div class="product-specs__row"><span class="product-specs__label">Closure</span><span class="product-specs__value" id="spec-closure">Snapback</span></div>
+              <div class="product-specs__row"><span class="product-specs__label">Category</span><span class="product-specs__value" id="spec-category">Trucker</span></div>
+              <div class="product-specs__row"><span class="product-specs__label">Colors Available</span><span class="product-specs__value" id="spec-colors">8</span></div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Configurator (loads when ?configure=1) -->
-      <div id="configurator-container" style="display:none; padding: var(--space-3xl) 0;">
-        <div id="configurator-root"></div>
+      <!-- ========== CONFIGURE MODE: preview left + configurator right ========== -->
+      <div id="configure-section" style="display:none;">
+        <div class="configure-layout">
+          <div class="configure-preview">
+            <div class="configure-preview__hat-info" id="config-hat-info"></div>
+            <div class="product-3d-preview" id="config-3d-container">
+              <div class="product-gallery__main" id="config-image-fallback"></div>
+            </div>
+          </div>
+          <div id="configurator-root"></div>
+        </div>
       </div>
     </div>
   </main>
@@ -268,10 +192,7 @@
     <div class="container">
       <div class="footer__bottom">
         <p>&copy; 2026 CustomHat Co. All rights reserved.</p>
-        <div class="footer__bottom-links">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
-        </div>
+        <div class="footer__bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
       </div>
     </div>
   </footer>
@@ -290,23 +211,38 @@
         'heather grey': '#b0b0b0', 'maroon': '#6b1c2a', 'light pink': '#f4c2c2',
         'smoke blue': '#6d8fa7', 'dark grey': '#444', 'graphite': '#666'
       };
-      const name = colorName.toLowerCase().split('/')[0].trim();
-      return map[name] || '#999';
+      return map[colorName.toLowerCase().split('/')[0].trim()] || '#999';
+    }
+
+    // Make available globally for configurator
+    window.getColorHex = getColorHex;
+
+    // Wait for hat-preview module to be ready, then init the right view
+    function initPreview(containerId) {
+      if (window.HatPreview) {
+        window.HatPreview.init(containerId);
+      } else {
+        window.addEventListener('hat-preview-ready', () => window.HatPreview.init(containerId), { once: true });
+      }
     }
 
     fetch('../data/products.json')
       .then(r => r.json())
       .then(products => {
         const product = products.find(p => p.id === productId) || products[0];
-        loadProduct(product);
+        if (showConfigurator) {
+          loadConfigureMode(product);
+        } else {
+          loadProductDetail(product);
+        }
       });
 
-    function loadProduct(p) {
+    function loadProductDetail(p) {
       document.title = `${p.brand} ${p.model} — CustomHat Co.`;
       document.getElementById('breadcrumb-product').textContent = `${p.brand} ${p.model}`;
       document.getElementById('product-brand').textContent = p.brand;
       document.getElementById('product-title').textContent = p.model;
-      document.getElementById('product-price').textContent = `From ${formatPrice(p.basePrice)}`;
+      document.getElementById('product-price').textContent = `From $${p.basePrice.toFixed(2)}`;
       document.getElementById('product-desc').textContent = p.description;
       document.getElementById('spec-brand').textContent = p.brand;
       document.getElementById('spec-model').textContent = p.model.split(' ')[0];
@@ -315,41 +251,61 @@
       document.getElementById('spec-category').textContent = p.category.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
       document.getElementById('spec-colors').textContent = p.colors.length;
 
-      // Customize button
-      const btn = document.getElementById('customize-btn');
-      btn.href = `product.html?id=${p.id}&configure=1`;
+      document.getElementById('customize-btn').href = `product.html?id=${p.id}&configure=1`;
 
-      // Colors
+      // Init 3D preview on the visible product gallery container
+      initPreview('hat-3d-container');
+
       const colorsEl = document.getElementById('product-colors');
       colorsEl.innerHTML = p.colors.map((c, i) => `
         <div class="color-swatch ${i === 0 ? 'active' : ''}"
              style="background:${getColorHex(c)};${c.toLowerCase().includes('white') ? 'border:1px solid #ddd;' : ''}"
-             title="${c}"
-             onclick="selectColor(this, '${c}')"></div>
+             title="${c}" onclick="selectColor(this, '${c}')"></div>
       `).join('');
       document.getElementById('selected-color-label').textContent = p.colors[0];
-
-      // Placeholder image
       document.getElementById('product-image-fallback').innerHTML = hatPlaceholderSVG();
+    }
 
-      // Show configurator if requested
-      if (showConfigurator) {
-        document.getElementById('configurator-container').style.display = 'block';
-        // Scroll to it
-        setTimeout(() => {
-          document.getElementById('configurator-container').scrollIntoView({ behavior: 'smooth' });
-        }, 300);
-      }
+    function loadConfigureMode(p) {
+      document.title = `Customize ${p.brand} ${p.model} — CustomHat Co.`;
+      document.getElementById('breadcrumb-product').textContent = `Customize ${p.brand} ${p.model}`;
+
+      // Hide product detail, show configure layout
+      document.getElementById('product-detail-section').style.display = 'none';
+      document.getElementById('configure-section').style.display = 'block';
+
+      // Hat info card
+      document.getElementById('config-hat-info').innerHTML = `
+        <div class="configure-preview__hat-name">${p.brand} ${p.model}</div>
+        <div class="configure-preview__hat-meta">${p.category.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase())} &middot; ${p.profile} profile &middot; <span id="config-color-label">${p.colors[0]}</span></div>
+      `;
+
+      // Fallback image for 3D container
+      document.getElementById('config-image-fallback').innerHTML = hatPlaceholderSVG();
+
+      // Init 3D preview now that the section is visible
+      initPreview('config-3d-container');
+
+      // Store product globally for configurator
+      window._configProduct = p;
+
+      // Load scripts in order: price-calculator must load before configurator
+      const s1 = document.createElement('script');
+      s1.src = '../js/price-calculator.js';
+      s1.onload = () => {
+        const s2 = document.createElement('script');
+        s2.src = '../js/configurator.js';
+        document.body.appendChild(s2);
+      };
+      document.body.appendChild(s1);
     }
 
     function selectColor(el, colorName) {
       document.querySelectorAll('.product-color-swatches .color-swatch').forEach(s => s.classList.remove('active'));
       el.classList.add('active');
       document.getElementById('selected-color-label').textContent = colorName;
-    }
-
-    function formatPrice(amount) {
-      return '$' + Number(amount).toFixed(2);
+      // Update 3D preview
+      if (window.HatPreview) window.HatPreview.updateColor(getColorHex(colorName));
     }
 
     function hatPlaceholderSVG() {
@@ -362,17 +318,6 @@
     }
   </script>
 
-  <!-- Load configurator JS when in configure mode -->
-  <script>
-    if (showConfigurator) {
-      const scripts = ['../js/price-calculator.js', '../js/configurator.js'];
-      scripts.forEach(src => {
-        const s = document.createElement('script');
-        s.src = src;
-        document.body.appendChild(s);
-      });
-    }
-  </script>
   <!-- Three.js hat preview (ES module) -->
   <script type="importmap">
     { "imports": { "three": "../lib/three.module.min.js" } }
