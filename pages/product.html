@@ -5,9 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Liquid: <title>{{ product.title }} — CustomHat Co.</title> -->
   <title>Product Details — CustomHat Co.</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/fonts.css">
   <link rel="stylesheet" href="../css/main.css">
   <link rel="stylesheet" href="../css/components.css">
   <link rel="stylesheet" href="../css/configurator.css">
@@ -375,9 +373,11 @@
       });
     }
   </script>
-  <!-- Three.js hat preview loaded from Phase 4 -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
-  <script src="../js/hat-preview.js" defer></script>
+  <!-- Three.js hat preview (ES module) -->
+  <script type="importmap">
+    { "imports": { "three": "../lib/three.module.min.js" } }
+  </script>
+  <script type="module" src="../js/hat-preview.js"></script>
 
 </body>
 </html>
