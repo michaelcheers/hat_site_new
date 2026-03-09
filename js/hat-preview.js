@@ -11,6 +11,8 @@ let scene, camera, renderer, hatGroup;
 let currentColor = '#222222';
 let currentProfile = 'trucker';
 let decalTexture = null;
+let currentDecorationType = null;
+let currentDecorationDetails = {};
 let animFrameId = null;
 let container = null;
 
@@ -199,6 +201,7 @@ function buildHat(profile) {
   hatGroup.position.y = -0.3;
 
   if (decalTexture) applyDecal();
+  if (currentDecorationType) applyDecoration();
 }
 
 function applyDecal() {
@@ -216,6 +219,202 @@ function applyDecal() {
   decal.name = 'hatDecal';
   decal.position.set(0, 0.65, 0.91);
   hatGroup.add(decal);
+}
+
+function getDecorationPosition(location) {
+  const r = 0.91; // crown surface radius
+  switch (location) {
+    case 'front_left':   return { pos: [-0.35, 0.65, r * 0.95], rot: [0, -0.35, 0] };
+    case 'front_right':  return { pos: [0.35, 0.65, r * 0.95],  rot: [0, 0.35, 0] };
+    case 'back':         return { pos: [0, 0.65, -r],           rot: [0, Math.PI, 0] };
+    case 'side_left':    return { pos: [-r, 0.65, 0],           rot: [0, -Math.PI / 2, 0] };
+    case 'side_right':   return { pos: [r, 0.65, 0],            rot: [0, Math.PI / 2, 0] };
+    case 'side':         return { pos: [-r, 0.65, 0],           rot: [0, -Math.PI / 2, 0] };
+    default:             return { pos: [0, 0.65, r],            rot: [0, 0, 0] }; // front_center
+  }
+}
+
+function applyDecoration() {
+  // Remove previous decoration group
+  const existing = hatGroup.getObjectByName('decorationGroup');
+  if (existing) hatGroup.remove(existing);
+  if (!currentDecorationType) return;
+
+  const group = new THREE.Group();
+  group.name = 'decorationGroup';
+
+  const loc = currentDecorationDetails.location || 'front_center';
+  const placement = getDecorationPosition(loc);
+
+  if (currentDecorationType === 'embroidery') {
+    // Embroidery: slightly raised stitched area
+    const is3dPuff = currentDecorationDetails.puff3d;
+    const depth = is3dPuff ? 0.04 : 0.015;
+
+    // Main embroidery area
+    const embShape = new THREE.Shape();
+    embShape.moveTo(-0.22, -0.12);
+    embShape.lineTo(0.22, -0.12);
+    embShape.quadraticCurveTo(0.25, -0.12, 0.25, -0.09);
+    embShape.lineTo(0.25, 0.09);
+    embShape.quadraticCurveTo(0.25, 0.12, 0.22, 0.12);
+    embShape.lineTo(-0.22, 0.12);
+    embShape.quadraticCurveTo(-0.25, 0.12, -0.25, 0.09);
+    embShape.lineTo(-0.25, -0.09);
+    embShape.quadraticCurveTo(-0.25, -0.12, -0.22, -0.12);
+
+    const embMesh = new THREE.Mesh(
+      new THREE.ExtrudeGeometry(embShape, { depth, bevelEnabled: true, bevelThickness: 0.005, bevelSize: 0.005, bevelSegments: 2 }),
+      new THREE.MeshStandardMaterial({
+        color: 0xffffff,
+        roughness: 0.9,
+        metalness: 0,
+      })
+    );
+    group.add(embMesh);
+
+    // Stitch lines to show it's embroidery
+    const stitchMat = new THREE.MeshStandardMaterial({ color: 0xdddddd, roughness: 1.0 });
+    for (let i = -2; i <= 2; i++) {
+      const line = new THREE.Mesh(
+        new THREE.BoxGeometry(0.4, 0.008, depth + 0.005),
+        stitchMat
+      );
+      line.position.set(0, i * 0.04, 0);
+      group.add(line);
+    }
+
+    // Add extra locations if selected
+    if (currentDecorationDetails.backEmbroidery) {
+      const backPos = getDecorationPosition('back');
+      const backEmb = new THREE.Mesh(
+        new THREE.ExtrudeGeometry(embShape, { depth: 0.01, bevelEnabled: false }),
+        new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.9 })
+      );
+      backEmb.name = 'backEmbroidery';
+      backEmb.position.set(...backPos.pos);
+      backEmb.rotation.set(...backPos.rot);
+      hatGroup.add(backEmb);
+    }
+    if (currentDecorationDetails.sideEmbroidery) {
+      const sidePos = getDecorationPosition('side_right');
+      const sideEmb = new THREE.Mesh(
+        new THREE.ExtrudeGeometry(embShape, { depth: 0.01, bevelEnabled: false }),
+        new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.9 })
+      );
+      sideEmb.name = 'sideEmbroidery';
+      sideEmb.position.set(...sidePos.pos);
+      sideEmb.rotation.set(...sidePos.rot);
+      hatGroup.add(sideEmb);
+    }
+
+  } else if (currentDecorationType === 'patch_leather') {
+    // Leather patch: thick brown rectangle with rounded look
+    const patchGeo = createPatchGeometry(currentDecorationDetails.patchShape || 'rectangle');
+    const patch = new THREE.Mesh(
+      new THREE.ExtrudeGeometry(patchGeo, { depth: 0.03, bevelEnabled: true, bevelThickness: 0.008, bevelSize: 0.008, bevelSegments: 3 }),
+      new THREE.MeshStandardMaterial({
+        color: 0x8B6914,
+        roughness: 0.85,
+        metalness: 0.05,
+      })
+    );
+    group.add(patch);
+
+    // Debossed border stitching
+    const border = new THREE.Mesh(
+      new THREE.ExtrudeGeometry(patchGeo, { depth: 0.001, bevelEnabled: false }),
+      new THREE.MeshStandardMaterial({ color: 0x6B4F12, roughness: 0.9 })
+    );
+    border.position.z = 0.031;
+    border.scale.set(0.92, 0.92, 1);
+    group.add(border);
+
+  } else if (currentDecorationType === 'patch_pvc') {
+    // PVC patch: glossy, colorful rubber
+    const patchGeo = createPatchGeometry(currentDecorationDetails.patchShape || 'rectangle');
+    const patch = new THREE.Mesh(
+      new THREE.ExtrudeGeometry(patchGeo, { depth: 0.045, bevelEnabled: true, bevelThickness: 0.01, bevelSize: 0.008, bevelSegments: 3 }),
+      new THREE.MeshStandardMaterial({
+        color: 0x1a1a1a,
+        roughness: 0.15,
+        metalness: 0.1,
+      })
+    );
+    group.add(patch);
+
+    // Inner raised detail
+    const inner = new THREE.Mesh(
+      new THREE.ExtrudeGeometry(patchGeo, { depth: 0.01, bevelEnabled: false }),
+      new THREE.MeshStandardMaterial({ color: 0xeeeeee, roughness: 0.2, metalness: 0.05 })
+    );
+    inner.position.z = 0.046;
+    inner.scale.set(0.75, 0.75, 1);
+    group.add(inner);
+
+  } else if (currentDecorationType === 'patch_woven') {
+    // Woven patch: fabric-like, flat
+    const patchGeo = createPatchGeometry(currentDecorationDetails.patchShape || 'rectangle');
+    const patch = new THREE.Mesh(
+      new THREE.ExtrudeGeometry(patchGeo, { depth: 0.012, bevelEnabled: true, bevelThickness: 0.003, bevelSize: 0.003, bevelSegments: 2 }),
+      new THREE.MeshStandardMaterial({
+        color: 0x2c2c2c,
+        roughness: 0.95,
+        metalness: 0,
+      })
+    );
+    group.add(patch);
+
+    // Woven thread lines
+    const threadMat = new THREE.MeshStandardMaterial({ color: 0xcccccc, roughness: 1.0 });
+    for (let i = -3; i <= 3; i++) {
+      const h = new THREE.Mesh(new THREE.BoxGeometry(0.36, 0.003, 0.015), threadMat);
+      h.position.set(0, i * 0.025, 0);
+      group.add(h);
+      const v = new THREE.Mesh(new THREE.BoxGeometry(0.003, 0.2, 0.015), threadMat);
+      v.position.set(i * 0.05, 0, 0);
+      group.add(v);
+    }
+  }
+
+  group.position.set(...placement.pos);
+  group.rotation.set(...placement.rot);
+  hatGroup.add(group);
+}
+
+function createPatchGeometry(shape) {
+  const s = new THREE.Shape();
+  switch (shape) {
+    case 'circle':
+      s.absarc(0, 0, 0.15, 0, Math.PI * 2, false);
+      break;
+    case 'oval':
+      s.absellipse(0, 0, 0.2, 0.13, 0, Math.PI * 2, false, 0);
+      break;
+    case 'shield': {
+      s.moveTo(0, 0.17);
+      s.lineTo(0.18, 0.1);
+      s.lineTo(0.18, -0.05);
+      s.quadraticCurveTo(0.15, -0.17, 0, -0.2);
+      s.quadraticCurveTo(-0.15, -0.17, -0.18, -0.05);
+      s.lineTo(-0.18, 0.1);
+      s.lineTo(0, 0.17);
+      break;
+    }
+    default: // rectangle
+      const rw = 0.2, rh = 0.13, rc = 0.025;
+      s.moveTo(-rw + rc, -rh);
+      s.lineTo(rw - rc, -rh);
+      s.quadraticCurveTo(rw, -rh, rw, -rh + rc);
+      s.lineTo(rw, rh - rc);
+      s.quadraticCurveTo(rw, rh, rw - rc, rh);
+      s.lineTo(-rw + rc, rh);
+      s.quadraticCurveTo(-rw, rh, -rw, rh - rc);
+      s.lineTo(-rw, -rh + rc);
+      s.quadraticCurveTo(-rw, -rh, -rw + rc, -rh);
+      break;
+  }
+  return s;
 }
 
 function initOrbitControls(canvas) {
@@ -271,7 +470,10 @@ function updateColor(hexColor) {
   currentColor = hexColor;
   if (!hatGroup) return;
   hatGroup.children.forEach(child => {
-    if (child.material && child.name !== 'hatDecal' && !child.material.transparent) {
+    // Skip decals, decorations, and transparent meshes (mesh back)
+    if (child.name === 'hatDecal' || child.name === 'decorationGroup' ||
+        child.name === 'backEmbroidery' || child.name === 'sideEmbroidery') return;
+    if (child.material && !child.material.transparent) {
       child.material.color.set(hexColor);
     }
   });
@@ -295,6 +497,19 @@ function updateDecal(imageDataUrl) {
   });
 }
 
+function updateDecoration(type, details) {
+  currentDecorationType = type || null;
+  currentDecorationDetails = details || {};
+  if (hatGroup) {
+    // Clean up extra embroidery spots
+    const backEmb = hatGroup.getObjectByName('backEmbroidery');
+    if (backEmb) hatGroup.remove(backEmb);
+    const sideEmb = hatGroup.getObjectByName('sideEmbroidery');
+    if (sideEmb) hatGroup.remove(sideEmb);
+    applyDecoration();
+  }
+}
+
 function destroy() {
   if (animFrameId) cancelAnimationFrame(animFrameId);
   if (renderer) {
@@ -305,7 +520,7 @@ function destroy() {
 }
 
 // Expose on window so non-module scripts (configurator.js) can call it
-window.HatPreview = { init, updateColor, updateModel, updateDecal, destroy };
+window.HatPreview = { init, updateColor, updateModel, updateDecal, updateDecoration, destroy };
 
 // Signal that the module is ready (page scripts call init explicitly)
 window.dispatchEvent(new Event('hat-preview-ready'));

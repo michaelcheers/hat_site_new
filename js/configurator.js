@@ -59,6 +59,9 @@ const Configurator = (function() {
       const profile = PROFILE_MAP[config.product.category] || 'trucker';
       window.HatPreview.updateModel(profile);
     }
+    if (config.decorationType) {
+      window.HatPreview.updateDecoration(config.decorationType, config.decorationDetails);
+    }
   }
 
   function updateHatInfoCard() {
@@ -277,6 +280,8 @@ const Configurator = (function() {
         body.querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
         card.classList.add('selected');
         updateHatInfoCard();
+        // Live update 3D preview with decoration type
+        if (window.HatPreview) window.HatPreview.updateDecoration(config.decorationType, config.decorationDetails);
       });
     });
   }
@@ -323,17 +328,20 @@ const Configurator = (function() {
             </div>
           </div>
         </div>`;
+      const syncDeco = () => { if (window.HatPreview) window.HatPreview.updateDecoration(config.decorationType, config.decorationDetails); };
       body.querySelectorAll('input[name="emb-location"]').forEach(r => {
         r.addEventListener('change', () => {
           config.decorationDetails.location = r.value;
           body.querySelectorAll('input[name="emb-location"]').forEach(x => x.closest('.radio-option').classList.remove('selected'));
           r.closest('.radio-option').classList.add('selected');
+          syncDeco();
         });
       });
       const bindCb = (id, key) => {
         document.getElementById(id).addEventListener('change', e => {
           config.decorationDetails[key] = e.target.checked;
           e.target.closest('.radio-option').classList.toggle('selected', e.target.checked);
+          syncDeco();
         });
       };
       bindCb('opt-3dpuff', 'puff3d');
@@ -371,11 +379,13 @@ const Configurator = (function() {
             </div>
           </div>
         </div>`;
+      const syncDeco = () => { if (window.HatPreview) window.HatPreview.updateDecoration(config.decorationType, config.decorationDetails); };
       body.querySelectorAll('input[name="patch-shape"]').forEach(r => {
         r.addEventListener('change', () => {
           config.decorationDetails.patchShape = r.value;
           body.querySelectorAll('input[name="patch-shape"]').forEach(x => x.closest('.radio-option').classList.remove('selected'));
           r.closest('.radio-option').classList.add('selected');
+          syncDeco();
         });
       });
       body.querySelectorAll('input[name="patch-location"]').forEach(r => {
@@ -383,6 +393,7 @@ const Configurator = (function() {
           config.decorationDetails.location = r.value;
           body.querySelectorAll('input[name="patch-location"]').forEach(x => x.closest('.radio-option').classList.remove('selected'));
           r.closest('.radio-option').classList.add('selected');
+          syncDeco();
         });
       });
     }
