@@ -5,14 +5,14 @@
 /* --- Custom Properties --- */
 :root {
   /* Colors */
-  --color-primary: #1a2332;
-  --color-primary-light: #243044;
-  --color-primary-dark: #111822;
-  --color-accent: #39b91c;
-  --color-accent-hover: #2fa015;
-  --color-accent-light: #e8f8e4;
-  --color-secondary: #f9722b;
-  --color-secondary-hover: #e8631f;
+  --color-primary: #15294d;
+  --color-primary-light: #1f3a66;
+  --color-primary-dark: #0e1c38;
+  --color-accent: #2c59a7;
+  --color-accent-hover: #224a8c;
+  --color-accent-light: #e5eaf4;
+  --color-secondary: #9fa0a1;
+  --color-secondary-hover: #86888a;
   --color-white: #ffffff;
   --color-off-white: #f8f9fa;
   --color-light-grey: #e9ecef;
@@ -264,11 +264,12 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   gap: var(--space-sm);
-  font-size: 1.4rem;
-  font-weight: var(--font-weight-extrabold);
-  color: var(--color-primary);
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
+}
+
+.site-logo img {
+  height: 38px;
+  width: auto;
+  display: block;
 }
 
 .site-logo__icon {
@@ -512,10 +513,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer__brand-name {
-  font-size: 1.4rem;
-  font-weight: var(--font-weight-extrabold);
-  text-transform: uppercase;
   margin-bottom: var(--space-md);
+}
+
+.footer__brand-name img {
+  height: 40px;
+  width: auto;
+  display: block;
 }
 
 .footer__brand-desc {
