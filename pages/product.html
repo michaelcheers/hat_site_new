@@ -49,16 +49,7 @@
       align-items: center;
       justify-content: center;
     }
-    .deco-overlay img { width: 100%; height: 100%; max-width: 100%; max-height: 100%; object-fit: contain; filter: drop-shadow(0 1px 3px rgba(0,0,0,0.4)); }
-    .deco-overlay__label {
-      font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;
-      padding: 6px 9px; border-radius: 4px; color: #fff; text-align: center; line-height: 1.15;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.3);
-    }
-    .deco-overlay--embroidery .deco-overlay__label { background: rgba(40,60,100,0.88); border: 1px dashed rgba(255,255,255,0.65); }
-    .deco-overlay--patch_leather .deco-overlay__label { background: rgba(139,105,20,0.92); }
-    .deco-overlay--patch_pvc .deco-overlay__label { background: rgba(26,26,26,0.92); }
-    .deco-overlay--patch_woven .deco-overlay__label { background: rgba(44,44,44,0.92); }
+    .deco-overlay img { width: 100%; height: 100%; max-width: 100%; max-height: 100%; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.35)); }
     .product-gallery__thumbs { display: flex; gap: var(--space-sm); flex-wrap: wrap; }
     .product-gallery__thumb {
       width: 72px; height: 72px; background: var(--color-off-white);
@@ -255,34 +246,51 @@
       side:         { left: '50%', top: '45%' },
     };
 
-    function decoLabel(type) {
-      return ({
-        embroidery: 'Embroidery',
-        patch_leather: 'Leather Patch',
-        patch_pvc: 'PVC Patch',
-        patch_woven: 'Woven Patch',
-      })[type] || 'Decoration';
+    // Expand a decoration into the set of placements to render: the primary
+    // location (carries the uploaded artwork decal) plus any extra-location
+    // embroidery add-ons — mirroring the old 3D preview's back/side embroidery.
+    function decorationPlacements(d) {
+      const loc = (d.details && d.details.location) || 'front_center';
+      const out = [{ location: loc, withDecal: true }];
+      if (d.type === 'embroidery' && d.details) {
+        if (d.details.backEmbroidery) out.push({ location: 'back', withDecal: false });
+        if (d.details.sideEmbroidery) out.push({ location: 'side_right', withDecal: false });
+      }
+      return out;
     }
 
-    // Overlay the selected decoration / uploaded artwork onto the main image,
-    // but only when the displayed image's angle matches the decoration's side.
-    function applyDecorationOverlay(mainEl, angle, decoration) {
-      const old = mainEl.querySelector('.deco-overlay');
-      if (old) old.remove();
+    // Overlay the selected decoration onto the main image, but only when the
+    // displayed image's angle matches the decoration's side. The decoration is
+    // drawn by the SAME Three.js logic the old 3D model preview used
+    // (HatDecorationPreview), rendered head-on to a transparent PNG and
+    // composited onto the real product photo (artwork sits on the decoration).
+    async function applyDecorationOverlay(mainEl, angle, decoration) {
+      mainEl.querySelectorAll('.deco-overlay').forEach(o => o.remove());
       if (!decoration || !decoration.type) return;
-      const loc = (decoration.details && decoration.details.location) || 'front_center';
-      if (angleForLocation(loc) !== angle) return; // show only on the correct side
-      const pos = DECO_POS[loc] || DECO_POS.front_center;
-      const overlay = document.createElement('div');
-      overlay.className = 'deco-overlay deco-overlay--' + decoration.type;
-      overlay.style.left = pos.left;
-      overlay.style.top = pos.top;
-      if (decoration.artworkDataUrl) {
-        overlay.innerHTML = `<img src="${decoration.artworkDataUrl}" alt="Your artwork">`;
-      } else {
-        overlay.innerHTML = `<span class="deco-overlay__label">${decoLabel(decoration.type)}</span>`;
+      if (!window.HatDecorationPreview) return;
+
+      // Token guards against stale async renders when the user changes options
+      // or switches thumbnails faster than the WebGL render completes.
+      const token = String(Date.now()) + '_' + Math.random().toString(36).slice(2);
+      mainEl.dataset.decoToken = token;
+
+      for (const pl of decorationPlacements(decoration)) {
+        if (angleForLocation(pl.location) !== angle) continue; // correct side only
+        const art = pl.withDecal ? decoration.artworkDataUrl : null;
+        let dataUrl;
+        try {
+          dataUrl = await window.HatDecorationPreview.toImage(decoration.type, decoration.details, art);
+        } catch (e) { dataUrl = null; }
+        if (mainEl.dataset.decoToken !== token) return; // superseded
+        if (!dataUrl) continue;
+        const pos = DECO_POS[pl.location] || DECO_POS.front_center;
+        const overlay = document.createElement('div');
+        overlay.className = 'deco-overlay deco-overlay--' + decoration.type;
+        overlay.style.left = pos.left;
+        overlay.style.top = pos.top;
+        overlay.innerHTML = `<img src="${dataUrl}" alt="Decoration preview">`;
+        mainEl.appendChild(overlay);
       }
-      mainEl.appendChild(overlay);
     }
 
     function renderGallery(mainId, thumbsId, images, decoration) {
@@ -424,6 +432,13 @@
     }
     window.hatPlaceholderSVG = hatPlaceholderSVG;
   </script>
+
+  <!-- Decoration preview: reuses the old 3D model's Three.js rendering logic to
+       draw embroidery/patches (with the uploaded artwork on top) onto the photos. -->
+  <script type="importmap">
+    { "imports": { "three": "../lib/three.module.min.js" } }
+  </script>
+  <script type="module" src="../js/hat-decoration-preview.js"></script>
 
 </body>
 </html>
