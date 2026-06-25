@@ -15,7 +15,7 @@ const Configurator = (function() {
     { id: 'details',     title: 'Decoration Details',     subtitle: 'Configure your decoration options.' },
     { id: 'artwork',     title: 'Upload Artwork',         subtitle: 'Upload your logo or design file.' },
     { id: 'instructions',title: 'Special Instructions',   subtitle: 'Any notes for our production team?' },
-    { id: 'quantity',    title: 'Quantity & Pricing',     subtitle: 'Select quantity to see volume pricing.' },
+    { id: 'quantity',    title: 'Quantity & Pricing',     subtitle: 'How many hats would you like?' },
     { id: 'review',      title: 'Review Your Order',      subtitle: 'Double-check everything before adding to cart.' },
     { id: 'complete',    title: 'Added to Cart!',         subtitle: 'Your custom hat has been added.' },
   ];
@@ -48,7 +48,7 @@ const Configurator = (function() {
     brand: null, model: null, product: null, color: null, colorObj: null,
     decorationType: null,
     decorationDetails: { location: 'front', puff3d: false, backEmbroidery: false, sideEmbroidery: false, patchType: 'leather', patchShape: 'rectangle' },
-    artworkFile: null, artworkDataUrl: null, instructions: '', quantity: 24,
+    artworkFile: null, artworkDataUrl: null, instructions: '', quantity: 1,
   };
 
   // Swatch hex comes baked into each color object from the build script.

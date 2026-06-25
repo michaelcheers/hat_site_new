@@ -15,7 +15,7 @@
       "Snapback",
       "Low Pro"
     ],
-    "price": 16,
+    "price": 30,
     "category": "trucker",
     "profile": "low",
     "closure": "snapback",
@@ -512,7 +512,7 @@
       "Mesh Back",
       "Snapback"
     ],
-    "price": 16,
+    "price": 30,
     "category": "trucker",
     "profile": "mid",
     "closure": "snapback",
@@ -736,7 +736,7 @@
       "Snapback",
       "Printed"
     ],
-    "price": 16,
+    "price": 30,
     "category": "trucker",
     "profile": "mid",
     "closure": "snapback",
@@ -1194,7 +1194,7 @@
       "Snapback",
       "Umpqua"
     ],
-    "price": 16,
+    "price": 30,
     "category": "snapback",
     "profile": "mid",
     "closure": "snapback",
@@ -1444,7 +1444,7 @@
       "Snapback",
       "Rope"
     ],
-    "price": 16,
+    "price": 30,
     "category": "trucker",
     "profile": "mid",
     "closure": "snapback",
@@ -1641,7 +1641,7 @@
       "Snapback",
       "Printed"
     ],
-    "price": 16,
+    "price": 30,
     "category": "trucker",
     "profile": "mid",
     "closure": "snapback",
@@ -1739,7 +1739,7 @@
       "Mesh Back",
       "Snapback"
     ],
-    "price": 16,
+    "price": 30,
     "category": "trucker",
     "profile": "mid",
     "closure": "snapback",
@@ -2110,7 +2110,7 @@
       "Mesh Back",
       "Snapback"
     ],
-    "price": 16,
+    "price": 30,
     "category": "trucker",
     "profile": "mid",
     "closure": "snapback",
@@ -2716,7 +2716,7 @@
       "Perforated",
       "Five Panel"
     ],
-    "price": 16,
+    "price": 30,
     "category": "snapback",
     "profile": "mid",
     "closure": "snapback",
@@ -2788,7 +2788,7 @@
       "Cotton Blend",
       "Six Panel"
     ],
-    "price": 16,
+    "price": 30,
     "category": "fitted",
     "profile": "mid",
     "closure": "fitted",
@@ -3099,7 +3099,7 @@
       "Snapback",
       "Trucker"
     ],
-    "price": 16,
+    "price": 30,
     "category": "trucker",
     "profile": "mid",
     "closure": "snapback",
@@ -3411,7 +3411,7 @@
       "Dad Hat",
       "Unstructured"
     ],
-    "price": 16,
+    "price": 30,
     "category": "dad-hat",
     "profile": "mid",
     "closure": "snapback",
@@ -3703,7 +3703,7 @@
       "Performance",
       "Adjustable"
     ],
-    "price": 16,
+    "price": 30,
     "category": "cap",
     "profile": "mid",
     "closure": "adjustable",
@@ -3832,7 +3832,7 @@
       "Performance",
       "Adjustable"
     ],
-    "price": 16,
+    "price": 30,
     "category": "cap",
     "profile": "mid",
     "closure": "adjustable",
@@ -4160,7 +4160,7 @@
       "Unstructured",
       "Adjustable"
     ],
-    "price": 16,
+    "price": 30,
     "category": "cap",
     "profile": "mid",
     "closure": "adjustable",

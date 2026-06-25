@@ -5,9 +5,9 @@
 const PriceCalculator = (function() {
   let pricingData = null;
 
-  // Flat per-hat price. Per Michael, every hat is $16 for now regardless of
-  // decoration tier; detailed decoration pricing comes later.
-  const FLAT_UNIT_PRICE = 16.00;
+  // Flat per-hat price. Matches the price configured in the Shopify store
+  // (every variant is $30); detailed decoration pricing comes later.
+  const FLAT_UNIT_PRICE = 30.00;
 
   async function loadPricing() {
     if (pricingData) return pricingData;

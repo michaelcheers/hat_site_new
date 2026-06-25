@@ -15,7 +15,7 @@ const CSV_PATH = path.join(ROOT, 'incoming_files', 'shopify_hats_import.csv');
 const OUT_PATH = path.join(ROOT, 'data', 'products.json');
 const ASSETS_DIR = path.join(ROOT, 'assets', 'products');   // downloaded product images live here
 
-const FLAT_PRICE = 16.00;
+const FLAT_PRICE = 30.00;
 const FEATURED_COUNT = 4;                          // first N products flagged featured
 const BEST_SELLERS = ['richardson-115', 'yupoong-6606'];
 
