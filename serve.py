@@ -10,7 +10,7 @@ DIRECTORY = os.path.dirname(os.path.abspath(__file__))
 
 CSP = (
     "default-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: mediastream: filesystem:; "
-    "img-src 'self' data: blob: https://cdn.ssactivewear.com; "
+    "img-src 'self' data: blob:; "
     "connect-src 'self' https://*.myshopify.com"
 )
 

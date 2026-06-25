@@ -13,6 +13,7 @@ const path = require('path');
 const ROOT = path.resolve(__dirname, '..');
 const CSV_PATH = path.join(ROOT, 'incoming_files', 'shopify_hats_import.csv');
 const OUT_PATH = path.join(ROOT, 'data', 'products.json');
+const ASSETS_DIR = path.join(ROOT, 'assets', 'products');   // downloaded product images live here
 
 const FLAT_PRICE = 16.00;
 const FEATURED_COUNT = 4;                          // first N products flagged featured
@@ -145,6 +146,102 @@ function normUrl(u) {
   return u;
 }
 
+// ---- CDN URL -> local asset path ----
+// Maps an SSActivewear CDN image URL to a root-relative local path under
+// assets/products/, preserving the Color/ vs Style/ namespace to avoid id
+// collisions. Returns null for anything that isn't a recognised CDN image.
+function cdnToLocal(url) {
+  if (!url) return null;
+  const m = url.match(/cdn\.ssactivewear\.com\/Images\/(Color|Style)\/([^/?#]+)$/i);
+  if (!m) return null;
+  const sub = m[1].toLowerCase();        // 'color' | 'style'
+  const file = m[2];
+  return {
+    url,
+    web: `/assets/products/${sub}/${file}`,            // referenced by the site
+    disk: path.join(ASSETS_DIR, sub, file)             // written to disk
+  };
+}
+
+// ---- Download with bounded concurrency ----
+async function downloadAll(urls, concurrency = 16) {
+  const items = [];
+  for (const url of urls) {
+    const map = cdnToLocal(url);
+    if (map) items.push(map);
+  }
+  const ok = new Map();     // url -> web path (successful)
+  const failed = new Set(); // urls that 404'd / errored
+  let done = 0;
+  const total = items.length;
+
+  let cursor = 0;
+  async function worker() {
+    while (cursor < items.length) {
+      const it = items[cursor++];
+      try {
+        // Skip if already on disk and non-empty (idempotent re-runs).
+        let need = true;
+        try { if (fs.statSync(it.disk).size > 0) need = false; } catch (_) {}
+        if (need) {
+          fs.mkdirSync(path.dirname(it.disk), { recursive: true });
+          const res = await fetch(it.url);
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          const buf = Buffer.from(await res.arrayBuffer());
+          if (!buf.length) throw new Error('empty');
+          fs.writeFileSync(it.disk, buf);
+        }
+        ok.set(it.url, it.web);
+      } catch (e) {
+        failed.add(it.url);
+      }
+      done++;
+      if (done % 100 === 0 || done === total) {
+        process.stdout.write(`\r  downloaded ${done}/${total} (failed ${failed.size})   `);
+      }
+    }
+  }
+  await Promise.all(Array.from({ length: concurrency }, worker));
+  process.stdout.write('\n');
+  return { ok, failed };
+}
+
+// Collect every CDN image URL referenced by the built product list.
+function collectImageUrls(products) {
+  const set = new Set();
+  for (const p of products) {
+    if (p.defaultImage) set.add(p.defaultImage);
+    for (const u of (p.lifestyleImages || [])) set.add(u);
+    for (const c of p.colors) {
+      for (const k of ['front', 'detail', 'back']) {
+        if (c.images[k]) set.add(c.images[k]);
+      }
+    }
+  }
+  return set;
+}
+
+// Rewrite all CDN URLs in the product list to their downloaded local paths.
+// URLs that failed to download are dropped (set to '') so the gallery degrades
+// gracefully — front images all exist; only some derived detail/back may 404.
+function rewriteToLocal(products, ok) {
+  const map = (u) => (u && ok.has(u) ? ok.get(u) : '');
+  for (const p of products) {
+    p.defaultImage = map(p.defaultImage);
+    p.lifestyleImages = (p.lifestyleImages || []).map(map).filter(Boolean);
+    for (const c of p.colors) {
+      c.images.front = map(c.images.front);
+      c.images.detail = map(c.images.detail);
+      c.images.back = map(c.images.back);
+    }
+    // Ensure a usable defaultImage even if the first color's front 404'd.
+    if (!p.defaultImage) {
+      const fallback = p.colors.find(c => c.images.front);
+      p.defaultImage = fallback ? fallback.images.front : '';
+    }
+  }
+}
+
 // Extract color name + angle from an Image Alt Text like
 // "Richardson 115 — Low Pro Trucker Cap — White (front)".
 function parseAlt(alt) {
@@ -158,7 +255,7 @@ function parseAlt(alt) {
   return { color, angle };
 }
 
-function main() {
+async function main() {
   const text = fs.readFileSync(CSV_PATH, 'utf8');
   const rows = parseCSV(text);
   const header = rows[0];
@@ -279,6 +376,12 @@ function main() {
     };
   });
 
+  // ---- Download images locally and rewrite URLs to local paths ----
+  const urls = collectImageUrls(products);
+  console.log(`Downloading ${urls.size} unique images into ${path.relative(ROOT, ASSETS_DIR)}/ ...`);
+  const { ok, failed } = await downloadAll(urls);
+  rewriteToLocal(products, ok);
+
   fs.writeFileSync(OUT_PATH, JSON.stringify(products, null, 2) + '\n');
 
   // ---- Report ----
@@ -293,6 +396,7 @@ function main() {
     console.log(`  ${p.id}: ${p.colors.length} colors, ${p.lifestyleImages.length} lifestyle, cat=${p.category}/${p.profile}/${p.closure}`);
   }
   console.log(`Total colors: ${totalColors}, with front+detail+back: ${withAllAngles}, missing front: ${missingFront}`);
+  console.log(`Images downloaded OK: ${ok.size}, failed: ${failed.size}`);
 }
 
 main();
