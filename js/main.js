@@ -139,6 +139,29 @@ function formatPrice(amount) {
   return '$' + Number(amount).toFixed(2);
 }
 
+// ---- Helper: Build the inline style for a color swatch ----
+// Two-tone color names ("Hot Pink / Black") render as concentric rings:
+// the first color forms the outer ring, the second fills the center.
+// A faint inset outline keeps white/light swatches visible without
+// changing the element's size.
+function isLightHex(hex) {
+  const m = /^#?([0-9a-f]{6})$/i.exec(hex || '');
+  if (!m) return false;
+  const n = parseInt(m[1], 16);
+  const r = (n >> 16) & 255, g = (n >> 8) & 255, b = n & 255;
+  return (0.299 * r + 0.587 * g + 0.114 * b) > 200;
+}
+function swatchStyle(color) {
+  const hex1 = (color && color.swatchHex) || '#9a9a9a';
+  const hex2 = color && color.swatchHex2;
+  const outline = 'box-shadow:inset 0 0 0 1px rgba(0,0,0,0.14);';
+  if (hex2) {
+    return `background:radial-gradient(circle, ${hex2} 0 46%, ${hex1} 47% 100%);${outline}`;
+  }
+  return `background:${hex1};${isLightHex(hex1) ? outline : ''}`;
+}
+window.swatchStyle = swatchStyle;
+
 // ---- Helper: Generate placeholder hat SVG ----
 function hatPlaceholderSVG() {
   return `<svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">

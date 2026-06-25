@@ -103,8 +103,12 @@ const Configurator = (function() {
         config.brand = p.brand.toLowerCase();
         config.model = p.id;
         config.product = p;
-        config.colorObj = p.colors[0];
-        config.color = p.colors[0] ? p.colors[0].name : null;
+        // Honor a color pre-selected on the product detail page (?color=idx)
+        // so clicking "Customize" doesn't reset the chosen color.
+        const preColorIdx = parseInt(params.get('color'));
+        const ci = (Number.isInteger(preColorIdx) && p.colors[preColorIdx]) ? preColorIdx : 0;
+        config.colorObj = p.colors[ci];
+        config.color = p.colors[ci] ? p.colors[ci].name : null;
         // Skip brand + model, start at color
         steps = ALL_STEPS.filter(s => s.id !== 'brand' && s.id !== 'model');
         currentStepIdx = 0; // color is now index 0
@@ -249,7 +253,7 @@ const Configurator = (function() {
       <div class="config-colors">
         ${product.colors.map((c, i) => `
           <div class="config-color-chip ${config.color === c.name ? 'selected' : ''}" data-idx="${i}">
-            <span class="config-color-chip__swatch" style="background:${swatchFor(c)}"></span>
+            <span class="config-color-chip__swatch" style="${window.swatchStyle ? window.swatchStyle(c) : 'background:' + swatchFor(c)}"></span>
             ${c.name}
           </div>
         `).join('')}

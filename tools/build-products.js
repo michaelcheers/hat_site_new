@@ -98,18 +98,38 @@ const FAMILY = [
   ['maroon', '#6b1c2a'], ['burgundy', '#6b1f2e'], ['yellow', '#e8d44a'], ['gold', '#d4a02a']
 ];
 
-function swatchHex(colorName) {
-  const lower = colorName.toLowerCase();
-  const first = lower.split('/')[0].trim();
-  if (COLOR_MAP[first]) return COLOR_MAP[first];
+// Split a (possibly compound) color name into its slash-separated parts.
+function colorParts(colorName) {
+  return (colorName || '').split('/').map(s => s.trim()).filter(Boolean);
+}
+
+// Resolve a single color token to a hex (null if it isn't a real word).
+function resolveHex(name) {
+  const lower = (name || '').toLowerCase().trim();
+  if (!lower) return null;
   if (COLOR_MAP[lower]) return COLOR_MAP[lower];
   for (const kw of PATTERN_KEYWORDS) {
     if (lower.includes(kw)) return '#6f6048';
   }
   for (const [kw, hex] of FAMILY) {
-    if (first.includes(kw) || lower.includes(kw)) return hex;
+    if (lower.includes(kw)) return hex;
   }
-  return '#9a9a9a';
+  return null;
+}
+
+// Primary swatch hex — derived from the first part of the color name.
+function swatchHex(colorName) {
+  return resolveHex(colorParts(colorName)[0]) || '#9a9a9a';
+}
+
+// Secondary swatch hex for two-tone color names ("Hot Pink / Black").
+// Returns null for single-color names or when the 2nd part is unrecognized
+// or identical to the primary (nothing to show).
+function swatchHex2(colorName) {
+  const parts = colorParts(colorName);
+  if (parts.length < 2) return null;
+  const h = resolveHex(parts[1]);
+  return h && h !== swatchHex(colorName) ? h : null;
 }
 
 // ---- Derivation rules for collection filters ----
@@ -309,6 +329,7 @@ async function main() {
             name: cname,
             sku: sku,
             swatchHex: swatchHex(cname),
+            swatchHex2: swatchHex2(cname),
             images: { front: '', detail: '', back: '' }
           };
           colorOrder.push(cname);
@@ -399,4 +420,6 @@ async function main() {
   console.log(`Images downloaded OK: ${ok.size}, failed: ${failed.size}`);
 }
 
-main();
+if (require.main === module) main();
+
+module.exports = { swatchHex, swatchHex2, resolveHex, colorParts };

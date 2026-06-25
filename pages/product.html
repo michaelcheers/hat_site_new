@@ -255,7 +255,9 @@
       document.getElementById('spec-category').textContent = p.category.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
       document.getElementById('spec-colors').textContent = p.colors.length;
 
-      document.getElementById('customize-btn').href = `product.html?id=${p.id}&configure=1`;
+      // Start with the first color selected; the Customize link carries the
+      // chosen color index so the configurator opens on the same color.
+      document.getElementById('customize-btn').href = `product.html?id=${p.id}&configure=1&color=0`;
 
       // Build the multi-angle gallery for the first color
       renderGallery('gallery-main', 'gallery-thumbs', galleryImagesFor(p, p.colors[0]));
@@ -263,20 +265,23 @@
       const colorsEl = document.getElementById('product-colors');
       colorsEl.innerHTML = p.colors.map((c, i) => `
         <div class="color-swatch ${i === 0 ? 'active' : ''}"
-             style="background:${c.swatchHex};${c.name.toLowerCase().includes('white') ? 'border:1px solid #ddd;' : ''}"
+             style="${swatchStyle(c)}"
              title="${c.name}" data-idx="${i}"></div>
       `).join('');
       colorsEl.querySelectorAll('.color-swatch').forEach(sw => {
-        sw.addEventListener('click', () => selectColor(sw, p, p.colors[parseInt(sw.dataset.idx)]));
+        sw.addEventListener('click', () => selectColor(sw, p, parseInt(sw.dataset.idx)));
       });
       document.getElementById('selected-color-label').textContent = p.colors[0] ? p.colors[0].name : '';
     }
 
-    function selectColor(el, p, color) {
+    function selectColor(el, p, idx) {
+      const color = p.colors[idx];
       document.querySelectorAll('.product-color-swatches .color-swatch').forEach(s => s.classList.remove('active'));
       el.classList.add('active');
       document.getElementById('selected-color-label').textContent = color.name;
       renderGallery('gallery-main', 'gallery-thumbs', galleryImagesFor(p, color));
+      // Keep the Customize link in sync so the selection carries through.
+      document.getElementById('customize-btn').href = `product.html?id=${p.id}&configure=1&color=${idx}`;
     }
 
     function loadConfigureMode(p) {
@@ -287,14 +292,18 @@
       document.getElementById('product-detail-section').style.display = 'none';
       document.getElementById('configure-section').style.display = 'block';
 
+      // Honor a color pre-selected on the product detail page (?color=idx)
+      const colorIdx = parseInt(params.get('color'));
+      const initialColor = (Number.isInteger(colorIdx) && p.colors[colorIdx]) ? p.colors[colorIdx] : p.colors[0];
+
       // Hat info card
       document.getElementById('config-hat-info').innerHTML = `
         <div class="configure-preview__hat-name">${p.brand} ${p.model}</div>
-        <div class="configure-preview__hat-meta">${p.category.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase())} &middot; ${p.profile} profile &middot; <span id="config-color-label">${p.colors[0] ? p.colors[0].name : ''}</span></div>
+        <div class="configure-preview__hat-meta">${p.category.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase())} &middot; ${p.profile} profile &middot; <span id="config-color-label">${initialColor ? initialColor.name : ''}</span></div>
       `;
 
-      // Build the configure-mode gallery for the first color
-      renderGallery('config-gallery', 'config-gallery-thumbs', galleryImagesFor(p, p.colors[0]));
+      // Build the configure-mode gallery for the pre-selected color
+      renderGallery('config-gallery', 'config-gallery-thumbs', galleryImagesFor(p, initialColor));
 
       // Expose a gallery updater the configurator can call when the color changes
       window._configUpdateGallery = (color) => {

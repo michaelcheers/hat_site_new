@@ -354,7 +354,7 @@
               <h3 class="product-card__title">${p.model}</h3>
               <div class="product-card__price">${formatPrice(p.price)} <span>per hat</span></div>
               <div class="product-card__colors">
-                ${p.colors.slice(0, 5).map(c => `<span class="product-card__color-dot" title="${c.name}" style="background:${c.swatchHex}"></span>`).join('')}
+                ${p.colors.slice(0, 5).map(c => `<span class="product-card__color-dot" title="${c.name}" style="${swatchStyle(c)}"></span>`).join('')}
                 ${p.colors.length > 5 ? `<span class="text-xs" style="color:var(--color-text-light); align-self:center;">+${p.colors.length - 5}</span>` : ''}
               </div>
               <div class="product-card__actions">
