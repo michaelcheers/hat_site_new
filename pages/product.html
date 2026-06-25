@@ -37,6 +37,28 @@
     }
     .product-gallery__main svg { width: 70%; height: 70%; opacity: 0.3; }
     .product-gallery__main img { width: 100%; height: 100%; object-fit: contain; }
+    /* Live decoration / artwork preview overlaid on the hat photo */
+    .deco-overlay {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      z-index: 3;
+      pointer-events: none;
+      max-width: 32%;
+      max-height: 24%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .deco-overlay img { width: 100%; height: 100%; max-width: 100%; max-height: 100%; object-fit: contain; filter: drop-shadow(0 1px 3px rgba(0,0,0,0.4)); }
+    .deco-overlay__label {
+      font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;
+      padding: 6px 9px; border-radius: 4px; color: #fff; text-align: center; line-height: 1.15;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+    }
+    .deco-overlay--embroidery .deco-overlay__label { background: rgba(40,60,100,0.88); border: 1px dashed rgba(255,255,255,0.65); }
+    .deco-overlay--patch_leather .deco-overlay__label { background: rgba(139,105,20,0.92); }
+    .deco-overlay--patch_pvc .deco-overlay__label { background: rgba(26,26,26,0.92); }
+    .deco-overlay--patch_woven .deco-overlay__label { background: rgba(44,44,44,0.92); }
     .product-gallery__thumbs { display: flex; gap: var(--space-sm); flex-wrap: wrap; }
     .product-gallery__thumb {
       width: 72px; height: 72px; background: var(--color-off-white);
@@ -200,34 +222,97 @@
         }
       });
 
-    // Build a list of {url, label} angle images for a color, plus product lifestyle shots.
+    // Build a list of {url, label, angle} angle images for a color, plus product lifestyle shots.
     function galleryImagesFor(p, color) {
       const imgs = [];
       if (color && color.images) {
-        if (color.images.front)  imgs.push({ url: color.images.front,  label: 'Front' });
-        if (color.images.detail) imgs.push({ url: color.images.detail, label: 'Detail' });
-        if (color.images.back)   imgs.push({ url: color.images.back,   label: 'Back' });
+        if (color.images.front)  imgs.push({ url: color.images.front,  label: 'Front',  angle: 'front' });
+        if (color.images.detail) imgs.push({ url: color.images.detail, label: 'Detail', angle: 'detail' });
+        if (color.images.back)   imgs.push({ url: color.images.back,   label: 'Back',   angle: 'back' });
       }
-      (p.lifestyleImages || []).slice(0, 3).forEach((u, i) => imgs.push({ url: u, label: 'Lifestyle ' + (i + 1) }));
+      (p.lifestyleImages || []).slice(0, 3).forEach((u, i) => imgs.push({ url: u, label: 'Lifestyle ' + (i + 1), angle: 'lifestyle' }));
       return imgs;
     }
 
-    function renderGallery(mainId, thumbsId, images) {
+    // Map a decoration location to the photo angle on which it should appear,
+    // mirroring the old 3D preview: front placements on the front shot, back on
+    // the back shot, side placements on the 3-quarter "detail" shot.
+    function angleForLocation(loc) {
+      if (!loc) return 'front';
+      if (loc === 'back') return 'back';
+      if (loc.indexOf('side') !== -1) return 'detail';
+      return 'front';
+    }
+
+    // Position of the decoration overlay within the image, as percentages.
+    const DECO_POS = {
+      front_center: { left: '50%', top: '43%' },
+      front_left:   { left: '39%', top: '45%' },
+      front_right:  { left: '61%', top: '45%' },
+      back:         { left: '50%', top: '41%' },
+      side_left:    { left: '44%', top: '45%' },
+      side_right:   { left: '58%', top: '45%' },
+      side:         { left: '50%', top: '45%' },
+    };
+
+    function decoLabel(type) {
+      return ({
+        embroidery: 'Embroidery',
+        patch_leather: 'Leather Patch',
+        patch_pvc: 'PVC Patch',
+        patch_woven: 'Woven Patch',
+      })[type] || 'Decoration';
+    }
+
+    // Overlay the selected decoration / uploaded artwork onto the main image,
+    // but only when the displayed image's angle matches the decoration's side.
+    function applyDecorationOverlay(mainEl, angle, decoration) {
+      const old = mainEl.querySelector('.deco-overlay');
+      if (old) old.remove();
+      if (!decoration || !decoration.type) return;
+      const loc = (decoration.details && decoration.details.location) || 'front_center';
+      if (angleForLocation(loc) !== angle) return; // show only on the correct side
+      const pos = DECO_POS[loc] || DECO_POS.front_center;
+      const overlay = document.createElement('div');
+      overlay.className = 'deco-overlay deco-overlay--' + decoration.type;
+      overlay.style.left = pos.left;
+      overlay.style.top = pos.top;
+      if (decoration.artworkDataUrl) {
+        overlay.innerHTML = `<img src="${decoration.artworkDataUrl}" alt="Your artwork">`;
+      } else {
+        overlay.innerHTML = `<span class="deco-overlay__label">${decoLabel(decoration.type)}</span>`;
+      }
+      mainEl.appendChild(overlay);
+    }
+
+    function renderGallery(mainId, thumbsId, images, decoration) {
       const main = document.getElementById(mainId);
       const thumbs = document.getElementById(thumbsId);
       if (!main) return;
+      main.style.position = 'relative';
       if (!images.length) {
         main.innerHTML = hatPlaceholderSVG();
         if (thumbs) thumbs.innerHTML = '';
         return;
       }
-      const setMain = (url, alt) => {
-        main.innerHTML = `<img src="${url}" alt="${alt}" onerror="this.parentElement.innerHTML=hatPlaceholderSVG()">`;
+      const setMain = (im) => {
+        main.innerHTML = `<img src="${im.url}" alt="${im.label}" onerror="this.parentElement.innerHTML=hatPlaceholderSVG()">`;
+        applyDecorationOverlay(main, im.angle, decoration);
       };
-      setMain(images[0].url, images[0].label);
+
+      // When a decoration is selected, open the gallery on the angle that shows it
+      // so the live preview is visible on the correct side of the hat.
+      let startIdx = 0;
+      if (decoration && decoration.type) {
+        const wantAngle = angleForLocation((decoration.details && decoration.details.location) || 'front_center');
+        const matchIdx = images.findIndex(im => im.angle === wantAngle);
+        if (matchIdx >= 0) startIdx = matchIdx;
+      }
+
+      setMain(images[startIdx]);
       if (thumbs) {
         thumbs.innerHTML = images.map((im, i) => `
-          <div class="product-gallery__thumb ${i === 0 ? 'active' : ''}" data-url="${im.url}" data-label="${im.label}" title="${im.label}">
+          <div class="product-gallery__thumb ${i === startIdx ? 'active' : ''}" data-idx="${i}" title="${im.label}">
             <img src="${im.url}" alt="${im.label}" onerror="this.parentElement.innerHTML='<span style=&quot;font-size:0.6rem;color:#999&quot;>'+this.alt+'</span>'">
           </div>
         `).join('');
@@ -235,7 +320,7 @@
           t.addEventListener('click', () => {
             thumbs.querySelectorAll('.product-gallery__thumb').forEach(x => x.classList.remove('active'));
             t.classList.add('active');
-            setMain(t.dataset.url, t.dataset.label);
+            setMain(images[parseInt(t.dataset.idx)]);
           });
         });
       }
@@ -302,12 +387,17 @@
         <div class="configure-preview__hat-meta">${p.category.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase())} &middot; ${p.profile} profile &middot; <span id="config-color-label">${initialColor ? initialColor.name : ''}</span></div>
       `;
 
-      // Build the configure-mode gallery for the pre-selected color
-      renderGallery('config-gallery', 'config-gallery-thumbs', galleryImagesFor(p, initialColor));
+      // Persisted configure-mode preview state (color + live decoration overlay)
+      const configPreview = { color: initialColor, decoration: null };
 
-      // Expose a gallery updater the configurator can call when the color changes
-      window._configUpdateGallery = (color) => {
-        renderGallery('config-gallery', 'config-gallery-thumbs', galleryImagesFor(p, color));
+      // Build the configure-mode gallery for the pre-selected color
+      renderGallery('config-gallery', 'config-gallery-thumbs', galleryImagesFor(p, configPreview.color), configPreview.decoration);
+
+      // Expose a gallery updater the configurator calls when color OR decoration changes.
+      window._configUpdateGallery = (color, decoration) => {
+        if (color) configPreview.color = color;
+        if (decoration !== undefined) configPreview.decoration = decoration;
+        renderGallery('config-gallery', 'config-gallery-thumbs', galleryImagesFor(p, configPreview.color), configPreview.decoration);
       };
 
       // Store product globally for configurator

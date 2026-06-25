@@ -56,10 +56,22 @@ const Configurator = (function() {
     return (colorObj && colorObj.swatchHex) ? colorObj.swatchHex : '#9a9a9a';
   }
 
-  // Update the configure-mode image gallery to the chosen color's photos.
+  // Current decoration state passed to the live image-overlay preview.
+  function decorationState() {
+    if (!config.decorationType) return null;
+    const art = (config.artworkDataUrl && /^data:image\//.test(config.artworkDataUrl)) ? config.artworkDataUrl : null;
+    return {
+      type: config.decorationType,
+      details: { ...config.decorationDetails },
+      artworkDataUrl: art,
+    };
+  }
+
+  // Update the configure-mode image gallery to the chosen color's photos and
+  // overlay the selected decoration / artwork on the correct hat angle.
   function updateGallery() {
     if (typeof window._configUpdateGallery === 'function') {
-      window._configUpdateGallery(config.colorObj || (config.product && config.product.colors[0]));
+      window._configUpdateGallery(config.colorObj || (config.product && config.product.colors[0]), decorationState());
     }
   }
 
@@ -291,6 +303,7 @@ const Configurator = (function() {
         body.querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
         card.classList.add('selected');
         updateHatInfoCard();
+        updateGallery();
       });
     });
   }
@@ -342,12 +355,14 @@ const Configurator = (function() {
           config.decorationDetails.location = r.value;
           body.querySelectorAll('input[name="emb-location"]').forEach(x => x.closest('.radio-option').classList.remove('selected'));
           r.closest('.radio-option').classList.add('selected');
+          updateGallery();
         });
       });
       const bindCb = (id, key) => {
         document.getElementById(id).addEventListener('change', e => {
           config.decorationDetails[key] = e.target.checked;
           e.target.closest('.radio-option').classList.toggle('selected', e.target.checked);
+          updateGallery();
         });
       };
       bindCb('opt-3dpuff', 'puff3d');
@@ -390,6 +405,7 @@ const Configurator = (function() {
           config.decorationDetails.patchShape = r.value;
           body.querySelectorAll('input[name="patch-shape"]').forEach(x => x.closest('.radio-option').classList.remove('selected'));
           r.closest('.radio-option').classList.add('selected');
+          updateGallery();
         });
       });
       body.querySelectorAll('input[name="patch-location"]').forEach(r => {
@@ -397,6 +413,7 @@ const Configurator = (function() {
           config.decorationDetails.location = r.value;
           body.querySelectorAll('input[name="patch-location"]').forEach(x => x.closest('.radio-option').classList.remove('selected'));
           r.closest('.radio-option').classList.add('selected');
+          updateGallery();
         });
       });
     }
@@ -433,11 +450,15 @@ const Configurator = (function() {
         preview.innerHTML = `<div class="uploaded-file"><span>&#128196;</span>
           <span class="uploaded-file__name">${file.name} (${(file.size/1024).toFixed(1)} KB)</span>
           <span class="uploaded-file__remove" onclick="this.closest('.uploaded-file').remove(); window._configRemoveArt();">&times;</span></div>`;
+        // Refresh the preview; decorationState() renders image artwork in the
+        // overlay and drops non-image formats (PDF/AI/EPS) to the text badge.
+        updateGallery();
       };
       reader.readAsDataURL(file);
     }
     window._configRemoveArt = () => {
       config.artworkFile = null; config.artworkDataUrl = null;
+      updateGallery();
     };
     if (config.artworkFile) {
       preview.innerHTML = `<div class="uploaded-file"><span>&#128196;</span>
