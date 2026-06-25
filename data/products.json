@@ -1,160 +1,4055 @@
 [
   {
-    "id": "richardson-112",
-    "brand": "Richardson",
-    "model": "112 Trucker",
-    "description": "The industry standard trucker cap. Pre-curved visor with adjustable snapback closure. Structured mid-profile fit.",
-    "colors": ["Black/White", "Navy/White", "Charcoal/White", "Red/White", "Royal/White", "Heather Grey/Black", "Dark Green/White", "Brown/Khaki"],
-    "basePrice": 12.99,
-    "image": "placeholder",
-    "category": "trucker",
-    "profile": "mid",
-    "closure": "snapback",
-    "featured": true,
-    "bestSeller": true
-  },
-  {
     "id": "richardson-115",
+    "handle": "richardson-115",
+    "title": "Richardson 115 — Low Pro Trucker Cap",
     "brand": "Richardson",
-    "model": "115 Low Pro Trucker",
-    "description": "Relaxed low-profile trucker with a soft, unstructured front. Pre-curved visor with adjustable snapback.",
-    "colors": ["Black/Black", "Navy/Navy", "Heather Grey/Navy", "White/Black", "Charcoal/Black"],
-    "basePrice": 13.99,
-    "image": "placeholder",
+    "model": "115 — Low Pro Trucker Cap",
+    "description": "Low-profile five-panel trucker cap with structured front and mesh back. Snapback closure.",
+    "type": "Hat",
+    "tags": [
+      "Richardson",
+      "115",
+      "Trucker",
+      "Mesh Back",
+      "Snapback",
+      "Low Pro"
+    ],
+    "price": 16,
     "category": "trucker",
     "profile": "low",
     "closure": "snapback",
-    "featured": true
+    "featured": true,
+    "bestSeller": true,
+    "defaultImage": "https://cdn.ssactivewear.com/Images/Color/112307_f_fl.jpg",
+    "lifestyleImages": [
+      "https://cdn.ssactivewear.com/Images/Style/6423_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/1662_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/11230_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/11956_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/482_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/16237_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/4332_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/3783_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/5905_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/16308_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/458_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/2996_fl.jpg"
+    ],
+    "colors": [
+      {
+        "name": "White",
+        "sku": "richardson-115-112307",
+        "swatchHex": "#ffffff",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112307_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112307_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112307_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Black",
+        "sku": "richardson-115-71180",
+        "swatchHex": "#1c1c1c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/71180_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/71180_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/71180_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Aruba Blue/ Birch",
+        "sku": "richardson-115-71194",
+        "swatchHex": "#3a9ec4",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/71194_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/71194_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/71194_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Black/ Charcoal",
+        "sku": "richardson-115-68081",
+        "swatchHex": "#1c1c1c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/68081_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/68081_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/68081_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Black/ Neon Pink",
+        "sku": "richardson-115-68082",
+        "swatchHex": "#1c1c1c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/68082_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/68082_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/68082_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Black/ White",
+        "sku": "richardson-115-71181",
+        "swatchHex": "#1c1c1c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/71181_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/71181_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/71181_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Brown/ Khaki",
+        "sku": "richardson-115-68083",
+        "swatchHex": "#6b3e26",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/68083_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/68083_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/68083_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Carmel/ Birch",
+        "sku": "richardson-115-106438",
+        "swatchHex": "#a9743b",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/106438_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/106438_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/106438_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Carmel/ Black",
+        "sku": "richardson-115-106439",
+        "swatchHex": "#a9743b",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/106439_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/106439_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/106439_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Charcoal/ Black",
+        "sku": "richardson-115-71182",
+        "swatchHex": "#444a4f",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/71182_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/71182_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/71182_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Charcoal/ Red",
+        "sku": "richardson-115-71183",
+        "swatchHex": "#444a4f",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/71183_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/71183_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/71183_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Charcoal/ White",
+        "sku": "richardson-115-71187",
+        "swatchHex": "#444a4f",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/71187_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/71187_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/71187_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Chocolate Chip/ Birch",
+        "sku": "richardson-115-106435",
+        "swatchHex": "#5a4636",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/106435_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/106435_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/106435_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Chocolate Chip/ Grey Brown",
+        "sku": "richardson-115-68087",
+        "swatchHex": "#5a4636",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/68087_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/68087_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/68087_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Cream/ Loden Green/ Dark Orange",
+        "sku": "richardson-115-106436",
+        "swatchHex": "#f3ead6",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/106436_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/106436_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/106436_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Cyan/ Black",
+        "sku": "richardson-115-68089",
+        "swatchHex": "#3cc3d4",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/68089_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/68089_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/68089_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Dark Loden/ Jaffa Orange",
+        "sku": "richardson-115-68090",
+        "swatchHex": "#3c4630",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/68090_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/68090_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/68090_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Dark Orange/ Birch/ Patriot Blue",
+        "sku": "richardson-115-106440",
+        "swatchHex": "#cc5a1c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/106440_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/106440_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/106440_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Heather Dark Green/ Silver",
+        "sku": "richardson-115-71188",
+        "swatchHex": "#3a5c44",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/71188_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/71188_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/71188_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Heather Grey/ Birch/ Amber Gold",
+        "sku": "richardson-115-68091",
+        "swatchHex": "#b3b6b9",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/68091_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/68091_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/68091_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Heather Grey/ Birch/ Army",
+        "sku": "richardson-115-82069",
+        "swatchHex": "#b3b6b9",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/82069_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/82069_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/82069_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Heather Grey/ Birch/ Cardinal",
+        "sku": "richardson-115-82082",
+        "swatchHex": "#b3b6b9",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/82082_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/82082_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/82082_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Heather Grey/ Dark Charcoal",
+        "sku": "richardson-115-68092",
+        "swatchHex": "#b3b6b9",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/68092_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/68092_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/68092_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Heather Navy/ Light Grey",
+        "sku": "richardson-115-71190",
+        "swatchHex": "#3a4f66",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/71190_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/71190_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/71190_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Heather Red/ Light Grey",
+        "sku": "richardson-115-71191",
+        "swatchHex": "#c0535f",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/71191_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/71191_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/71191_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Heather Royal/ Light Grey",
+        "sku": "richardson-115-71192",
+        "swatchHex": "#4a6db0",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/71192_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/71192_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/71192_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Hot Pink/ Black",
+        "sku": "richardson-115-68084",
+        "swatchHex": "#e84d8a",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/68084_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/68084_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/68084_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Lilac/ Birch",
+        "sku": "richardson-115-71195",
+        "swatchHex": "#b79fd4",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/71195_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/71195_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/71195_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Loden",
+        "sku": "richardson-115-68085",
+        "swatchHex": "#4e5b3a",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/68085_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/68085_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/68085_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Loden Green/ Black",
+        "sku": "richardson-115-106443",
+        "swatchHex": "#4e5b3a",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/106443_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/106443_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/106443_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Navy",
+        "sku": "richardson-115-112306",
+        "swatchHex": "#1b3a5c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112306_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112306_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112306_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Navy/ Khaki",
+        "sku": "richardson-115-106444",
+        "swatchHex": "#1b3a5c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/106444_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/106444_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/106444_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Navy/ White",
+        "sku": "richardson-115-71198",
+        "swatchHex": "#1b3a5c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/71198_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/71198_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/71198_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Pale Banana/ Birch",
+        "sku": "richardson-115-71201",
+        "swatchHex": "#eee0a0",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/71201_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/71201_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/71201_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Patina Green/ Birch",
+        "sku": "richardson-115-71196",
+        "swatchHex": "#6b9a7d",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/71196_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/71196_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/71196_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Red/ White",
+        "sku": "richardson-115-71203",
+        "swatchHex": "#cc2936",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/71203_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/71203_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/71203_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Royal/ White",
+        "sku": "richardson-115-71204",
+        "swatchHex": "#2659a8",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/71204_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/71204_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/71204_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Smoke Blue/ Aluminum",
+        "sku": "richardson-115-68093",
+        "swatchHex": "#6d8fa7",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/68093_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/68093_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/68093_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Spruce/ Birch/ Light Navy",
+        "sku": "richardson-115-82084",
+        "swatchHex": "#2c4a3a",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/82084_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/82084_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/82084_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Sunkissed Peach/ Birch",
+        "sku": "richardson-115-71200",
+        "swatchHex": "#f2c39a",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/71200_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/71200_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/71200_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Tan/ Loden/ Brown",
+        "sku": "richardson-115-82085",
+        "swatchHex": "#c9a96e",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/82085_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/82085_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/82085_b_fl.jpg"
+        }
+      },
+      {
+        "name": "White/ Blue Hawaiin/ Pale Orange",
+        "sku": "richardson-115-82079",
+        "swatchHex": "#ffffff",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/82079_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/82079_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/82079_b_fl.jpg"
+        }
+      }
+    ]
   },
   {
-    "id": "richardson-511",
+    "id": "richardson-168",
+    "handle": "richardson-168",
+    "title": "Richardson 168 — Seven-Panel Trucker Cap",
     "brand": "Richardson",
-    "model": "511 Flat Bill Snapback",
-    "description": "Structured flat bill snapback. Wool blend fabric with green undervisor. Classic 6-panel design.",
-    "colors": ["Black", "Navy", "Red", "Royal", "Dark Green", "Charcoal"],
-    "basePrice": 14.99,
-    "image": "placeholder",
+    "model": "168 — Seven-Panel Trucker Cap",
+    "description": "Seven-panel trucker cap with mesh back and snapback closure.",
+    "type": "Hat",
+    "tags": [
+      "Richardson",
+      "168",
+      "Trucker",
+      "Seven Panel",
+      "Mesh Back",
+      "Snapback"
+    ],
+    "price": 16,
+    "category": "trucker",
+    "profile": "mid",
+    "closure": "snapback",
+    "featured": true,
+    "bestSeller": false,
+    "defaultImage": "https://cdn.ssactivewear.com/Images/Color/112321_f_fl.jpg",
+    "lifestyleImages": [
+      "https://cdn.ssactivewear.com/Images/Style/2130_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/12238_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/16910_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/16238_fl.jpg"
+    ],
+    "colors": [
+      {
+        "name": "White",
+        "sku": "richardson-168-112321",
+        "swatchHex": "#ffffff",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112321_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112321_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112321_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Black",
+        "sku": "richardson-168-33618",
+        "swatchHex": "#1c1c1c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/33618_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/33618_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/33618_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Black/ Camo/ Loden",
+        "sku": "richardson-168-82461",
+        "swatchHex": "#1c1c1c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/82461_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/82461_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/82461_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Brown/ Khaki",
+        "sku": "richardson-168-33621",
+        "swatchHex": "#6b3e26",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/33621_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/33621_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/33621_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Caramel",
+        "sku": "richardson-168-112317",
+        "swatchHex": "#a9743b",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112317_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112317_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112317_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Charcoal",
+        "sku": "richardson-168-112316",
+        "swatchHex": "#444a4f",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112316_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112316_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112316_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Charcoal/ Black",
+        "sku": "richardson-168-79816",
+        "swatchHex": "#444a4f",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/79816_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/79816_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/79816_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Charcoal/ Black/ White",
+        "sku": "richardson-168-79817",
+        "swatchHex": "#444a4f",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/79817_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/79817_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/79817_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Charcoal/ Burnt Orange/ Black",
+        "sku": "richardson-168-91518",
+        "swatchHex": "#444a4f",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/91518_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/91518_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/91518_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Charcoal/ Old Gold",
+        "sku": "richardson-168-82463",
+        "swatchHex": "#444a4f",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/82463_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/82463_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/82463_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Dark Green/ Black",
+        "sku": "richardson-168-79818",
+        "swatchHex": "#1a5c2e",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/79818_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/79818_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/79818_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Heather Grey/ Black",
+        "sku": "richardson-168-33620",
+        "swatchHex": "#b3b6b9",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/33620_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/33620_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/33620_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Loden Green",
+        "sku": "richardson-168-112319",
+        "swatchHex": "#4e5b3a",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112319_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112319_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112319_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Navy",
+        "sku": "richardson-168-112320",
+        "swatchHex": "#1b3a5c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112320_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112320_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112320_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Pale Khaki/ Loden Green",
+        "sku": "richardson-168-82466",
+        "swatchHex": "#cabd9c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/82466_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/82466_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/82466_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Quarry Grey",
+        "sku": "richardson-168-140408",
+        "swatchHex": "#8b8d8c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/140408_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/140408_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/140408_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Red/ Black",
+        "sku": "richardson-168-79843",
+        "swatchHex": "#cc2936",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/79843_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/79843_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/79843_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Royal/ Black",
+        "sku": "richardson-168-33619",
+        "swatchHex": "#2659a8",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/33619_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/33619_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/33619_b_fl.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "id": "richardson-112pfp",
+    "handle": "richardson-112pfp",
+    "title": "Richardson 112PFP — Printed Five-Panel Trucker Cap",
+    "brand": "Richardson",
+    "model": "112PFP — Printed Five-Panel Trucker Cap",
+    "description": "Five-panel trucker cap with printed front panels and mesh back. Snapback closure.",
+    "type": "Hat",
+    "tags": [
+      "Richardson",
+      "112PFP",
+      "Trucker",
+      "Camo",
+      "Mesh Back",
+      "Snapback",
+      "Printed"
+    ],
+    "price": 16,
+    "category": "trucker",
+    "profile": "mid",
+    "closure": "snapback",
+    "featured": true,
+    "bestSeller": false,
+    "defaultImage": "https://cdn.ssactivewear.com/Images/Color/112223_f_fl.jpg",
+    "lifestyleImages": [
+      "https://cdn.ssactivewear.com/Images/Style/12234_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/11218_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/10659_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/16907_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/16236_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/11793_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/7614_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/5768_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/8344_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/12235_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/5905_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/4332_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/16908_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/12236_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/9254_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/16308_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/1582_fl.jpg"
+    ],
+    "colors": [
+      {
+        "name": "Admiral Duck Camo/ Black",
+        "sku": "richardson-112pfp-112223",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112223_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112223_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112223_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Bark Duck Camo/ Brown",
+        "sku": "richardson-112pfp-112224",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112224_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112224_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112224_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Blaze Duck Camo/ Blaze",
+        "sku": "richardson-112pfp-112246",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112246_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112246_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112246_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Blizzard Duck Camo/ White",
+        "sku": "richardson-112pfp-140588",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/140588_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/140588_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/140588_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Desert Camo/ Brown",
+        "sku": "richardson-112pfp-112225",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112225_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112225_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112225_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Digital Camo/ Light Green",
+        "sku": "richardson-112pfp-112226",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112226_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112226_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112226_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Green Camo/ Black",
+        "sku": "richardson-112pfp-112247",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112247_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112247_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112247_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Green Camo/ White",
+        "sku": "richardson-112pfp-112248",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112248_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112248_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112248_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Kryptek Highlander/ Buck",
+        "sku": "richardson-112pfp-112249",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112249_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112249_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112249_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Kryptek Inferno/ Black",
+        "sku": "richardson-112pfp-112250",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112250_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112250_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112250_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Kryptek Inferno/ Blaze Orange",
+        "sku": "richardson-112pfp-112251",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112251_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112251_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112251_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Kryptek Neptune/ Black",
+        "sku": "richardson-112pfp-112252",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112252_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112252_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112252_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Kryptek Neptune/ White",
+        "sku": "richardson-112pfp-112253",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112253_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112253_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112253_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Kryptek Pontus/ White",
+        "sku": "richardson-112pfp-112254",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112254_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112254_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112254_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Kryptek Typhon/ Black",
+        "sku": "richardson-112pfp-112258",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112258_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112258_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112258_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Kryptek Typhon/ Neon Orange",
+        "sku": "richardson-112pfp-112255",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112255_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112255_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112255_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Kryptek Typhon/ Neon Pink",
+        "sku": "richardson-112pfp-112256",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112256_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112256_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112256_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Kryptek Typhon/ Neon Yellow",
+        "sku": "richardson-112pfp-112257",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112257_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112257_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112257_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Marsh Duck Camo/ Loden",
+        "sku": "richardson-112pfp-112227",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112227_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112227_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112227_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Mossy Oak Bottomland/ Loden",
+        "sku": "richardson-112pfp-112228",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112228_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112228_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112228_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Mossy Oak Country DNA/ Black",
+        "sku": "richardson-112pfp-112229",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112229_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112229_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112229_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Mossy Oak Elements Blacktip/ Charcoal",
+        "sku": "richardson-112pfp-112230",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112230_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112230_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112230_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Mossy Oak Elements Bonefish/ Light Grey",
+        "sku": "richardson-112pfp-112231",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112231_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112231_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112231_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Mossy Oak Habitat/ Brown",
+        "sku": "richardson-112pfp-112232",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112232_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112232_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112232_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Realtree Edge/ Brown",
+        "sku": "richardson-112pfp-112233",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112233_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112233_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112233_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Realtree Edge/ Neon Orange",
+        "sku": "richardson-112pfp-112234",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112234_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112234_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112234_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Realtree Edge/ Neon Pink",
+        "sku": "richardson-112pfp-112235",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112235_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112235_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112235_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Realtree Edge/ Neon Yellow",
+        "sku": "richardson-112pfp-112236",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112236_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112236_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112236_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Realtree Escape/ Black",
+        "sku": "richardson-112pfp-112237",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112237_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112237_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112237_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Realtree Fishing Light Blue/ Navy",
+        "sku": "richardson-112pfp-112238",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112238_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112238_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112238_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Realtree Fishing Light Blue/ White",
+        "sku": "richardson-112pfp-112239",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112239_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112239_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112239_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Realtree Max-1/ Brown",
+        "sku": "richardson-112pfp-112240",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112240_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112240_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112240_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Realtree Max-7/ Buck",
+        "sku": "richardson-112pfp-112241",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112241_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112241_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112241_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Realtree Original/ Black",
+        "sku": "richardson-112pfp-112242",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112242_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112242_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112242_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Realtree Timber/ Black",
+        "sku": "richardson-112pfp-112243",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112243_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112243_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112243_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Sable Duck Camo/ Black",
+        "sku": "richardson-112pfp-112244",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112244_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112244_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112244_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Saltwater Duck Camo/ Charcoal",
+        "sku": "richardson-112pfp-112245",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112245_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112245_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112245_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Sienna Duck Camo/ Loden Green",
+        "sku": "richardson-112pfp-140590",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/140590_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/140590_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/140590_b_fl.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "id": "richardson-256",
+    "handle": "richardson-256",
+    "title": "Richardson 256 — Umpqua Snapback Cap",
+    "brand": "Richardson",
+    "model": "256 — Umpqua Snapback Cap",
+    "description": "Umpqua snapback cap with structured front and adjustable closure.",
+    "type": "Hat",
+    "tags": [
+      "Richardson",
+      "256",
+      "Snapback",
+      "Umpqua"
+    ],
+    "price": 16,
     "category": "snapback",
     "profile": "mid",
     "closure": "snapback",
-    "featured": false
-  },
-  {
-    "id": "richardson-220",
-    "brand": "Richardson",
-    "model": "220 California Wool Snapback",
-    "description": "Premium wool blend snapback with a flat visor. Structured high-profile crown with classic green undervisor.",
-    "colors": ["Black", "Navy", "Charcoal", "Heather Grey"],
-    "basePrice": 16.99,
-    "image": "placeholder",
-    "category": "snapback",
-    "profile": "high",
-    "closure": "snapback",
-    "featured": false
-  },
-  {
-    "id": "yupoong-6089",
-    "brand": "Yupoong",
-    "model": "6089 Classic Snapback",
-    "description": "The original flat bill snapback. Structured 6-panel with green undervisor. Premium wool blend.",
-    "colors": ["Black", "Navy", "Red", "Royal", "Dark Green", "Heather Grey", "Natural"],
-    "basePrice": 11.99,
-    "image": "placeholder",
-    "category": "snapback",
-    "profile": "high",
-    "closure": "snapback",
     "featured": true,
-    "bestSeller": true
+    "bestSeller": false,
+    "defaultImage": "https://cdn.ssactivewear.com/Images/Color/140494_f_fl.jpg",
+    "lifestyleImages": [
+      "https://cdn.ssactivewear.com/Images/Style/8151_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/12245_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/10656_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/11954_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/15496_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/12169_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/9186_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/12237_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/12235_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/10657_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/12178_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/11953_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/15616_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/15655_fl.jpg"
+    ],
+    "colors": [
+      {
+        "name": "Black/ White",
+        "sku": "richardson-256-140494",
+        "swatchHex": "#1c1c1c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/140494_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/140494_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/140494_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Birch/ Black",
+        "sku": "richardson-256-106425",
+        "swatchHex": "#ddcfb4",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/106425_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/106425_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/106425_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Biscuit/ Black",
+        "sku": "richardson-256-82319",
+        "swatchHex": "#d8c6a3",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/82319_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/82319_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/82319_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Black/ Black",
+        "sku": "richardson-256-82309",
+        "swatchHex": "#1c1c1c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/82309_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/82309_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/82309_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Cardinal/ White",
+        "sku": "richardson-256-106427",
+        "swatchHex": "#9b2335",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/106427_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/106427_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/106427_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Charcoal/ White",
+        "sku": "richardson-256-82310",
+        "swatchHex": "#444a4f",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/82310_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/82310_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/82310_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Dark Mocha/ Khaki",
+        "sku": "richardson-256-140495",
+        "swatchHex": "#4b3528",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/140495_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/140495_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/140495_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Dark Orange/ Black",
+        "sku": "richardson-256-106428",
+        "swatchHex": "#cc5a1c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/106428_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/106428_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/106428_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Dusty Blue/ White",
+        "sku": "richardson-256-140496",
+        "swatchHex": "#7d99b3",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/140496_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/140496_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/140496_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Dusty Red/ White",
+        "sku": "richardson-256-140497",
+        "swatchHex": "#a85460",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/140497_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/140497_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/140497_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Loden/ Amber Gold",
+        "sku": "richardson-256-82320",
+        "swatchHex": "#4e5b3a",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/82320_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/82320_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/82320_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Midnight Navy/ White",
+        "sku": "richardson-256-140498",
+        "swatchHex": "#16263a",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/140498_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/140498_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/140498_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Navy/ Red",
+        "sku": "richardson-256-82311",
+        "swatchHex": "#1b3a5c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/82311_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/82311_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/82311_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Navy/ White",
+        "sku": "richardson-256-106429",
+        "swatchHex": "#1b3a5c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/106429_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/106429_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/106429_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Pale Peach/ Maroon",
+        "sku": "richardson-256-106430",
+        "swatchHex": "#f4cdb0",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/106430_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/106430_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/106430_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Red/ White",
+        "sku": "richardson-256-82312",
+        "swatchHex": "#cc2936",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/82312_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/82312_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/82312_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Sage/ White",
+        "sku": "richardson-256-140499",
+        "swatchHex": "#9caa85",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/140499_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/140499_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/140499_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Sand Dune/ Loden Green",
+        "sku": "richardson-256-140500",
+        "swatchHex": "#cbb994",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/140500_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/140500_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/140500_b_fl.jpg"
+        }
+      },
+      {
+        "name": "White/ Black",
+        "sku": "richardson-256-82313",
+        "swatchHex": "#ffffff",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/82313_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/82313_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/82313_b_fl.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "id": "richardson-112fpr",
+    "handle": "richardson-112fpr",
+    "title": "Richardson 112FPR — Five-Panel Trucker with Rope Cap",
+    "brand": "Richardson",
+    "model": "112FPR — Five-Panel Trucker with Rope Cap",
+    "description": "Five-panel trucker cap with rope detail across the brim and mesh back. Snapback closure.",
+    "type": "Hat",
+    "tags": [
+      "Richardson",
+      "112FPR",
+      "Trucker",
+      "Mesh Back",
+      "Snapback",
+      "Rope"
+    ],
+    "price": 16,
+    "category": "trucker",
+    "profile": "mid",
+    "closure": "snapback",
+    "featured": false,
+    "bestSeller": false,
+    "defaultImage": "https://cdn.ssactivewear.com/Images/Color/112267_f_fl.jpg",
+    "lifestyleImages": [
+      "https://cdn.ssactivewear.com/Images/Style/12235_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/12245_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/10656_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/11954_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/15496_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/12169_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/8151_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/9186_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/12237_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/10657_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/12178_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/11953_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/15616_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/8344_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/5905_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/12234_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/7614_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/4332_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/16908_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/16907_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/12236_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/9254_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/16308_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/1582_fl.jpg"
+    ],
+    "colors": [
+      {
+        "name": "White/ Black",
+        "sku": "richardson-112fpr-112267",
+        "swatchHex": "#ffffff",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112267_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112267_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112267_b_fl.jpg"
+        }
+      },
+      {
+        "name": "White/ Navy",
+        "sku": "richardson-112fpr-112268",
+        "swatchHex": "#ffffff",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112268_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112268_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112268_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Black/ Charcoal",
+        "sku": "richardson-112fpr-112259",
+        "swatchHex": "#1c1c1c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112259_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112259_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112259_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Black/ White",
+        "sku": "richardson-112fpr-112260",
+        "swatchHex": "#1c1c1c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112260_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112260_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112260_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Brown/ Khaki/ Khaki",
+        "sku": "richardson-112fpr-140584",
+        "swatchHex": "#6b3e26",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/140584_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/140584_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/140584_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Caramel/ Black",
+        "sku": "richardson-112fpr-112261",
+        "swatchHex": "#a9743b",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112261_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112261_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112261_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Columbia Blue/ Navy",
+        "sku": "richardson-112fpr-140585",
+        "swatchHex": "#9bbfd4",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/140585_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/140585_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/140585_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Heather Grey/ Black",
+        "sku": "richardson-112fpr-112263",
+        "swatchHex": "#b3b6b9",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112263_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112263_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112263_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Heather Grey/ White",
+        "sku": "richardson-112fpr-112264",
+        "swatchHex": "#b3b6b9",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112264_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112264_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112264_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Kelly/ White",
+        "sku": "richardson-112fpr-140586",
+        "swatchHex": "#2f9e44",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/140586_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/140586_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/140586_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Loden Green/ Black",
+        "sku": "richardson-112fpr-112269",
+        "swatchHex": "#4e5b3a",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112269_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112269_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112269_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Navy/ Dark Orange/ Dark Orange",
+        "sku": "richardson-112fpr-140587",
+        "swatchHex": "#1b3a5c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/140587_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/140587_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/140587_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Navy/ White",
+        "sku": "richardson-112fpr-112266",
+        "swatchHex": "#1b3a5c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/112266_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/112266_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/112266_b_fl.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "id": "richardson-168p",
+    "handle": "richardson-168p",
+    "title": "Richardson 168P — Printed Seven-Panel Trucker Cap",
+    "brand": "Richardson",
+    "model": "168P — Printed Seven-Panel Trucker Cap",
+    "description": "Printed seven-panel trucker cap with mesh back and snapback closure.",
+    "type": "Hat",
+    "tags": [
+      "Richardson",
+      "168P",
+      "Trucker",
+      "Seven Panel",
+      "Camo",
+      "Mesh Back",
+      "Snapback",
+      "Printed"
+    ],
+    "price": 16,
+    "category": "trucker",
+    "profile": "mid",
+    "closure": "snapback",
+    "featured": false,
+    "bestSeller": false,
+    "defaultImage": "https://cdn.ssactivewear.com/Images/Color/140600_f_fl.jpg",
+    "lifestyleImages": [
+      "https://cdn.ssactivewear.com/Images/Style/16910_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/2130_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/12238_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/16238_fl.jpg"
+    ],
+    "colors": [
+      {
+        "name": "Bark Duck Camo/ Brown",
+        "sku": "richardson-168p-140600",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/140600_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/140600_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/140600_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Harvest Duck Camo/ Sandstone",
+        "sku": "richardson-168p-140601",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/140601_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/140601_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/140601_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Marsh Duck Camo/ Loden Green",
+        "sku": "richardson-168p-140602",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/140602_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/140602_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/140602_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Mossy Oak Bottomland/ Loden Green",
+        "sku": "richardson-168p-140603",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/140603_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/140603_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/140603_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Realtree Advantage/ Khaki",
+        "sku": "richardson-168p-140604",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/140604_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/140604_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/140604_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Saltwater Duck Camo/ Ice Grey",
+        "sku": "richardson-168p-140605",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/140605_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/140605_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/140605_b_fl.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "id": "yupoong-6006",
+    "handle": "yupoong-6006",
+    "title": "YP Classics (Yupoong) 6006 — Classic Five-Panel Trucker Cap",
+    "brand": "Yupoong",
+    "model": "YP Classics (Yupoong) 6006 — Classic Five-Panel Trucker Cap",
+    "description": "Classic five-panel trucker cap with foam front, mesh back, and snapback closure.",
+    "type": "Hat",
+    "tags": [
+      "Yupoong",
+      "YP Classics",
+      "6006",
+      "Trucker",
+      "Mesh Back",
+      "Snapback"
+    ],
+    "price": 16,
+    "category": "trucker",
+    "profile": "mid",
+    "closure": "snapback",
+    "featured": false,
+    "bestSeller": false,
+    "defaultImage": "https://cdn.ssactivewear.com/Images/Color/35929_f_fl.jpg",
+    "lifestyleImages": [
+      "https://cdn.ssactivewear.com/Images/Style/2523_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/2522_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/3782_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/5766_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/9252_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/8160_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/5768_fl.jpg"
+    ],
+    "colors": [
+      {
+        "name": "White",
+        "sku": "yupoong-6006-35929",
+        "swatchHex": "#ffffff",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/35929_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/35929_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/35929_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Black",
+        "sku": "yupoong-6006-35926",
+        "swatchHex": "#1c1c1c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/35926_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/35926_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/35926_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Black/ White",
+        "sku": "yupoong-6006-35931",
+        "swatchHex": "#1c1c1c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/35931_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/35931_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/35931_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Black/ White/ Black",
+        "sku": "yupoong-6006-35930",
+        "swatchHex": "#1c1c1c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/35930_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/35930_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/35930_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Brown/ White",
+        "sku": "yupoong-6006-66965",
+        "swatchHex": "#6b3e26",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/66965_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/66965_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/66965_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Brown/ White/ Brown",
+        "sku": "yupoong-6006-70975",
+        "swatchHex": "#6b3e26",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/70975_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/70975_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/70975_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Carolina Blue/ White/ Caroline Blue",
+        "sku": "yupoong-6006-70976",
+        "swatchHex": "#7fa9d4",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/70976_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/70976_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/70976_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Charcoal",
+        "sku": "yupoong-6006-35927",
+        "swatchHex": "#444a4f",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/35927_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/35927_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/35927_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Charcoal/ Black",
+        "sku": "yupoong-6006-77757",
+        "swatchHex": "#444a4f",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/77757_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/77757_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/77757_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Charcoal/ White",
+        "sku": "yupoong-6006-70973",
+        "swatchHex": "#444a4f",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/70973_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/70973_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/70973_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Green Camo/ Black",
+        "sku": "yupoong-6006-77806",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/77806_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/77806_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/77806_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Heather/ Black",
+        "sku": "yupoong-6006-77759",
+        "swatchHex": "#b9bcc0",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/77759_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/77759_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/77759_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Heather/ White",
+        "sku": "yupoong-6006-77758",
+        "swatchHex": "#b9bcc0",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/77758_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/77758_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/77758_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Kelly/ White/ Kelly",
+        "sku": "yupoong-6006-35935",
+        "swatchHex": "#2f9e44",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/35935_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/35935_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/35935_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Multicam Alpine/ White",
+        "sku": "yupoong-6006-82460",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/82460_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/82460_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/82460_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Multicam Arid/ Brown",
+        "sku": "yupoong-6006-82458",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/82458_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/82458_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/82458_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Multicam Arid/ Tan",
+        "sku": "yupoong-6006-82459",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/82459_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/82459_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/82459_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Multicam Black/ Black",
+        "sku": "yupoong-6006-77767",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/77767_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/77767_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/77767_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Multicam Green/ Black",
+        "sku": "yupoong-6006-77768",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/77768_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/77768_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/77768_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Multicam Tropic/ Green",
+        "sku": "yupoong-6006-82465",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/82465_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/82465_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/82465_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Navy",
+        "sku": "yupoong-6006-35928",
+        "swatchHex": "#1b3a5c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/35928_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/35928_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/35928_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Navy/ White",
+        "sku": "yupoong-6006-35933",
+        "swatchHex": "#1b3a5c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/35933_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/35933_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/35933_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Navy/ White/ Navy",
+        "sku": "yupoong-6006-35932",
+        "swatchHex": "#1b3a5c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/35932_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/35932_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/35932_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Pink",
+        "sku": "yupoong-6006-70951",
+        "swatchHex": "#e58fb0",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/70951_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/70951_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/70951_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Pink/ White/ Pink",
+        "sku": "yupoong-6006-70978",
+        "swatchHex": "#e58fb0",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/70978_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/70978_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/70978_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Red",
+        "sku": "yupoong-6006-68094",
+        "swatchHex": "#cc2936",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/68094_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/68094_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/68094_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Red/ Black",
+        "sku": "yupoong-6006-68095",
+        "swatchHex": "#cc2936",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/68095_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/68095_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/68095_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Red/ White/ Red",
+        "sku": "yupoong-6006-35934",
+        "swatchHex": "#cc2936",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/35934_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/35934_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/35934_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Royal/ White",
+        "sku": "yupoong-6006-64032",
+        "swatchHex": "#2659a8",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/64032_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/64032_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/64032_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Royal/ White/ Royal",
+        "sku": "yupoong-6006-35936",
+        "swatchHex": "#2659a8",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/35936_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/35936_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/35936_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Silver/ Black",
+        "sku": "yupoong-6006-64033",
+        "swatchHex": "#c7c9cb",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/64033_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/64033_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/64033_b_fl.jpg"
+        }
+      }
+    ]
   },
   {
     "id": "yupoong-6606",
+    "handle": "yupoong-6606",
+    "title": "YP Classics (Yupoong) 6606 — Retro Trucker Cap",
     "brand": "Yupoong",
-    "model": "6606 Retro Trucker",
-    "description": "Classic structured trucker with mesh back panels. Pre-curved visor with adjustable snapback closure.",
-    "colors": ["Black", "Navy", "White", "Red", "Royal", "Natural/Black"],
-    "basePrice": 10.99,
-    "image": "placeholder",
+    "model": "YP Classics (Yupoong) 6606 — Retro Trucker Cap",
+    "description": "Retro trucker cap with foam front, mesh back, and snapback closure.",
+    "type": "Hat",
+    "tags": [
+      "Yupoong",
+      "YP Classics",
+      "6606",
+      "Trucker",
+      "Retro",
+      "Mesh Back",
+      "Snapback"
+    ],
+    "price": 16,
     "category": "trucker",
     "profile": "mid",
     "closure": "snapback",
-    "featured": false
+    "featured": false,
+    "bestSeller": true,
+    "defaultImage": "https://cdn.ssactivewear.com/Images/Color/45007_f_fl.jpg",
+    "lifestyleImages": [
+      "https://cdn.ssactivewear.com/Images/Style/3783_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/1662_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/11230_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/11956_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/482_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/16237_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/4332_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/6423_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/5905_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/16308_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/458_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/2996_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/11271_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/11758_fl.jpg"
+    ],
+    "colors": [
+      {
+        "name": "White",
+        "sku": "yupoong-6606-45007",
+        "swatchHex": "#ffffff",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/45007_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/45007_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/45007_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Black",
+        "sku": "yupoong-6606-44999",
+        "swatchHex": "#1c1c1c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/44999_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/44999_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/44999_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Black/ White",
+        "sku": "yupoong-6606-45000",
+        "swatchHex": "#1c1c1c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/45000_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/45000_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/45000_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Black/ White/ Black",
+        "sku": "yupoong-6606-63221",
+        "swatchHex": "#1c1c1c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/63221_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/63221_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/63221_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Brown/ Khaki",
+        "sku": "yupoong-6606-45001",
+        "swatchHex": "#6b3e26",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/45001_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/45001_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/45001_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Caramel",
+        "sku": "yupoong-6606-84670",
+        "swatchHex": "#a9743b",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/84670_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/84670_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/84670_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Caramel/ Black",
+        "sku": "yupoong-6606-84674",
+        "swatchHex": "#a9743b",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/84674_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/84674_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/84674_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Charcoal",
+        "sku": "yupoong-6606-63222",
+        "swatchHex": "#444a4f",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/63222_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/63222_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/63222_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Charcoal/ Black",
+        "sku": "yupoong-6606-63223",
+        "swatchHex": "#444a4f",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/63223_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/63223_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/63223_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Charcoal/ Navy",
+        "sku": "yupoong-6606-82473",
+        "swatchHex": "#444a4f",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/82473_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/82473_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/82473_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Charcoal/ Neon Green",
+        "sku": "yupoong-6606-78932",
+        "swatchHex": "#444a4f",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/78932_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/78932_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/78932_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Charcoal/ Neon Orange",
+        "sku": "yupoong-6606-78935",
+        "swatchHex": "#444a4f",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/78935_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/78935_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/78935_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Charcoal/ White",
+        "sku": "yupoong-6606-63224",
+        "swatchHex": "#444a4f",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/63224_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/63224_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/63224_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Coyote Brown/ Black",
+        "sku": "yupoong-6606-82474",
+        "swatchHex": "#81633f",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/82474_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/82474_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/82474_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Cranberry",
+        "sku": "yupoong-6606-84668",
+        "swatchHex": "#9c2542",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/84668_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/84668_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/84668_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Dark Heather Grey",
+        "sku": "yupoong-6606-97236",
+        "swatchHex": "#6b6f73",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/97236_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/97236_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/97236_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Evergreen",
+        "sku": "yupoong-6606-84669",
+        "swatchHex": "#214a36",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/84669_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/84669_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/84669_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Evergreen/ White",
+        "sku": "yupoong-6606-84672",
+        "swatchHex": "#214a36",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/84672_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/84672_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/84672_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Green Camo/ Black",
+        "sku": "yupoong-6606-66781",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/66781_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/66781_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/66781_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Heather Grey/ Black",
+        "sku": "yupoong-6606-78570",
+        "swatchHex": "#b3b6b9",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/78570_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/78570_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/78570_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Heather Grey/ White",
+        "sku": "yupoong-6606-78571",
+        "swatchHex": "#b3b6b9",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/78571_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/78571_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/78571_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Khaki",
+        "sku": "yupoong-6606-45002",
+        "swatchHex": "#c3b091",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/45002_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/45002_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/45002_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Kryptek Highlander",
+        "sku": "yupoong-6606-90891",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/90891_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/90891_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/90891_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Kryptek Pontus",
+        "sku": "yupoong-6606-90892",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/90892_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/90892_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/90892_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Kryptek Raid",
+        "sku": "yupoong-6606-90893",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/90893_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/90893_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/90893_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Kryptek Typhon",
+        "sku": "yupoong-6606-90894",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/90894_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/90894_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/90894_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Kryptek Wraith",
+        "sku": "yupoong-6606-90895",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/90895_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/90895_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/90895_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Maroon/ Grey",
+        "sku": "yupoong-6606-84673",
+        "swatchHex": "#6b1c2a",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/84673_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/84673_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/84673_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Moss/ Khaki",
+        "sku": "yupoong-6606-45008",
+        "swatchHex": "#6b7d3a",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/45008_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/45008_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/45008_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Multicam Alpine/ White",
+        "sku": "yupoong-6606-82487",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/82487_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/82487_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/82487_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Multicam Arid/ Brown",
+        "sku": "yupoong-6606-82485",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/82485_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/82485_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/82485_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Multicam Arid/ Tan",
+        "sku": "yupoong-6606-82486",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/82486_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/82486_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/82486_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Multicam Black/ Black",
+        "sku": "yupoong-6606-70851",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/70851_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/70851_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/70851_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Multicam Green/ Black",
+        "sku": "yupoong-6606-70848",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/70848_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/70848_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/70848_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Multicam Green/ Khaki",
+        "sku": "yupoong-6606-85256",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/85256_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/85256_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/85256_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Multicam Tropic/ Green",
+        "sku": "yupoong-6606-82488",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/82488_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/82488_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/82488_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Navy",
+        "sku": "yupoong-6606-45003",
+        "swatchHex": "#1b3a5c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/45003_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/45003_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/45003_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Navy/ Silver",
+        "sku": "yupoong-6606-82475",
+        "swatchHex": "#1b3a5c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/82475_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/82475_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/82475_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Navy/ White",
+        "sku": "yupoong-6606-45004",
+        "swatchHex": "#1b3a5c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/45004_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/45004_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/45004_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Navy/ White/ Navy",
+        "sku": "yupoong-6606-63225",
+        "swatchHex": "#1b3a5c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/63225_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/63225_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/63225_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Pink",
+        "sku": "yupoong-6606-45005",
+        "swatchHex": "#e58fb0",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/45005_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/45005_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/45005_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Poseidon Black",
+        "sku": "yupoong-6606-95382",
+        "swatchHex": "#1e2b33",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/95382_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/95382_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/95382_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Realtree Edge/ Brown",
+        "sku": "yupoong-6606-129863",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/129863_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/129863_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/129863_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Realtree Max7/ Brown",
+        "sku": "yupoong-6606-129864",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/129864_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/129864_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/129864_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Red",
+        "sku": "yupoong-6606-45006",
+        "swatchHex": "#cc2936",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/45006_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/45006_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/45006_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Red/ Black",
+        "sku": "yupoong-6606-63226",
+        "swatchHex": "#cc2936",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/63226_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/63226_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/63226_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Red/ White",
+        "sku": "yupoong-6606-63220",
+        "swatchHex": "#cc2936",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/63220_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/63220_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/63220_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Royal/ White",
+        "sku": "yupoong-6606-63219",
+        "swatchHex": "#2659a8",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/63219_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/63219_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/63219_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Rustic Orange/ Khaki",
+        "sku": "yupoong-6606-45009",
+        "swatchHex": "#bf5a2a",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/45009_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/45009_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/45009_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Silver",
+        "sku": "yupoong-6606-84671",
+        "swatchHex": "#c7c9cb",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/84671_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/84671_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/84671_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Steel Blue/ Silver",
+        "sku": "yupoong-6606-84675",
+        "swatchHex": "#5b7a96",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/84675_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/84675_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/84675_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Turquoise/ White",
+        "sku": "yupoong-6606-82467",
+        "swatchHex": "#3bb6a8",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/82467_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/82467_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/82467_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Veil Wideland",
+        "sku": "yupoong-6606-95384",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/95384_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/95384_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/95384_b_fl.jpg"
+        }
+      }
+    ]
   },
   {
-    "id": "yupoong-6245",
+    "id": "yupoong-5389ap",
+    "handle": "yupoong-5389ap",
+    "title": "YP Classics (Yupoong) 5389AP — Five-Panel Snapback with Perforated Cap",
     "brand": "Yupoong",
-    "model": "6245CM Dad Hat",
-    "description": "Unstructured low-profile garment-washed cap. Pre-curved visor with brass buckle closure. Ultra-soft cotton.",
-    "colors": ["Black", "Navy", "Stone", "Khaki", "White", "Light Pink", "Maroon"],
-    "basePrice": 9.99,
-    "image": "placeholder",
-    "category": "dad-hat",
-    "profile": "low",
-    "closure": "buckle",
-    "featured": true
-  },
-  {
-    "id": "pacific-104c",
-    "brand": "Pacific Headwear",
-    "model": "104C Trucker Snapback",
-    "description": "Performance trucker with moisture-wicking sweatband. Structured mid-profile with universal fit.",
-    "colors": ["Black/Black", "Navy/White", "Graphite/White", "Red/White", "Royal/White"],
-    "basePrice": 12.49,
-    "image": "placeholder",
-    "category": "trucker",
-    "profile": "mid",
-    "closure": "snapback",
-    "featured": false
-  },
-  {
-    "id": "pacific-404m",
-    "brand": "Pacific Headwear",
-    "model": "404M Trucker",
-    "description": "Retro-inspired trucker with a classic mesh back. Structured front panels with snapback closure.",
-    "colors": ["Black/Black", "Navy/Navy", "White/Navy", "Charcoal/Black"],
-    "basePrice": 11.49,
-    "image": "placeholder",
-    "category": "trucker",
-    "profile": "mid",
-    "closure": "snapback",
-    "featured": false
-  },
-  {
-    "id": "flexfit-6277",
-    "brand": "Flexfit",
-    "model": "6277 Wooly Combed",
-    "description": "The original stretch-fit cap. Structured mid-profile with permanent curve visor. Spandex-infused sweatband.",
-    "colors": ["Black", "Navy", "Dark Grey", "Royal", "Red", "White"],
-    "basePrice": 13.99,
-    "image": "placeholder",
-    "category": "fitted",
-    "profile": "mid",
-    "closure": "fitted",
-    "featured": true
-  },
-  {
-    "id": "flexfit-110",
-    "brand": "Flexfit",
-    "model": "110 Snapback",
-    "description": "Flexfit tech combined with adjustable snapback. Structured mid-profile with a flat visor that can be curved.",
-    "colors": ["Black", "Navy", "Dark Grey", "Royal"],
-    "basePrice": 14.99,
-    "image": "placeholder",
+    "model": "YP Classics (Yupoong) 5389AP — Five-Panel Snapback with Perforated Cap",
+    "description": "Five-panel snapback cap with perforated side panels and adjustable closure.",
+    "type": "Hat",
+    "tags": [
+      "Yupoong",
+      "YP Classics",
+      "5389AP",
+      "Snapback",
+      "Perforated",
+      "Five Panel"
+    ],
+    "price": 16,
     "category": "snapback",
     "profile": "mid",
     "closure": "snapback",
-    "featured": false
+    "featured": false,
+    "bestSeller": false,
+    "defaultImage": "https://cdn.ssactivewear.com/Images/Color/129844_f_fl.jpg",
+    "lifestyleImages": [
+      "https://cdn.ssactivewear.com/Images/Style/15611_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/12193_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/14928_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/16886_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/13783_fl.jpg"
+    ],
+    "colors": [
+      {
+        "name": "White",
+        "sku": "yupoong-5389ap-129844",
+        "swatchHex": "#ffffff",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/129844_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/129844_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/129844_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Black",
+        "sku": "yupoong-5389ap-129841",
+        "swatchHex": "#1c1c1c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/129841_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/129841_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/129841_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Heather Grey",
+        "sku": "yupoong-5389ap-129842",
+        "swatchHex": "#b3b6b9",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/129842_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/129842_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/129842_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Navy",
+        "sku": "yupoong-5389ap-129843",
+        "swatchHex": "#1b3a5c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/129843_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/129843_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/129843_b_fl.jpg"
+        }
+      }
+    ]
   },
   {
-    "id": "richardson-320",
-    "brand": "Richardson",
-    "model": "320 Washed Chino Cap",
-    "description": "Relaxed unstructured cap with garment-washed finish. Low-profile with tuck-away leather strap closure.",
-    "colors": ["Black", "Navy", "Stone", "Khaki", "White", "Smoke Blue"],
-    "basePrice": 11.99,
-    "image": "placeholder",
+    "id": "flexfit-6277",
+    "handle": "flexfit-6277",
+    "title": "Flexfit 6277 — Cotton Blend Cap",
+    "brand": "Flexfit",
+    "model": "6277 — Cotton Blend Cap",
+    "description": "Six-panel cotton-blend cap with permacurv visor and stretch-fit band.",
+    "type": "Hat",
+    "tags": [
+      "Flexfit",
+      "6277",
+      "Stretch Fit",
+      "Cotton Blend",
+      "Six Panel"
+    ],
+    "price": 16,
+    "category": "fitted",
+    "profile": "mid",
+    "closure": "fitted",
+    "featured": false,
+    "bestSeller": false,
+    "defaultImage": "https://cdn.ssactivewear.com/Images/Color/27765_f_fl.jpg",
+    "lifestyleImages": [
+      "https://cdn.ssactivewear.com/Images/Style/467_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/455_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/1330_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/9359_fl.jpg"
+    ],
+    "colors": [
+      {
+        "name": "White",
+        "sku": "flexfit-6277-27765",
+        "swatchHex": "#ffffff",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/27765_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/27765_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/27765_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Black",
+        "sku": "flexfit-6277-20234",
+        "swatchHex": "#1c1c1c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/20234_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/20234_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/20234_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Brown",
+        "sku": "flexfit-6277-20235",
+        "swatchHex": "#6b3e26",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/20235_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/20235_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/20235_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Carolina Blue",
+        "sku": "flexfit-6277-20236",
+        "swatchHex": "#7fa9d4",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/20236_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/20236_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/20236_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Coyote Brown",
+        "sku": "flexfit-6277-81970",
+        "swatchHex": "#81633f",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/81970_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/81970_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/81970_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Dark Grey",
+        "sku": "flexfit-6277-20237",
+        "swatchHex": "#3f4347",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/20237_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/20237_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/20237_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Dark Navy",
+        "sku": "flexfit-6277-20238",
+        "swatchHex": "#16293f",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/20238_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/20238_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/20238_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Grey",
+        "sku": "flexfit-6277-20241",
+        "swatchHex": "#8a8d90",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/20241_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/20241_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/20241_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Khaki",
+        "sku": "flexfit-6277-20242",
+        "swatchHex": "#c3b091",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/20242_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/20242_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/20242_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Kryptek Highlander",
+        "sku": "flexfit-6277-90089",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/90089_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/90089_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/90089_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Kryptek Typhon",
+        "sku": "flexfit-6277-90088",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/90088_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/90088_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/90088_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Kryptek Wraith",
+        "sku": "flexfit-6277-90092",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/90092_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/90092_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/90092_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Maroon",
+        "sku": "flexfit-6277-20244",
+        "swatchHex": "#6b1c2a",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/20244_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/20244_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/20244_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Multicam Alpine",
+        "sku": "flexfit-6277-83021",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/83021_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/83021_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/83021_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Multicam Arid",
+        "sku": "flexfit-6277-83022",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/83022_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/83022_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/83022_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Multicam Black",
+        "sku": "flexfit-6277-71050",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/71050_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/71050_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/71050_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Multicam Green",
+        "sku": "flexfit-6277-71049",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/71049_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/71049_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/71049_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Multicam Tropic",
+        "sku": "flexfit-6277-83023",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/83023_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/83023_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/83023_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Navy",
+        "sku": "flexfit-6277-20245",
+        "swatchHex": "#1b3a5c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/20245_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/20245_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/20245_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Olive",
+        "sku": "flexfit-6277-20246",
+        "swatchHex": "#6b6b3a",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/20246_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/20246_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/20246_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Orange",
+        "sku": "flexfit-6277-20247",
+        "swatchHex": "#e2702a",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/20247_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/20247_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/20247_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Pepper Green",
+        "sku": "flexfit-6277-71043",
+        "swatchHex": "#3f5c3a",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/71043_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/71043_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/71043_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Poseidon Black",
+        "sku": "flexfit-6277-95367",
+        "swatchHex": "#1e2b33",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/95367_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/95367_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/95367_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Purple",
+        "sku": "flexfit-6277-20248",
+        "swatchHex": "#6b3fa0",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/20248_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/20248_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/20248_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Red",
+        "sku": "flexfit-6277-20249",
+        "swatchHex": "#cc2936",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/20249_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/20249_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/20249_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Royal Blue",
+        "sku": "flexfit-6277-20250",
+        "swatchHex": "#2659a8",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/20250_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/20250_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/20250_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Silver",
+        "sku": "flexfit-6277-71044",
+        "swatchHex": "#c7c9cb",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/71044_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/71044_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/71044_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Spruce",
+        "sku": "flexfit-6277-20252",
+        "swatchHex": "#2c4a3a",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/20252_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/20252_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/20252_b_fl.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "id": "flexfit-110m",
+    "handle": "flexfit-110m",
+    "title": "Flexfit 110M — Mesh-Back Cap",
+    "brand": "Flexfit",
+    "model": "110M — Mesh-Back Cap",
+    "description": "Mesh-back cap with structured front and snapback closure.",
+    "type": "Hat",
+    "tags": [
+      "Flexfit",
+      "110M",
+      "Mesh Back",
+      "Snapback",
+      "Trucker"
+    ],
+    "price": 16,
+    "category": "trucker",
+    "profile": "mid",
+    "closure": "snapback",
+    "featured": false,
+    "bestSeller": false,
+    "defaultImage": "https://cdn.ssactivewear.com/Images/Color/82123_f_fl.jpg",
+    "lifestyleImages": [
+      "https://cdn.ssactivewear.com/Images/Style/8128_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/2170_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/13112_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/12370_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/2997_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/3750_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/2998_fl.jpg"
+    ],
+    "colors": [
+      {
+        "name": "White",
+        "sku": "flexfit-110m-82123",
+        "swatchHex": "#ffffff",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/82123_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/82123_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/82123_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Black",
+        "sku": "flexfit-110m-82114",
+        "swatchHex": "#1c1c1c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/82114_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/82114_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/82114_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Black/ White",
+        "sku": "flexfit-110m-82115",
+        "swatchHex": "#1c1c1c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/82115_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/82115_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/82115_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Brown/ Khaki",
+        "sku": "flexfit-110m-105144",
+        "swatchHex": "#6b3e26",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/105144_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/105144_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/105144_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Caramel",
+        "sku": "flexfit-110m-129854",
+        "swatchHex": "#a9743b",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/129854_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/129854_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/129854_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Caramel/ Khaki",
+        "sku": "flexfit-110m-105147",
+        "swatchHex": "#a9743b",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/105147_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/105147_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/105147_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Charcoal",
+        "sku": "flexfit-110m-82116",
+        "swatchHex": "#444a4f",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/82116_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/82116_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/82116_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Charcoal/ Black",
+        "sku": "flexfit-110m-105148",
+        "swatchHex": "#444a4f",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/105148_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/105148_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/105148_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Charcoal/ White",
+        "sku": "flexfit-110m-82117",
+        "swatchHex": "#444a4f",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/82117_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/82117_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/82117_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Coyote Brown/ Black",
+        "sku": "flexfit-110m-105145",
+        "swatchHex": "#81633f",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/105145_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/105145_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/105145_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Coyote Brown/ Khaki",
+        "sku": "flexfit-110m-105146",
+        "swatchHex": "#81633f",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/105146_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/105146_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/105146_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Dark Heather Grey",
+        "sku": "flexfit-110m-129856",
+        "swatchHex": "#6b6f73",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/129856_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/129856_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/129856_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Heather Grey/ Black",
+        "sku": "flexfit-110m-105149",
+        "swatchHex": "#b3b6b9",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/105149_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/105149_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/105149_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Heather Grey/ White",
+        "sku": "flexfit-110m-105150",
+        "swatchHex": "#b3b6b9",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/105150_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/105150_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/105150_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Khaki",
+        "sku": "flexfit-110m-129857",
+        "swatchHex": "#c3b091",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/129857_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/129857_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/129857_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Melange Charcoal/ Black",
+        "sku": "flexfit-110m-84676",
+        "swatchHex": "#55595d",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/84676_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/84676_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/84676_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Melange Silver/ White",
+        "sku": "flexfit-110m-84677",
+        "swatchHex": "#c2c4c6",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/84677_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/84677_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/84677_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Navy",
+        "sku": "flexfit-110m-82118",
+        "swatchHex": "#1b3a5c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/82118_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/82118_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/82118_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Navy/ White",
+        "sku": "flexfit-110m-82119",
+        "swatchHex": "#1b3a5c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/82119_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/82119_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/82119_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Olive/ Khaki",
+        "sku": "flexfit-110m-105151",
+        "swatchHex": "#6b6b3a",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/105151_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/105151_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/105151_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Realtree Edge/ Brown",
+        "sku": "flexfit-110m-129861",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/129861_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/129861_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/129861_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Realtree Max7/ Brown",
+        "sku": "flexfit-110m-129862",
+        "swatchHex": "#6f6048",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/129862_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/129862_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/129862_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Red",
+        "sku": "flexfit-110m-82120",
+        "swatchHex": "#cc2936",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/82120_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/82120_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/82120_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Red/ White",
+        "sku": "flexfit-110m-82121",
+        "swatchHex": "#cc2936",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/82121_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/82121_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/82121_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Royal/ White",
+        "sku": "flexfit-110m-82122",
+        "swatchHex": "#2659a8",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/82122_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/82122_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/82122_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Silver",
+        "sku": "flexfit-110m-129860",
+        "swatchHex": "#c7c9cb",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/129860_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/129860_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/129860_b_fl.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "id": "legacy-eza",
+    "handle": "legacy-eza",
+    "title": "Legacy EZA — Heritage Twill Cap",
+    "brand": "Legacy",
+    "model": "EZA — Heritage Twill Cap",
+    "description": "Heritage twill cap with relaxed unstructured fit and adjustable strap closure.",
+    "type": "Hat",
+    "tags": [
+      "Legacy",
+      "EZA",
+      "Twill",
+      "Heritage",
+      "Dad Hat",
+      "Unstructured"
+    ],
+    "price": 16,
     "category": "dad-hat",
-    "profile": "low",
-    "closure": "strapback",
-    "featured": false
+    "profile": "mid",
+    "closure": "snapback",
+    "featured": false,
+    "bestSeller": false,
+    "defaultImage": "https://cdn.ssactivewear.com/Images/Color/104497_f_fl.jpg",
+    "lifestyleImages": [
+      "https://cdn.ssactivewear.com/Images/Style/11211_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/9271_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/11513_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/13124_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/11952_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/11364_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/494_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/4338_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/5646_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/12240_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/12195_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/650_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/463_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/11951_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/10892_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/12243_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/11221_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/11219_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/11222_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/12244_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/12247_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/12242_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/12246_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/12245_fl.jpg"
+    ],
+    "colors": [
+      {
+        "name": "White",
+        "sku": "legacy-eza-104497",
+        "swatchHex": "#ffffff",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/104497_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/104497_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/104497_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Black",
+        "sku": "legacy-eza-104470",
+        "swatchHex": "#1c1c1c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/104470_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/104470_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/104470_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Burgundy",
+        "sku": "legacy-eza-104471",
+        "swatchHex": "#6b1f2e",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/104471_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/104471_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/104471_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Cardinal",
+        "sku": "legacy-eza-104472",
+        "swatchHex": "#9b2335",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/104472_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/104472_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/104472_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Dark Green",
+        "sku": "legacy-eza-104473",
+        "swatchHex": "#1a5c2e",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/104473_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/104473_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/104473_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Dark Grey",
+        "sku": "legacy-eza-104474",
+        "swatchHex": "#3f4347",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/104474_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/104474_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/104474_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Dusty Rose",
+        "sku": "legacy-eza-104475",
+        "swatchHex": "#c98a96",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/104475_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/104475_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/104475_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Grey",
+        "sku": "legacy-eza-104478",
+        "swatchHex": "#8a8d90",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/104478_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/104478_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/104478_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Khaki",
+        "sku": "legacy-eza-104479",
+        "swatchHex": "#c3b091",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/104479_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/104479_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/104479_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Lake Blue",
+        "sku": "legacy-eza-104480",
+        "swatchHex": "#3f7fae",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/104480_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/104480_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/104480_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Lemon",
+        "sku": "legacy-eza-104481",
+        "swatchHex": "#e8d44a",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/104481_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/104481_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/104481_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Maroon",
+        "sku": "legacy-eza-104483",
+        "swatchHex": "#6b1c2a",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/104483_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/104483_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/104483_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Moss Green",
+        "sku": "legacy-eza-104484",
+        "swatchHex": "#6b7d3a",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/104484_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/104484_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/104484_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Mustard",
+        "sku": "legacy-eza-104485",
+        "swatchHex": "#d4a02a",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/104485_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/104485_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/104485_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Nantucket Red",
+        "sku": "legacy-eza-104486",
+        "swatchHex": "#c4575b",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/104486_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/104486_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/104486_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Navy",
+        "sku": "legacy-eza-104487",
+        "swatchHex": "#1b3a5c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/104487_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/104487_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/104487_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Pacific Blue",
+        "sku": "legacy-eza-104488",
+        "swatchHex": "#2d7fa6",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/104488_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/104488_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/104488_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Purple",
+        "sku": "legacy-eza-104489",
+        "swatchHex": "#6b3fa0",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/104489_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/104489_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/104489_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Royal",
+        "sku": "legacy-eza-104490",
+        "swatchHex": "#2659a8",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/104490_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/104490_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/104490_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Sawgrass",
+        "sku": "legacy-eza-104491",
+        "swatchHex": "#8a9a5b",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/104491_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/104491_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/104491_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Scarlet",
+        "sku": "legacy-eza-104492",
+        "swatchHex": "#c52f33",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/104492_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/104492_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/104492_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Slate Blue",
+        "sku": "legacy-eza-104494",
+        "swatchHex": "#5f7791",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/104494_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/104494_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/104494_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Spruce Green",
+        "sku": "legacy-eza-108325",
+        "swatchHex": "#2c4a3a",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/108325_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/108325_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/108325_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Stone",
+        "sku": "legacy-eza-104496",
+        "swatchHex": "#b5a997",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/104496_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/104496_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/104496_b_fl.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "id": "legacy-cfa",
+    "handle": "legacy-cfa",
+    "title": "Legacy CFA — Cool Fit Adjustable Cap (Caddy)",
+    "brand": "Legacy",
+    "model": "CFA — Cool Fit Adjustable Cap (Caddy)",
+    "description": "Cool Fit adjustable cap (\"Caddy\") with breathable performance fabric.",
+    "type": "Hat",
+    "tags": [
+      "Legacy",
+      "CFA",
+      "Caddy",
+      "Cool Fit",
+      "Performance",
+      "Adjustable"
+    ],
+    "price": 16,
+    "category": "cap",
+    "profile": "mid",
+    "closure": "adjustable",
+    "featured": false,
+    "bestSeller": false,
+    "defaultImage": "https://cdn.ssactivewear.com/Images/Color/97383_f_fl.jpg",
+    "lifestyleImages": [
+      "https://cdn.ssactivewear.com/Images/Style/10315_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/10316_fl.jpg"
+    ],
+    "colors": [
+      {
+        "name": "White",
+        "sku": "legacy-cfa-97383",
+        "swatchHex": "#ffffff",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/97383_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/97383_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/97383_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Black",
+        "sku": "legacy-cfa-97367",
+        "swatchHex": "#1c1c1c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/97367_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/97367_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/97367_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Blue Steel",
+        "sku": "legacy-cfa-104458",
+        "swatchHex": "#5b7488",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/104458_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/104458_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/104458_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Dark Blue",
+        "sku": "legacy-cfa-104459",
+        "swatchHex": "#1f3f78",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/104459_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/104459_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/104459_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Dark Grey",
+        "sku": "legacy-cfa-97370",
+        "swatchHex": "#3f4347",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/97370_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/97370_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/97370_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Navy",
+        "sku": "legacy-cfa-97374",
+        "swatchHex": "#1b3a5c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/97374_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/97374_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/97374_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Royal",
+        "sku": "legacy-cfa-97378",
+        "swatchHex": "#2659a8",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/97378_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/97378_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/97378_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Scarlet",
+        "sku": "legacy-cfa-97379",
+        "swatchHex": "#c52f33",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/97379_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/97379_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/97379_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Shark Grey",
+        "sku": "legacy-cfa-97380",
+        "swatchHex": "#6f7479",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/97380_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/97380_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/97380_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Stone",
+        "sku": "legacy-cfa-97381",
+        "swatchHex": "#b5a997",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/97381_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/97381_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/97381_b_fl.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "id": "imperial-5054",
+    "handle": "imperial-5054",
+    "title": "Imperial 5054 — The Wrightson Cap",
+    "brand": "Imperial",
+    "model": "5054 — The Wrightson Cap",
+    "description": "The Wrightson — performance cap with structured front and adjustable closure.",
+    "type": "Hat",
+    "tags": [
+      "Imperial",
+      "5054",
+      "Wrightson",
+      "Performance",
+      "Adjustable"
+    ],
+    "price": 16,
+    "category": "cap",
+    "profile": "mid",
+    "closure": "adjustable",
+    "featured": false,
+    "bestSeller": false,
+    "defaultImage": "https://cdn.ssactivewear.com/Images/Color/97208_f_fl.jpg",
+    "lifestyleImages": [
+      "https://cdn.ssactivewear.com/Images/Style/9186_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/12245_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/10656_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/11954_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/15496_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/12169_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/8151_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/12237_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/12235_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/10657_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/12178_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/11953_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/15616_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/11606_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/12193_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/11377_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/11613_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/12162_fl.jpg"
+    ],
+    "colors": [
+      {
+        "name": "Black/ Black",
+        "sku": "imperial-5054-97208",
+        "swatchHex": "#1c1c1c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/97208_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/97208_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/97208_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Black/ White",
+        "sku": "imperial-5054-90107",
+        "swatchHex": "#1c1c1c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/90107_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/90107_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/90107_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Breaker Blue/ Navy",
+        "sku": "imperial-5054-129941",
+        "swatchHex": "#3a86b0",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/129941_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/129941_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/129941_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Buckthorn Brown/ Black",
+        "sku": "imperial-5054-129942",
+        "swatchHex": "#7a4f2a",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/129942_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/129942_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/129942_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Grey/ Black",
+        "sku": "imperial-5054-97209",
+        "swatchHex": "#8a8d90",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/97209_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/97209_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/97209_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Grey/ Black/ Black/ Grey",
+        "sku": "imperial-5054-129943",
+        "swatchHex": "#8a8d90",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/129943_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/129943_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/129943_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Navy/ Light Blue",
+        "sku": "imperial-5054-100572",
+        "swatchHex": "#1b3a5c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/100572_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/100572_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/100572_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Navy/ Navy-Red",
+        "sku": "imperial-5054-100573",
+        "swatchHex": "#1b3a5c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/100573_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/100573_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/100573_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Navy/ White",
+        "sku": "imperial-5054-90108",
+        "swatchHex": "#1b3a5c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/90108_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/90108_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/90108_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Olive Green/ Black",
+        "sku": "imperial-5054-129944",
+        "swatchHex": "#5f6b34",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/129944_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/129944_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/129944_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Powder Blue/ Navy",
+        "sku": "imperial-5054-129946",
+        "swatchHex": "#b0cde0",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/129946_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/129946_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/129946_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Putty/ Navy/ Navy",
+        "sku": "imperial-5054-129945",
+        "swatchHex": "#c7bba5",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/129945_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/129945_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/129945_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Royal/ White",
+        "sku": "imperial-5054-97211",
+        "swatchHex": "#2659a8",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/97211_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/97211_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/97211_b_fl.jpg"
+        }
+      },
+      {
+        "name": "White/ Black",
+        "sku": "imperial-5054-90111",
+        "swatchHex": "#ffffff",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/90111_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/90111_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/90111_b_fl.jpg"
+        }
+      },
+      {
+        "name": "White/ Black/ Black/ White",
+        "sku": "imperial-5054-129940",
+        "swatchHex": "#ffffff",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/129940_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/129940_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/129940_b_fl.jpg"
+        }
+      },
+      {
+        "name": "White/ Dark Green",
+        "sku": "imperial-5054-97213",
+        "swatchHex": "#ffffff",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/97213_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/97213_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/97213_b_fl.jpg"
+        }
+      },
+      {
+        "name": "White/ Green-Yellow",
+        "sku": "imperial-5054-90118",
+        "swatchHex": "#ffffff",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/90118_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/90118_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/90118_b_fl.jpg"
+        }
+      },
+      {
+        "name": "White/ Light Blue-Red",
+        "sku": "imperial-5054-90119",
+        "swatchHex": "#ffffff",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/90119_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/90119_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/90119_b_fl.jpg"
+        }
+      },
+      {
+        "name": "White/ Metallic Gold",
+        "sku": "imperial-5054-100575",
+        "swatchHex": "#ffffff",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/100575_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/100575_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/100575_b_fl.jpg"
+        }
+      },
+      {
+        "name": "White/ Navy",
+        "sku": "imperial-5054-90112",
+        "swatchHex": "#ffffff",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/90112_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/90112_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/90112_b_fl.jpg"
+        }
+      },
+      {
+        "name": "White/ Navy-Red",
+        "sku": "imperial-5054-100578",
+        "swatchHex": "#ffffff",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/100578_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/100578_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/100578_b_fl.jpg"
+        }
+      },
+      {
+        "name": "White/ Navy/ Navy/ Red/ White",
+        "sku": "imperial-5054-129939",
+        "swatchHex": "#ffffff",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/129939_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/129939_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/129939_b_fl.jpg"
+        }
+      },
+      {
+        "name": "White/ Red",
+        "sku": "imperial-5054-90113",
+        "swatchHex": "#ffffff",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/90113_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/90113_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/90113_b_fl.jpg"
+        }
+      },
+      {
+        "name": "White/ Red-Black",
+        "sku": "imperial-5054-90120",
+        "swatchHex": "#ffffff",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/90120_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/90120_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/90120_b_fl.jpg"
+        }
+      },
+      {
+        "name": "White/ Teal-Purple",
+        "sku": "imperial-5054-90121",
+        "swatchHex": "#ffffff",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/90121_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/90121_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/90121_b_fl.jpg"
+        }
+      },
+      {
+        "name": "White/ White",
+        "sku": "imperial-5054-97212",
+        "swatchHex": "#ffffff",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/97212_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/97212_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/97212_b_fl.jpg"
+        }
+      }
+    ]
+  },
+  {
+    "id": "imperial-dna014",
+    "handle": "imperial-dna014",
+    "title": "Imperial DNA014 — The Golden Hour Cap",
+    "brand": "Imperial",
+    "model": "DNA014 — The Golden Hour Cap",
+    "description": "The Golden Hour cap — relaxed unstructured fit with adjustable closure.",
+    "type": "Hat",
+    "tags": [
+      "Imperial",
+      "DNA014",
+      "Golden Hour",
+      "Unstructured",
+      "Adjustable"
+    ],
+    "price": 16,
+    "category": "cap",
+    "profile": "mid",
+    "closure": "adjustable",
+    "featured": false,
+    "bestSeller": false,
+    "defaultImage": "https://cdn.ssactivewear.com/Images/Color/129972_f_fl.jpg",
+    "lifestyleImages": [
+      "https://cdn.ssactivewear.com/Images/Style/12167_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/15628_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/15624_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/10309_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/9258_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/12136_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/15655_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/17025_fl.jpg",
+      "https://cdn.ssactivewear.com/Images/Style/12169_fl.jpg"
+    ],
+    "colors": [
+      {
+        "name": "Aqua",
+        "sku": "imperial-dna014-129972",
+        "swatchHex": "#4cc4c4",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/129972_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/129972_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/129972_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Blue/ White",
+        "sku": "imperial-dna014-111533",
+        "swatchHex": "#2e6db4",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/111533_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/111533_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/111533_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Khaki",
+        "sku": "imperial-dna014-111534",
+        "swatchHex": "#c3b091",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/111534_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/111534_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/111534_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Light Pink",
+        "sku": "imperial-dna014-129973",
+        "swatchHex": "#f4c2c2",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/129973_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/129973_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/129973_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Maroon",
+        "sku": "imperial-dna014-111535",
+        "swatchHex": "#6b1c2a",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/111535_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/111535_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/111535_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Navy",
+        "sku": "imperial-dna014-111536",
+        "swatchHex": "#1b3a5c",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/111536_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/111536_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/111536_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Olive Green",
+        "sku": "imperial-dna014-111537",
+        "swatchHex": "#5f6b34",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/111537_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/111537_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/111537_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Olive Green/ Tan",
+        "sku": "imperial-dna014-111538",
+        "swatchHex": "#5f6b34",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/111538_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/111538_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/111538_b_fl.jpg"
+        }
+      },
+      {
+        "name": "Red/ Tan",
+        "sku": "imperial-dna014-111539",
+        "swatchHex": "#cc2936",
+        "images": {
+          "front": "https://cdn.ssactivewear.com/Images/Color/111539_f_fl.jpg",
+          "detail": "https://cdn.ssactivewear.com/Images/Color/111539_d_fl.jpg",
+          "back": "https://cdn.ssactivewear.com/Images/Color/111539_b_fl.jpg"
+        }
+      }
+    ]
   }
 ]

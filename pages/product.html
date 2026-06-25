@@ -36,13 +36,15 @@
       overflow: hidden;
     }
     .product-gallery__main svg { width: 70%; height: 70%; opacity: 0.3; }
-    .product-gallery__thumbs { display: flex; gap: var(--space-sm); }
+    .product-gallery__main img { width: 100%; height: 100%; object-fit: contain; }
+    .product-gallery__thumbs { display: flex; gap: var(--space-sm); flex-wrap: wrap; }
     .product-gallery__thumb {
       width: 72px; height: 72px; background: var(--color-off-white);
       border-radius: var(--border-radius); border: 2px solid transparent;
       cursor: pointer; display: flex; align-items: center; justify-content: center;
-      transition: border-color var(--transition-fast);
+      transition: border-color var(--transition-fast); overflow: hidden; padding: 0;
     }
+    .product-gallery__thumb img { width: 100%; height: 100%; object-fit: cover; }
     .product-gallery__thumb.active, .product-gallery__thumb:hover { border-color: var(--color-accent); }
     .product-info__brand { font-size: 0.85rem; font-weight: var(--font-weight-bold); color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: var(--space-xs); }
     .product-info__title { font-size: 2rem; font-weight: var(--font-weight-extrabold); color: var(--color-primary); margin-bottom: var(--space-md); }
@@ -56,18 +58,6 @@
     .product-specs__row { display: flex; justify-content: space-between; padding: var(--space-sm) 0; font-size: 0.9rem; border-bottom: 1px solid var(--color-off-white); }
     .product-specs__label { font-weight: var(--font-weight-semibold); color: var(--color-text); }
     .product-specs__value { color: var(--color-text-light); }
-    .product-3d-preview {
-      width: 100%; aspect-ratio: 1; background: var(--color-off-white);
-      border-radius: var(--border-radius-lg); display: flex; align-items: center;
-      justify-content: center; margin-bottom: var(--space-md); position: relative;
-    }
-    .product-3d-preview canvas { border-radius: var(--border-radius-lg); }
-    .preview-3d-label {
-      position: absolute; bottom: var(--space-md); left: 50%; transform: translateX(-50%);
-      background: rgba(0,0,0,0.6); color: white; padding: 4px 12px;
-      border-radius: var(--border-radius-full); font-size: 0.75rem; pointer-events: none;
-    }
-
     /* --- Configure mode: 2-col with sticky preview --- */
     .configure-layout {
       display: grid;
@@ -141,21 +131,14 @@
       <div id="product-detail-section">
         <div class="product-layout">
           <div class="product-gallery">
-            <div class="product-3d-preview" id="hat-3d-container">
-              <div class="product-gallery__main" id="product-image-fallback"></div>
-            </div>
-            <div class="product-gallery__thumbs">
-              <div class="product-gallery__thumb active"><span style="font-size:0.7rem;color:var(--color-text-light)">Front</span></div>
-              <div class="product-gallery__thumb"><span style="font-size:0.7rem;color:var(--color-text-light)">Side</span></div>
-              <div class="product-gallery__thumb"><span style="font-size:0.7rem;color:var(--color-text-light)">Back</span></div>
-              <div class="product-gallery__thumb"><span style="font-size:0.7rem;color:var(--color-text-light)">Detail</span></div>
-            </div>
+            <div class="product-gallery__main" id="gallery-main"></div>
+            <div class="product-gallery__thumbs" id="gallery-thumbs"></div>
           </div>
           <div class="product-info">
             <div class="product-info__brand" id="product-brand">Richardson</div>
             <h1 class="product-info__title" id="product-title">112 Trucker</h1>
-            <div class="product-info__price" id="product-price">From $12.99</div>
-            <p class="product-info__price-note">Per hat with custom decoration. Volume discounts available.</p>
+            <div class="product-info__price" id="product-price">$16.00 <span style="font-size:0.85rem;font-weight:400;color:var(--color-text-light);">per hat</span></div>
+            <p class="product-info__price-note">Flat rate per hat. Customize with embroidery or patches at no extra charge for now.</p>
             <p class="product-info__desc" id="product-desc"></p>
             <div>
               <p class="product-info__colors-title">Color: <span class="product-info__selected-color" id="selected-color-label">Black/White</span></p>
@@ -182,9 +165,8 @@
         <div class="configure-layout">
           <div class="configure-preview">
             <div class="configure-preview__hat-info" id="config-hat-info"></div>
-            <div class="product-3d-preview" id="config-3d-container">
-              <div class="product-gallery__main" id="config-image-fallback"></div>
-            </div>
+            <div class="product-gallery__main" id="config-gallery"></div>
+            <div class="product-gallery__thumbs" id="config-gallery-thumbs"></div>
           </div>
           <div id="configurator-root"></div>
         </div>
@@ -204,31 +186,8 @@
   <script src="../js/main.js"></script>
   <script>
     const params = new URLSearchParams(window.location.search);
-    const productId = params.get('id') || 'richardson-112';
+    const productId = params.get('id') || 'richardson-115';
     const showConfigurator = params.get('configure') === '1';
-
-    function getColorHex(colorName) {
-      const map = {
-        'black': '#222', 'white': '#fff', 'navy': '#1b3a5c', 'red': '#cc2936',
-        'royal': '#2659a8', 'charcoal': '#555', 'stone': '#b5a997', 'khaki': '#c3b091',
-        'natural': '#f5e6c8', 'dark green': '#1a5c2e', 'brown': '#6b3e26',
-        'heather grey': '#b0b0b0', 'maroon': '#6b1c2a', 'light pink': '#f4c2c2',
-        'smoke blue': '#6d8fa7', 'dark grey': '#444', 'graphite': '#666'
-      };
-      return map[colorName.toLowerCase().split('/')[0].trim()] || '#999';
-    }
-
-    // Make available globally for configurator
-    window.getColorHex = getColorHex;
-
-    // Wait for hat-preview module to be ready, then init the right view
-    function initPreview(containerId) {
-      if (window.HatPreview) {
-        window.HatPreview.init(containerId);
-      } else {
-        window.addEventListener('hat-preview-ready', () => window.HatPreview.init(containerId), { once: true });
-      }
-    }
 
     fetch('../data/products.json')
       .then(r => r.json())
@@ -241,12 +200,53 @@
         }
       });
 
+    // Build a list of {url, label} angle images for a color, plus product lifestyle shots.
+    function galleryImagesFor(p, color) {
+      const imgs = [];
+      if (color && color.images) {
+        if (color.images.front)  imgs.push({ url: color.images.front,  label: 'Front' });
+        if (color.images.detail) imgs.push({ url: color.images.detail, label: 'Detail' });
+        if (color.images.back)   imgs.push({ url: color.images.back,   label: 'Back' });
+      }
+      (p.lifestyleImages || []).slice(0, 3).forEach((u, i) => imgs.push({ url: u, label: 'Lifestyle ' + (i + 1) }));
+      return imgs;
+    }
+
+    function renderGallery(mainId, thumbsId, images) {
+      const main = document.getElementById(mainId);
+      const thumbs = document.getElementById(thumbsId);
+      if (!main) return;
+      if (!images.length) {
+        main.innerHTML = hatPlaceholderSVG();
+        if (thumbs) thumbs.innerHTML = '';
+        return;
+      }
+      const setMain = (url, alt) => {
+        main.innerHTML = `<img src="${url}" alt="${alt}" onerror="this.parentElement.innerHTML=hatPlaceholderSVG()">`;
+      };
+      setMain(images[0].url, images[0].label);
+      if (thumbs) {
+        thumbs.innerHTML = images.map((im, i) => `
+          <div class="product-gallery__thumb ${i === 0 ? 'active' : ''}" data-url="${im.url}" data-label="${im.label}" title="${im.label}">
+            <img src="${im.url}" alt="${im.label}" onerror="this.parentElement.innerHTML='<span style=&quot;font-size:0.6rem;color:#999&quot;>'+this.alt+'</span>'">
+          </div>
+        `).join('');
+        thumbs.querySelectorAll('.product-gallery__thumb').forEach(t => {
+          t.addEventListener('click', () => {
+            thumbs.querySelectorAll('.product-gallery__thumb').forEach(x => x.classList.remove('active'));
+            t.classList.add('active');
+            setMain(t.dataset.url, t.dataset.label);
+          });
+        });
+      }
+    }
+
     function loadProductDetail(p) {
       document.title = `${p.brand} ${p.model} — Brim Brokers`;
       document.getElementById('breadcrumb-product').textContent = `${p.brand} ${p.model}`;
       document.getElementById('product-brand').textContent = p.brand;
       document.getElementById('product-title').textContent = p.model;
-      document.getElementById('product-price').textContent = `From $${p.basePrice.toFixed(2)}`;
+      document.getElementById('product-price').innerHTML = `$${p.price.toFixed(2)} <span style="font-size:0.85rem;font-weight:400;color:var(--color-text-light);">per hat</span>`;
       document.getElementById('product-desc').textContent = p.description;
       document.getElementById('spec-brand').textContent = p.brand;
       document.getElementById('spec-model').textContent = p.model.split(' ')[0];
@@ -257,17 +257,26 @@
 
       document.getElementById('customize-btn').href = `product.html?id=${p.id}&configure=1`;
 
-      // Init 3D preview on the visible product gallery container
-      initPreview('hat-3d-container');
+      // Build the multi-angle gallery for the first color
+      renderGallery('gallery-main', 'gallery-thumbs', galleryImagesFor(p, p.colors[0]));
 
       const colorsEl = document.getElementById('product-colors');
       colorsEl.innerHTML = p.colors.map((c, i) => `
         <div class="color-swatch ${i === 0 ? 'active' : ''}"
-             style="background:${getColorHex(c)};${c.toLowerCase().includes('white') ? 'border:1px solid #ddd;' : ''}"
-             title="${c}" onclick="selectColor(this, '${c}')"></div>
+             style="background:${c.swatchHex};${c.name.toLowerCase().includes('white') ? 'border:1px solid #ddd;' : ''}"
+             title="${c.name}" data-idx="${i}"></div>
       `).join('');
-      document.getElementById('selected-color-label').textContent = p.colors[0];
-      document.getElementById('product-image-fallback').innerHTML = hatPlaceholderSVG();
+      colorsEl.querySelectorAll('.color-swatch').forEach(sw => {
+        sw.addEventListener('click', () => selectColor(sw, p, p.colors[parseInt(sw.dataset.idx)]));
+      });
+      document.getElementById('selected-color-label').textContent = p.colors[0] ? p.colors[0].name : '';
+    }
+
+    function selectColor(el, p, color) {
+      document.querySelectorAll('.product-color-swatches .color-swatch').forEach(s => s.classList.remove('active'));
+      el.classList.add('active');
+      document.getElementById('selected-color-label').textContent = color.name;
+      renderGallery('gallery-main', 'gallery-thumbs', galleryImagesFor(p, color));
     }
 
     function loadConfigureMode(p) {
@@ -281,14 +290,16 @@
       // Hat info card
       document.getElementById('config-hat-info').innerHTML = `
         <div class="configure-preview__hat-name">${p.brand} ${p.model}</div>
-        <div class="configure-preview__hat-meta">${p.category.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase())} &middot; ${p.profile} profile &middot; <span id="config-color-label">${p.colors[0]}</span></div>
+        <div class="configure-preview__hat-meta">${p.category.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase())} &middot; ${p.profile} profile &middot; <span id="config-color-label">${p.colors[0] ? p.colors[0].name : ''}</span></div>
       `;
 
-      // Fallback image for 3D container
-      document.getElementById('config-image-fallback').innerHTML = hatPlaceholderSVG();
+      // Build the configure-mode gallery for the first color
+      renderGallery('config-gallery', 'config-gallery-thumbs', galleryImagesFor(p, p.colors[0]));
 
-      // Init 3D preview now that the section is visible
-      initPreview('config-3d-container');
+      // Expose a gallery updater the configurator can call when the color changes
+      window._configUpdateGallery = (color) => {
+        renderGallery('config-gallery', 'config-gallery-thumbs', galleryImagesFor(p, color));
+      };
 
       // Store product globally for configurator
       window._configProduct = p;
@@ -304,14 +315,6 @@
       document.body.appendChild(s1);
     }
 
-    function selectColor(el, colorName) {
-      document.querySelectorAll('.product-color-swatches .color-swatch').forEach(s => s.classList.remove('active'));
-      el.classList.add('active');
-      document.getElementById('selected-color-label').textContent = colorName;
-      // Update 3D preview
-      if (window.HatPreview) window.HatPreview.updateColor(getColorHex(colorName));
-    }
-
     function hatPlaceholderSVG() {
       return `<svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
         <ellipse cx="100" cy="140" rx="80" ry="16" fill="#ddd"/>
@@ -320,13 +323,8 @@
         <path d="M20 140 L0 150 Q100 170 200 150 L180 140" fill="#bbb"/>
       </svg>`;
     }
+    window.hatPlaceholderSVG = hatPlaceholderSVG;
   </script>
-
-  <!-- Three.js hat preview (ES module) -->
-  <script type="importmap">
-    { "imports": { "three": "../lib/three.module.min.js" } }
-  </script>
-  <script type="module" src="../js/hat-preview.js"></script>
 
 </body>
 </html>

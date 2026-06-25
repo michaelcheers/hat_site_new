@@ -304,8 +304,8 @@
 
       // Sort
       const sort = document.getElementById('sort-select').value;
-      if (sort === 'price-low') filtered.sort((a, b) => a.basePrice - b.basePrice);
-      else if (sort === 'price-high') filtered.sort((a, b) => b.basePrice - a.basePrice);
+      if (sort === 'price-low') filtered.sort((a, b) => a.price - b.price);
+      else if (sort === 'price-high') filtered.sort((a, b) => b.price - a.price);
       else if (sort === 'name-az') filtered.sort((a, b) => a.model.localeCompare(b.model));
       else if (sort === 'brand') filtered.sort((a, b) => a.brand.localeCompare(b.brand));
       else filtered.sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
@@ -326,13 +326,13 @@
       grid.innerHTML = filtered.map(p => `
         <a href="product.html?id=${p.id}" class="product-card">
           ${p.bestSeller ? '<span class="product-card__badge"><span class="badge badge--accent">Best Seller</span></span>' : ''}
-          <div class="product-card__image">${hatPlaceholderSVG()}</div>
+          <div class="product-card__image">${p.defaultImage ? `<img src="${p.defaultImage}" alt="${p.brand} ${p.model}" onerror="this.parentElement.innerHTML=hatPlaceholderSVG()">` : hatPlaceholderSVG()}</div>
           <div class="product-card__body">
             <div class="product-card__brand">${p.brand}</div>
             <h3 class="product-card__title">${p.model}</h3>
-            <div class="product-card__price">From ${formatPrice(p.basePrice)} <span>per hat</span></div>
+            <div class="product-card__price">${formatPrice(p.price)} <span>per hat</span></div>
             <div class="product-card__colors">
-              ${p.colors.slice(0, 5).map(c => `<span class="product-card__color-dot" title="${c}" style="background:${getColorHex(c)}"></span>`).join('')}
+              ${p.colors.slice(0, 5).map(c => `<span class="product-card__color-dot" title="${c.name}" style="background:${c.swatchHex}"></span>`).join('')}
               ${p.colors.length > 5 ? `<span class="text-xs" style="color:var(--color-text-light);align-self:center;">+${p.colors.length - 5}</span>` : ''}
             </div>
             <div class="product-card__actions">
@@ -344,18 +344,6 @@
     }
 
     document.getElementById('sort-select').addEventListener('change', renderProducts);
-
-    function getColorHex(colorName) {
-      const map = {
-        'black': '#222', 'white': '#fff', 'navy': '#1b3a5c', 'red': '#cc2936',
-        'royal': '#2659a8', 'charcoal': '#555', 'stone': '#b5a997', 'khaki': '#c3b091',
-        'natural': '#f5e6c8', 'dark green': '#1a5c2e', 'brown': '#6b3e26',
-        'heather grey': '#b0b0b0', 'maroon': '#6b1c2a', 'light pink': '#f4c2c2',
-        'smoke blue': '#6d8fa7', 'dark grey': '#444', 'graphite': '#666'
-      };
-      const name = colorName.toLowerCase().split('/')[0].trim();
-      return map[name] || '#999';
-    }
   </script>
 
 </body>

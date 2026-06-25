@@ -5,6 +5,10 @@
 const PriceCalculator = (function() {
   let pricingData = null;
 
+  // Flat per-hat price. Per Michael, every hat is $16 for now regardless of
+  // decoration tier; detailed decoration pricing comes later.
+  const FLAT_UNIT_PRICE = 16.00;
+
   async function loadPricing() {
     if (pricingData) return pricingData;
     const basePath = window.location.pathname.includes('/pages/') ? '../data/pricing.json' : 'data/pricing.json';
@@ -39,18 +43,17 @@ const PriceCalculator = (function() {
     return total;
   }
 
-  function calculateTotal(decorationType, quantity, extras) {
-    const base = getBasePrice(decorationType, quantity);
-    const extrasTotal = calculateExtras(extras);
-    const unitPrice = base + extrasTotal;
-    const lineTotal = unitPrice * quantity;
+  function calculateTotal(decorationType, quantity) {
+    const qty = Math.max(1, quantity || 1);
+    const unitPrice = FLAT_UNIT_PRICE;
+    const lineTotal = unitPrice * qty;
     return {
       unitPrice: Math.round(unitPrice * 100) / 100,
       lineTotal: Math.round(lineTotal * 100) / 100,
-      basePrice: base,
-      extrasTotal: extrasTotal,
-      tierLabel: getTierLabel(quantity),
-      quantity
+      basePrice: unitPrice,
+      extrasTotal: 0,
+      tierLabel: getTierLabel(qty),
+      quantity: qty
     };
   }
 

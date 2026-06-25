@@ -34,7 +34,8 @@
               <a href="pages/collection.html?brand=richardson" class="dropdown-menu__link">Richardson</a>
               <a href="pages/collection.html?brand=yupoong" class="dropdown-menu__link">Yupoong</a>
               <a href="pages/collection.html?brand=flexfit" class="dropdown-menu__link">Flexfit</a>
-              <a href="pages/collection.html?brand=pacific" class="dropdown-menu__link">Pacific Headwear</a>
+              <a href="pages/collection.html?brand=legacy" class="dropdown-menu__link">Legacy</a>
+              <a href="pages/collection.html?brand=imperial" class="dropdown-menu__link">Imperial</a>
               <a href="pages/collection.html" class="dropdown-menu__link" style="color: var(--color-accent); font-weight: 600;">View All Hats</a>
             </div>
           </li>
@@ -116,9 +117,8 @@
           <span class="brands-bar__item">Richardson</span>
           <span class="brands-bar__item">Yupoong</span>
           <span class="brands-bar__item">Flexfit</span>
-          <span class="brands-bar__item">Pacific Headwear</span>
-          <span class="brands-bar__item">Otto Cap</span>
-          <span class="brands-bar__item">Outdoor Cap</span>
+          <span class="brands-bar__item">Legacy</span>
+          <span class="brands-bar__item">Imperial</span>
         </div>
       </div>
     </section>
@@ -347,14 +347,14 @@
           <a href="pages/product.html?id=${p.id}" class="product-card">
             ${p.bestSeller ? '<span class="product-card__badge"><span class="badge badge--accent">Best Seller</span></span>' : ''}
             <div class="product-card__image">
-              ${hatPlaceholderSVG()}
+              ${p.defaultImage ? `<img src="${p.defaultImage}" alt="${p.brand} ${p.model}" onerror="this.parentElement.innerHTML=hatPlaceholderSVG()">` : hatPlaceholderSVG()}
             </div>
             <div class="product-card__body">
               <div class="product-card__brand">${p.brand}</div>
               <h3 class="product-card__title">${p.model}</h3>
-              <div class="product-card__price">From ${formatPrice(p.basePrice)} <span>per hat</span></div>
+              <div class="product-card__price">${formatPrice(p.price)} <span>per hat</span></div>
               <div class="product-card__colors">
-                ${p.colors.slice(0, 5).map(c => `<span class="product-card__color-dot" title="${c}" style="background:${getColorHex(c)}"></span>`).join('')}
+                ${p.colors.slice(0, 5).map(c => `<span class="product-card__color-dot" title="${c.name}" style="background:${c.swatchHex}"></span>`).join('')}
                 ${p.colors.length > 5 ? `<span class="text-xs" style="color:var(--color-text-light); align-self:center;">+${p.colors.length - 5}</span>` : ''}
               </div>
               <div class="product-card__actions">
@@ -364,19 +364,6 @@
           </a>
         `).join('');
       });
-
-    // Simple color name → hex mapper for swatches
-    function getColorHex(colorName) {
-      const map = {
-        'black': '#222', 'white': '#fff', 'navy': '#1b3a5c', 'red': '#cc2936',
-        'royal': '#2659a8', 'charcoal': '#555', 'stone': '#b5a997', 'khaki': '#c3b091',
-        'natural': '#f5e6c8', 'dark green': '#1a5c2e', 'brown': '#6b3e26',
-        'heather grey': '#b0b0b0', 'maroon': '#6b1c2a', 'light pink': '#f4c2c2',
-        'smoke blue': '#6d8fa7', 'dark grey': '#444', 'graphite': '#666'
-      };
-      const name = colorName.toLowerCase().split('/')[0].trim();
-      return map[name] || '#999';
-    }
   </script>
 
 </body>

@@ -20,48 +20,51 @@ const Configurator = (function() {
     { id: 'complete',    title: 'Added to Cart!',         subtitle: 'Your custom hat has been added.' },
   ];
 
-  const BRANDS = [
-    { id: 'richardson', name: 'Richardson', icon: '&#127913;', desc: 'Industry standard headwear' },
-    { id: 'yupoong',   name: 'Yupoong',   icon: '&#9889;',    desc: 'Original classics' },
-    { id: 'flexfit',   name: 'Flexfit',    icon: '&#128170;',  desc: 'Stretch-fit comfort' },
-    { id: 'pacific',   name: 'Pacific Headwear', icon: '&#127754;', desc: 'Performance headwear' },
-  ];
+  // Brand cards are derived from the loaded products so they never desync
+  // from the catalog. Icons fall back to a generic glyph for any vendor.
+  const BRAND_ICONS = {
+    'richardson': '&#127913;', 'yupoong': '&#9889;', 'flexfit': '&#128170;',
+    'legacy': '&#127942;', 'imperial': '&#128081;'
+  };
+  let BRANDS = [];
 
-  // Map hat category to 3D profile
-  const PROFILE_MAP = { 'trucker': 'trucker', 'snapback': 'snapback', 'dad-hat': 'dad', 'fitted': 'fitted' };
+  function buildBrands(products) {
+    const seen = new Map();
+    products.forEach(p => {
+      const id = p.brand.toLowerCase();
+      if (!seen.has(id)) {
+        seen.set(id, { id, name: p.brand, icon: BRAND_ICONS[id] || '&#127913;', desc: `${p.brand} headwear`, count: 0 });
+      }
+      seen.get(id).count++;
+    });
+    BRANDS = Array.from(seen.values()).map(b => ({ ...b, desc: `${b.count} model${b.count !== 1 ? 's' : ''} available` }));
+  }
 
   let steps = [];        // The active steps for this session
   let currentStepIdx = 0;
   let allProducts = [];
   let hasPreselectedProduct = false;
   let config = {
-    brand: null, model: null, product: null, color: null,
+    brand: null, model: null, product: null, color: null, colorObj: null,
     decorationType: null,
     decorationDetails: { location: 'front', puff3d: false, backEmbroidery: false, sideEmbroidery: false, patchType: 'leather', patchShape: 'rectangle' },
     artworkFile: null, artworkDataUrl: null, instructions: '', quantity: 24,
   };
 
-  function getColorHex(name) {
-    if (typeof window.getColorHex === 'function') return window.getColorHex(name);
-    const map = {
-      'black':'#222','white':'#fff','navy':'#1b3a5c','red':'#cc2936','royal':'#2659a8',
-      'charcoal':'#555','stone':'#b5a997','khaki':'#c3b091','natural':'#f5e6c8',
-      'dark green':'#1a5c2e','brown':'#6b3e26','heather grey':'#b0b0b0','maroon':'#6b1c2a',
-      'light pink':'#f4c2c2','smoke blue':'#6d8fa7','dark grey':'#444','graphite':'#666'
-    };
-    return map[name.toLowerCase().split('/')[0].trim()] || '#999';
+  // Swatch hex comes baked into each color object from the build script.
+  function swatchFor(colorObj) {
+    return (colorObj && colorObj.swatchHex) ? colorObj.swatchHex : '#9a9a9a';
+  }
+
+  // Update the configure-mode image gallery to the chosen color's photos.
+  function updateGallery() {
+    if (typeof window._configUpdateGallery === 'function') {
+      window._configUpdateGallery(config.colorObj || (config.product && config.product.colors[0]));
+    }
   }
 
   function syncPreview() {
-    if (!window.HatPreview) return;
-    if (config.color) window.HatPreview.updateColor(getColorHex(config.color));
-    if (config.product) {
-      const profile = PROFILE_MAP[config.product.category] || 'trucker';
-      window.HatPreview.updateModel(profile);
-    }
-    if (config.decorationType) {
-      window.HatPreview.updateDecoration(config.decorationType, config.decorationDetails);
-    }
+    updateGallery();
   }
 
   function updateHatInfoCard() {
@@ -72,7 +75,7 @@ const Configurator = (function() {
       <div class="configure-preview__hat-meta">
         ${config.product.category.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase())}
         &middot; ${config.product.profile} profile
-        &middot; <span style="color:var(--color-accent)">${config.color || config.product.colors[0]}</span>
+        &middot; <span style="color:var(--color-accent)">${config.color || (config.product.colors[0] && config.product.colors[0].name)}</span>
         ${config.decorationType ? ' &middot; ' + config.decorationType.replace(/_/g,' ').replace(/\b\w/g,c=>c.toUpperCase()) : ''}
       </div>
     `;
@@ -86,6 +89,7 @@ const Configurator = (function() {
 
     const basePath = window.location.pathname.includes('/pages/') ? '../data/products.json' : 'data/products.json';
     allProducts = await (await fetch(basePath)).json();
+    buildBrands(allProducts);
 
     // Check if product page passed us a pre-selected product
     const preProduct = window._configProduct;
@@ -99,7 +103,8 @@ const Configurator = (function() {
         config.brand = p.brand.toLowerCase();
         config.model = p.id;
         config.product = p;
-        config.color = p.colors[0];
+        config.colorObj = p.colors[0];
+        config.color = p.colors[0] ? p.colors[0].name : null;
         // Skip brand + model, start at color
         steps = ALL_STEPS.filter(s => s.id !== 'brand' && s.id !== 'model');
         currentStepIdx = 0; // color is now index 0
@@ -227,7 +232,8 @@ const Configurator = (function() {
       card.addEventListener('click', () => {
         config.model = card.dataset.model;
         config.product = allProducts.find(p => p.id === config.model);
-        config.color = config.product.colors[0];
+        config.colorObj = config.product.colors[0];
+        config.color = config.product.colors[0] ? config.product.colors[0].name : null;
         body.querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
         card.classList.add('selected');
         syncPreview();
@@ -241,21 +247,22 @@ const Configurator = (function() {
 
     body.innerHTML = `
       <div class="config-colors">
-        ${product.colors.map(c => `
-          <div class="config-color-chip ${config.color === c ? 'selected' : ''}" data-color="${c}">
-            <span class="config-color-chip__swatch" style="background:${getColorHex(c)}"></span>
-            ${c}
+        ${product.colors.map((c, i) => `
+          <div class="config-color-chip ${config.color === c.name ? 'selected' : ''}" data-idx="${i}">
+            <span class="config-color-chip__swatch" style="background:${swatchFor(c)}"></span>
+            ${c.name}
           </div>
         `).join('')}
       </div>
     `;
     body.querySelectorAll('.config-color-chip').forEach(chip => {
       chip.addEventListener('click', () => {
-        config.color = chip.dataset.color;
+        config.colorObj = product.colors[parseInt(chip.dataset.idx)];
+        config.color = config.colorObj.name;
         body.querySelectorAll('.config-color-chip').forEach(c => c.classList.remove('selected'));
         chip.classList.add('selected');
-        // Live update 3D preview
-        if (window.HatPreview) window.HatPreview.updateColor(getColorHex(config.color));
+        // Live update the image gallery to the chosen color's photos
+        updateGallery();
         updateHatInfoCard();
       });
     });
@@ -280,8 +287,6 @@ const Configurator = (function() {
         body.querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
         card.classList.add('selected');
         updateHatInfoCard();
-        // Live update 3D preview with decoration type
-        if (window.HatPreview) window.HatPreview.updateDecoration(config.decorationType, config.decorationDetails);
       });
     });
   }
@@ -328,20 +333,17 @@ const Configurator = (function() {
             </div>
           </div>
         </div>`;
-      const syncDeco = () => { if (window.HatPreview) window.HatPreview.updateDecoration(config.decorationType, config.decorationDetails); };
       body.querySelectorAll('input[name="emb-location"]').forEach(r => {
         r.addEventListener('change', () => {
           config.decorationDetails.location = r.value;
           body.querySelectorAll('input[name="emb-location"]').forEach(x => x.closest('.radio-option').classList.remove('selected'));
           r.closest('.radio-option').classList.add('selected');
-          syncDeco();
         });
       });
       const bindCb = (id, key) => {
         document.getElementById(id).addEventListener('change', e => {
           config.decorationDetails[key] = e.target.checked;
           e.target.closest('.radio-option').classList.toggle('selected', e.target.checked);
-          syncDeco();
         });
       };
       bindCb('opt-3dpuff', 'puff3d');
@@ -379,13 +381,11 @@ const Configurator = (function() {
             </div>
           </div>
         </div>`;
-      const syncDeco = () => { if (window.HatPreview) window.HatPreview.updateDecoration(config.decorationType, config.decorationDetails); };
       body.querySelectorAll('input[name="patch-shape"]').forEach(r => {
         r.addEventListener('change', () => {
           config.decorationDetails.patchShape = r.value;
           body.querySelectorAll('input[name="patch-shape"]').forEach(x => x.closest('.radio-option').classList.remove('selected'));
           r.closest('.radio-option').classList.add('selected');
-          syncDeco();
         });
       });
       body.querySelectorAll('input[name="patch-location"]').forEach(r => {
@@ -393,7 +393,6 @@ const Configurator = (function() {
           config.decorationDetails.location = r.value;
           body.querySelectorAll('input[name="patch-location"]').forEach(x => x.closest('.radio-option').classList.remove('selected'));
           r.closest('.radio-option').classList.add('selected');
-          syncDeco();
         });
       });
     }
@@ -430,16 +429,11 @@ const Configurator = (function() {
         preview.innerHTML = `<div class="uploaded-file"><span>&#128196;</span>
           <span class="uploaded-file__name">${file.name} (${(file.size/1024).toFixed(1)} KB)</span>
           <span class="uploaded-file__remove" onclick="this.closest('.uploaded-file').remove(); window._configRemoveArt();">&times;</span></div>`;
-        // Live update 3D preview with decal
-        if (window.HatPreview && file.type.startsWith('image/')) {
-          window.HatPreview.updateDecal(e.target.result);
-        }
       };
       reader.readAsDataURL(file);
     }
     window._configRemoveArt = () => {
       config.artworkFile = null; config.artworkDataUrl = null;
-      if (window.HatPreview) window.HatPreview.updateDecal(null);
     };
     if (config.artworkFile) {
       preview.innerHTML = `<div class="uploaded-file"><span>&#128196;</span>
@@ -458,9 +452,7 @@ const Configurator = (function() {
   }
 
   function renderQuantityStep(body) {
-    const extras = { puff3d: config.decorationDetails.puff3d, backEmbroidery: config.decorationDetails.backEmbroidery, sideEmbroidery: config.decorationDetails.sideEmbroidery };
-    const pricing = PriceCalculator.calculateTotal(config.decorationType, config.quantity, extras);
-    const table = PriceCalculator.getPricingTable(config.decorationType);
+    const pricing = PriceCalculator.calculateTotal(config.decorationType, config.quantity);
 
     body.innerHTML = `
       <div class="quantity-pricing">
@@ -473,15 +465,8 @@ const Configurator = (function() {
               <button class="qty-btn" id="qty-plus">+</button>
             </div>
           </div>
-          <p class="form-hint">Minimum order: 1 hat. Best value at 48+ units.</p>
+          <p class="form-hint">Minimum order: 1 hat.</p>
           <div class="live-price-summary" id="price-summary">${renderPriceSummary(pricing)}</div>
-        </div>
-        <div>
-          <label class="form-label">Volume Pricing</label>
-          <table class="pricing-table">
-            <thead><tr><th>Quantity</th><th>Per Hat</th></tr></thead>
-            <tbody>${table.map(t => `<tr class="${t.tier === pricing.tierLabel ? 'active-tier' : ''}"><td>${t.tier} hats</td><td>$${t.price.toFixed(2)}</td></tr>`).join('')}</tbody>
-          </table>
         </div>
       </div>`;
 
@@ -489,11 +474,8 @@ const Configurator = (function() {
     const update = () => {
       config.quantity = Math.max(1, parseInt(qtyInput.value) || 1);
       qtyInput.value = config.quantity;
-      const p = PriceCalculator.calculateTotal(config.decorationType, config.quantity, extras);
+      const p = PriceCalculator.calculateTotal(config.decorationType, config.quantity);
       document.getElementById('price-summary').innerHTML = renderPriceSummary(p);
-      body.querySelectorAll('.pricing-table tbody tr').forEach(tr => {
-        tr.classList.toggle('active-tier', tr.querySelector('td').textContent.replace(' hats','') === p.tierLabel);
-      });
     };
     qtyInput.addEventListener('input', update);
     document.getElementById('qty-minus').addEventListener('click', () => { qtyInput.value = Math.max(1, config.quantity - 1); update(); });
@@ -502,16 +484,13 @@ const Configurator = (function() {
 
   function renderPriceSummary(p) {
     return `
-      <div class="live-price-summary__row"><span>Base price (${p.tierLabel} tier)</span><span>$${p.basePrice.toFixed(2)}/hat</span></div>
-      ${p.extrasTotal > 0 ? `<div class="live-price-summary__row"><span>Add-ons</span><span>+$${p.extrasTotal.toFixed(2)}/hat</span></div>` : ''}
       <div class="live-price-summary__row"><span>Unit price</span><span>$${p.unitPrice.toFixed(2)}/hat</span></div>
       <div class="live-price-summary__row"><span>Quantity</span><span>&times; ${p.quantity}</span></div>
       <div class="live-price-summary__total"><span>Order Total</span><span>$${p.lineTotal.toFixed(2)}</span></div>`;
   }
 
   function renderReviewStep(body) {
-    const extras = { puff3d: config.decorationDetails.puff3d, backEmbroidery: config.decorationDetails.backEmbroidery, sideEmbroidery: config.decorationDetails.sideEmbroidery };
-    const pricing = PriceCalculator.calculateTotal(config.decorationType, config.quantity, extras);
+    const pricing = PriceCalculator.calculateTotal(config.decorationType, config.quantity);
     const decType = (config.decorationType || '').replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
     const addons = [];
     if (config.decorationDetails.puff3d) addons.push('3D Puff');
@@ -560,13 +539,18 @@ const Configurator = (function() {
   }
 
   function addToCart() {
-    const extras = { puff3d: config.decorationDetails.puff3d, backEmbroidery: config.decorationDetails.backEmbroidery, sideEmbroidery: config.decorationDetails.sideEmbroidery };
-    const pricing = PriceCalculator.calculateTotal(config.decorationType, config.quantity, extras);
+    const pricing = PriceCalculator.calculateTotal(config.decorationType, config.quantity);
+    const colorImage = config.colorObj && config.colorObj.images ? config.colorObj.images.front : (config.product && config.product.defaultImage);
 
     const lineItem = {
+      id: 'item_' + Date.now() + '_' + Math.random().toString(36).slice(2, 6),
       productId: config.product?.id || config.model,
+      productHandle: config.product?.handle || config.product?.id || config.model,
+      sku: config.colorObj ? config.colorObj.sku : null,
       brand: config.product?.brand || '', model: config.product?.model || '',
-      color: config.color, decorationType: config.decorationType,
+      color: config.color,
+      image: colorImage || '',
+      decorationType: config.decorationType,
       decorationDetails: { ...config.decorationDetails },
       artworkFile: config.artworkFile, instructions: config.instructions,
       quantity: config.quantity, unitPrice: pricing.unitPrice, lineTotal: pricing.lineTotal,
@@ -578,6 +562,7 @@ const Configurator = (function() {
     localStorage.setItem('hatCart', JSON.stringify(cart));
 
     if (typeof updateCartBadge === 'function') updateCartBadge();
+    if (typeof Cart !== 'undefined' && Cart.updateBadge) Cart.updateBadge();
     if (typeof showToast === 'function') showToast('Custom hat added to cart!');
   }
 

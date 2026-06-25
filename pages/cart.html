@@ -46,6 +46,7 @@
       justify-content: center;
     }
     .cart-item__image svg { width: 60%; height: 60%; opacity: 0.3; }
+    .cart-item__image img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--border-radius); }
     .cart-item__brand {
       font-size: 0.75rem;
       font-weight: var(--font-weight-bold);
@@ -202,6 +203,8 @@
 
   <script src="../js/main.js"></script>
   <script src="../js/cart.js"></script>
+  <script src="../js/shopify-config.js"></script>
+  <script src="../js/shopify.js"></script>
   <script>
     function renderCartPage() {
       const cart = Cart.getCart();
@@ -227,7 +230,7 @@
           <div class="cart-items">
             ${cart.map(item => `
               <div class="cart-item" data-id="${item.id}">
-                <div class="cart-item__image">${hatSVG()}</div>
+                <div class="cart-item__image">${item.image ? `<img src="${item.image}" alt="${item.model || 'Hat'}" onerror="this.parentElement.innerHTML=hatSVG()">` : hatSVG()}</div>
                 <div>
                   <div class="cart-item__brand">${item.brand}</div>
                   <div class="cart-item__title">${item.model}</div>
@@ -270,13 +273,14 @@
               <span>Total</span>
               <span>$${totalPrice.toFixed(2)}</span>
             </div>
-            <!-- Liquid: Shopify checkout handles this natively -->
+            <!-- Checkout creates a cart via the Shopify Storefront API and
+                 redirects to Shopify's hosted, PCI-compliant checkout. -->
             <button class="btn btn--primary btn--full btn--lg" style="margin-top:var(--space-lg);" onclick="checkout()">
-              Proceed to Checkout
+              Proceed to Secure Checkout &rarr;
             </button>
             <a href="collection.html" class="btn btn--ghost btn--full" style="margin-top:var(--space-sm);">Continue Shopping</a>
-            <p class="cart-summary__note">
-              Shipping and taxes calculated at checkout. Custom orders typically ship within 7-10 business days.
+            <p class="cart-summary__note" style="text-align:center;">
+              Powered by Shopify &middot; redirects to hosted checkout. Shipping and taxes calculated at checkout.
             </p>
           </div>
         </div>
@@ -297,8 +301,7 @@
     }
 
     function checkout() {
-      /* Liquid: Redirect to Shopify checkout — window.location = '/checkout' */
-      showToast('Checkout is handled by Shopify in production. This is a placeholder.', 'info', 4000);
+      Shopify.beginCheckout(Cart.getCart());
     }
 
     function hatSVG() {
